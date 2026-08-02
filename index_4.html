@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABN AI Class — Career Hub Lab Instructions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111318; --paper:#FFFFFF; --soft:#F4F4F0; --accent:#1D4ED8; --accent2:#E63946;
+    --line:#D8D8D2; --mono:'Space Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--soft);color:var(--ink);font-size:17px;line-height:1.55}
+  header{background:var(--ink);color:#fff;padding:28px 32px 22px;border-bottom:6px solid var(--accent)}
+  header h1{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(22px,3.2vw,34px);letter-spacing:-.01em}
+  header p{color:#B9BEC9;margin-top:6px;font-size:15px}
+  header .kbd{color:#fff;background:#2A2E38;padding:1px 7px;border-radius:4px;font-family:var(--mono);font-size:13px}
+  nav{display:flex;flex-wrap:wrap;gap:8px;padding:14px 32px;background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+  nav button{font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;padding:9px 16px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);cursor:pointer;border-radius:999px}
+  nav button.active{background:var(--accent);border-color:var(--accent);color:#fff}
+  nav button:hover:not(.active){background:var(--ink);color:#fff}
+  main{max-width:980px;margin:0 auto;padding:34px 24px 90px}
+  section.week{display:none}
+  section.week.show{display:block}
+  .goal{background:var(--paper);border:2px solid var(--ink);border-left:12px solid var(--accent);padding:18px 22px;margin-bottom:26px;border-radius:6px}
+  .goal h2{font-family:'Archivo',sans-serif;font-weight:900;font-size:24px;margin-bottom:4px}
+  .goal p{font-size:16.5px}
+  .step{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:20px 22px 22px;margin-bottom:18px}
+  .step h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;display:flex;align-items:baseline;gap:12px;margin-bottom:10px}
+  .num{font-family:'Archivo',sans-serif;font-weight:900;color:#fff;background:var(--ink);min-width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;font-size:17px;flex:none}
+  .step ol,.step ul{margin:8px 0 4px 24px}
+  .step li{margin-bottom:7px}
+  .prompt{position:relative;background:#0F1220;color:#E7E9F2;font-family:var(--mono);font-size:14.5px;line-height:1.6;padding:18px 18px 16px;border-radius:8px;margin:12px 0 6px;white-space:pre-wrap;border-left:6px solid var(--accent2)}
+  .prompt .label{position:absolute;top:-11px;left:14px;background:var(--accent2);color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 10px;border-radius:4px}
+  .copy{position:absolute;top:10px;right:10px;font-family:'Archivo',sans-serif;font-weight:700;font-size:12.5px;background:#fff;color:var(--ink);border:none;padding:6px 12px;border-radius:6px;cursor:pointer}
+  .copy:hover{background:var(--accent);color:#fff}
+  .check{background:#EAF1FF;border:1px solid #BFD3FF;border-radius:8px;padding:14px 18px;margin-top:6px}
+  .check strong{font-family:'Archivo',sans-serif}
+  .check ul{margin:6px 0 0 22px}
+  .tip{font-size:15px;color:#444;background:#FFF8E6;border:1px solid #EFE1AE;border-radius:8px;padding:10px 14px;margin-top:10px}
+  .pill{display:inline-block;font-family:var(--mono);font-size:13.5px;background:var(--soft);border:1px solid var(--line);padding:1px 8px;border-radius:5px}
+  footer{max-width:980px;margin:0 auto;padding:0 24px 40px;color:#666;font-size:13.5px}
+
+  .fig{margin:16px 0 6px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 14px 6px;overflow-x:auto}
+  .fig svg{display:block;max-width:100%;height:auto}
+  .fig .cap{font-size:13px;color:#666;padding:8px 4px 8px;font-style:italic}
+  @media (max-width:640px){body{font-size:16px} main{padding:22px 14px 70px} nav{padding:10px 14px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Career Hub — Lab Instructions</h1>
+  <p>ABN · AI in the Workforce · Build with Claude, save to GitHub. Keep two tabs open: <span class="kbd">claude.ai</span> and <span class="kbd">github.com</span></p>
+</header>
+<nav id="tabs">
+  <button data-w="setup" class="active">Before Week 1</button>
+  <button data-w="w1">Week 1 · Resume</button>
+  <button data-w="w2">Week 2 · Cover Letter</button>
+  <button data-w="w3">Week 3 · Go Live</button>
+  <button data-w="w4">Week 4 · LinkedIn</button>
+  <button data-w="w5">Week 5 · Interview</button>
+</nav>
+<main>
+
+<!-- ================ SETUP ================ -->
+<section class="week show" id="setup">
+  <div class="goal"><h2>Set up your AI Career Toolkit (15–20 min, before class)</h2>
+  <p>Do this on a <strong>computer</strong>, not a phone. Stuck? Email your instructor: anum.marcus@gmail.com.</p></div>
+
+  <div class="step"><h3><span class="num">1</span>Create a free Claude account</h3>
+    <ol><li>Go to <strong>claude.ai</strong> → Sign up (Google sign-in is easiest).</li>
+    <li>Send Claude one message — e.g. <em>"Hello! What can you help me with?"</em> — so you know it works.</li></ol></div>
+
+  <div class="step"><h3><span class="num">2</span>Create your Claude Project</h3>
+    <ol><li>In Claude's left sidebar: <strong>Projects → Create project</strong>.</li>
+    <li>Name it exactly: <strong>My Career Hub</strong>. (We add instructions to it in class.)</li></ol><div class="fig"><svg viewBox="0 0 640 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="In Claude: sidebar → Projects → Create project → name it My Career Hub"><defs><marker id="ar1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#E63946"/></marker></defs><rect x="1" y="1" width="638" height="268" rx="10" fill="#FDFDFC" stroke="#D8D8D2"/><rect x="1" y="1" width="638" height="34" rx="10" fill="#F1F1EE"/><rect x="1" y="24" width="638" height="11" fill="#F1F1EE"/><circle cx="20" cy="18" r="4.5" fill="#E5675C"/><circle cx="36" cy="18" r="4.5" fill="#E9C46A"/><circle cx="52" cy="18" r="4.5" fill="#8AC48A"/><rect x="70" y="8" width="320" height="20" rx="10" fill="#fff" stroke="#DDD"/><text x="82" y="22" font-family="monospace" font-size="11" fill="#666">claude.ai</text>
+<rect x="14" y="46" width="150" height="208" rx="8" fill="#F7F6F3" stroke="#E4E2DC"/>
+<text x="28" y="72" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#555">+ New chat</text>
+<text x="28" y="98" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#555">Chats</text>
+<rect x="20" y="110" width="138" height="24" rx="6" fill="#EDE9E0"/>
+<text x="28" y="126" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">Projects</text>
+<text x="28" y="154" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#555">Artifacts</text>
+<rect x="180" y="60" width="440" height="40" rx="8" fill="#fff" stroke="#E4E2DC"/>
+<text x="196" y="85" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="bold" fill="#1a1a1a">Projects</text>
+<rect x="470" y="68" width="136" height="26" rx="13" fill="#C1521E"/>
+<text x="486" y="85" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#fff">+ Create project</text>
+<rect x="180" y="116" width="440" height="54" rx="8" fill="#fff" stroke="#E4E2DC"/>
+<text x="196" y="140" font-family="Helvetica,Arial,sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">My Career Hub</text>
+<text x="196" y="158" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#888">Name it exactly like this</text>
+<path d="M260 240 C 200 225, 130 185, 96 136" stroke="#E63946" stroke-width="2.5" fill="none" marker-end="url(#ar1)"/>
+<text x="268" y="248" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#E63946" font-weight="bold">1. click Projects in the sidebar</text>
+<path d="M540 215 C 560 180, 555 130, 542 98" stroke="#E63946" stroke-width="2.5" fill="none" marker-end="url(#ar1)"/>
+<text x="482" y="234" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#E63946" font-weight="bold">2. Create project</text></svg><div class="cap">In Claude: sidebar → Projects → Create project → name it My Career Hub</div></div></div>
+
+  <div class="step"><h3><span class="num">3</span>Create a GitHub account + repository</h3>
+    <ol><li><strong>github.com</strong> → Sign up. Pick a professional username — it becomes part of your website address (e.g. <span class="pill">amina-diallo</span>).</li>
+    <li>Click <strong>+</strong> (top right) → <strong>New repository</strong>.</li>
+    <li>Name: <span class="pill">career-hub</span> · set <strong>Private</strong> (this is your personal toolkit — only you see it) · check ✅ <strong>Add a README file</strong> → <strong>Create repository</strong>.</li></ol><div class="fig"><svg viewBox="0 0 660 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="On GitHub: + menu (top right) → New repository → name career-hub, Private, add README"><defs><marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#E63946"/></marker></defs><rect x="1" y="1" width="658" height="328" rx="10" fill="#FDFDFC" stroke="#D8D8D2"/><rect x="1" y="1" width="658" height="34" rx="10" fill="#F1F1EE"/><rect x="1" y="24" width="658" height="11" fill="#F1F1EE"/><circle cx="20" cy="18" r="4.5" fill="#E5675C"/><circle cx="36" cy="18" r="4.5" fill="#E9C46A"/><circle cx="52" cy="18" r="4.5" fill="#8AC48A"/><rect x="70" y="8" width="320" height="20" rx="10" fill="#fff" stroke="#DDD"/><text x="82" y="22" font-family="monospace" font-size="11" fill="#666">github.com/new</text>
+<rect x="14" y="44" width="632" height="30" rx="6" fill="#24292F"/>
+<text x="28" y="64" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#fff" font-weight="bold">GitHub</text>
+<rect x="574" y="49" width="26" height="20" rx="5" fill="#3A4048"/>
+<text x="583" y="64" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#fff" font-weight="bold">+</text>
+<circle cx="626" cy="59" r="9" fill="#6b7280"/>
+<rect x="470" y="76" width="150" height="54" rx="8" fill="#fff" stroke="#D0D7DE"/>
+<rect x="476" y="82" width="138" height="20" rx="5" fill="#DDF4FF"/>
+<text x="484" y="96" font-family="Helvetica,Arial,sans-serif" font-size="11.5" font-weight="bold" fill="#0969DA">New repository</text>
+<text x="484" y="120" font-family="Helvetica,Arial,sans-serif" font-size="11.5" fill="#555">Import repository</text>
+<path d="M420 96 C 445 88, 452 84, 466 90" stroke="#E63946" stroke-width="2.5" fill="none" marker-end="url(#ar2)"/>
+<text x="240" y="100" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#E63946" font-weight="bold">1. click + then New repository</text>
+<text x="28" y="160" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#57606A">Repository name *</text>
+<rect x="28" y="168" width="240" height="28" rx="6" fill="#fff" stroke="#D0D7DE"/>
+<text x="40" y="187" font-family="monospace" font-size="13" fill="#1a1a1a">career-hub</text>
+<circle cx="38" cy="222" r="7" fill="#fff" stroke="#0969DA" stroke-width="4"/>
+<text x="54" y="227" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#1a1a1a" font-weight="bold">Private 🔒</text>
+<rect x="28" y="244" width="14" height="14" rx="3" fill="#0969DA"/>
+<path d="M31 251 l4 4 l7 -8" stroke="#fff" stroke-width="2.2" fill="none"/>
+<text x="50" y="256" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#1a1a1a">Add a README file</text>
+<rect x="28" y="278" width="150" height="30" rx="6" fill="#1F883D"/>
+<text x="44" y="298" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#fff" font-weight="bold">Create repository</text>
+<path d="M330 290 C 260 296, 220 296, 184 293" stroke="#E63946" stroke-width="2.5" fill="none" marker-end="url(#ar2)"/>
+<text x="338" y="295" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#E63946" font-weight="bold">2. name it, set Private, add README, create</text></svg><div class="cap">On GitHub: + menu (top right) → New repository → name career-hub, Private, add README</div></div></div>
+
+  <div class="step"><h3><span class="num">4</span>Have your resume ready as text</h3>
+    <ul><li>Any format you can copy from (Word, Google Docs, PDF). Any language — Claude translates.</li>
+    <li>No resume yet? Write half a page: jobs, education, skills. Week 1 is where we shape it.</li></ul></div>
+
+  <div class="step"><h3><span class="num">5</span>Get your own free AI key (optional, 2 min)</h3>
+    <ul><li>Your tool pages can auto-tailor instead of copy-paste, using a free service called <strong>OpenRouter</strong> — your own personal key, no credit card.</li>
+    <li><strong>openrouter.ai</strong> → Sign up → <strong>openrouter.ai/keys</strong> → Create key → copy it somewhere private.</li>
+    <li>Skip this and everything still works — you'll just copy-paste instead. <strong>Never share this key with anyone or paste it anywhere public.</strong></li></ul></div>
+
+  <div class="step"><h3><span class="num">6</span>The class link-reader key (shared — this one you don't sign up for)</h3>
+    <ul><li>Your pages can fetch a job posting straight from a pasted link. Without a key that ride sometimes gets blocked on busy sites (LinkedIn especially).</li>
+    <li>Copy the class key below and paste it into the <strong>"Link-reader key"</strong> field in your resume page's "Connect free AI" panel (you'll build that page in Week 1). Save once — it stays in your browser.</li>
+    <li>This key is shared by the whole class on purpose — it has no billing and can't spend money. It is <em>not</em> like your personal OpenRouter key, which you never share.</li></ul>
+    <div class="prompt"><span class="label">Class link-reader key</span><button class="copy">Copy</button>jina_d90b6668e90243d383d1e07fd70e715f1ZjcQ5qvrq9PNhKY1voGUDtNRTJd</div></div>
+
+  <div class="check"><strong>✅ Ready when:</strong><ul>
+    <li>You can log in to claude.ai and to github.com</li>
+    <li>Project <strong>My Career Hub</strong> exists · repo <strong>career-hub</strong> exists</li>
+    <li>Your resume is ready to copy-paste</li>
+    <li>(Optional) your own OpenRouter key is saved somewhere private</li>
+    <li>(Optional) the class link-reader key is copied — you'll paste it into your resume page in Week 1</li></ul></div>
+
+  <div class="step" style="border:2px solid var(--accent2)"><h3><span class="num" style="background:var(--accent2)">$</span>Your free-plan message budget (read this!)</h3>
+    <p>Claude's free plan gives you roughly <strong>15–40 messages every 5 hours</strong> — and generating a full page costs one big message. Our labs are designed to fit, if you follow three habits:</p>
+    <ul>
+      <li><strong>Small edits, never rebuilds.</strong> Say <em>"change the accent color to blue"</em> — not <em>"make the page again."</em> Claude updates the existing page cheaply.</li>
+      <li><strong>One message, complete answer.</strong> When Claude asks you questions, it asks them all at once — answer them all in a single message.</li>
+      <li><strong>No small talk in your Project.</strong> Every message spends budget. Save "thanks!" for humans. 🙂</li>
+      <li><strong>Do homework later in the day</strong>, not right after class — class uses the same 5-hour window.</li>
+    </ul></div>
+</section>
+
+<!-- ================ WEEK 1 ================ -->
+<section class="week" id="w1">
+  <div class="goal"><h2>Week 1 — Resume Tailor page + Job Tracker</h2>
+  <p>You leave today with <span class="pill">resume.html</span> in your GitHub repo: your styled resume, a tailor-for-any-job tool, and a job tracker.</p></div>
+
+  <div class="step"><h3><span class="num">1</span>Open your tools</h3>
+    <ul><li>Tab 1: claude.ai → open Project <strong>My Career Hub</strong></li>
+    <li>Tab 2: github.com → open your <strong>career-hub</strong> repo</li></ul></div>
+
+  <div class="step"><h3><span class="num">2</span>Start the style show</h3>
+    <p>Paste this and send it — Claude will take about a minute to draw all five. <strong>Don't wait: go straight to step 3 while it draws.</strong></p>
+    <div class="prompt"><span class="label">Prompt A · Style discovery</span><button class="copy">Copy</button>My name is [YOUR NAME] and my professional title is [YOUR TITLE]. Before we build anything: generate ONE html file showing my name and title as a full hero section in FIVE completely different visual styles stacked on the page, clearly labeled — they must feel like five different designers made them: (1) INK &amp; PAPER — quiet literary print: cream #F5F2EB background, near-black text, burnt-orange #C1521E accent, Fraunces display serif with one italic accent word, Work Sans body, generous whitespace, hairline rules; (2) POSTER BOLD — loud brutalist street poster: pure white background, black text, signal-red #FF2E00 accent, Boldonse display font in huge uppercase, Bricolage Grotesque body, hard 2px black borders, square corners, oversized numerals; (3) STUDIO POP — friendly modern studio: warm greige #D8D1C5 background, black text, electric-yellow #F0F15E accent used on pill-shaped buttons and highlight chips, Archivo Black display in huge tight letters, Hanken Grotesk body, rounded corners, soft floating glass cards; (4) BLUEPRINT — crisp corporate trust: pure white background, deep-navy #10265F text, cobalt #2458E6 accent, Outfit display (geometric, precise) + Instrument Sans body, thin blueprint-style hairline grid lines, everything perfectly aligned; (5) VELVET NIGHT — dark elegance: deep aubergine-black #16121E background, soft ivory text, champagne-gold #E2B54B accent, Gloock high-contrast display serif + Outfit body, a subtle warm glow behind my name, premium and calm. Each hero: my name HUGE, a tiny label above it, my title below, one accent element. Keep each hero section COMPACT — hero only, no extra content — so all five fit in one artifact. At the BOTTOM of the page, add a plain section titled "STYLE TOKENS" with a small copy-ready text block for each style containing exactly: STYLE NAME · background hex, text hex, accent hex · display font + body font · its 2-3 signature details (the specific touches you gave it). I will pick one style and paste its token block into my project instructions.</div></div>
+
+  <div class="step"><h3><span class="num">3</span>While it draws — install your rulebook</h3>
+    <p>Copy the whole block below → open your Project page → <strong>Set project instructions</strong> → paste → save. It's style-neutral; the last line is a placeholder you'll fill in step 4.</p>
+    <div class="prompt"><span class="label">Project instructions</span><button class="copy">Copy</button>You are my career-site designer and builder. The design bar is an awwwards.com-level editorial portfolio. Apply ALL of this on every page you build for me:
+
+MESSAGE ECONOMY (I am on the free plan)
+- When something is unclear, ask ALL your clarifying questions in ONE message, then build after my single reply.
+- For changes, edit the existing artifact — never regenerate a page from scratch unless I say "rebuild".
+- Never modify a page I didn't ask you to touch.
+
+DESIGN SYSTEM
+- Typography is the design: oversized display headlines (hero text scales with the screen, up to ~9rem via clamp), tight line-height, dramatic size contrast between headlines and body. One accent-colored italic or highlighted word per big headline.
+- Exactly 3 colors: background, ink, accent. Use the accent sparingly — links, underlines, labels, one word per headline.
+- Space is luxury: at least 120px vertical padding between sections on desktop, content max-width ~1100px, headlines get room to breathe.
+- Quiet motion: elements fade in and rise ~20px when scrolled into view (IntersectionObserver); links get an accent underline sweep on hover; cards lift 4px with a soft shadow; transitions 0.3–0.6s ease. Nothing bouncy, no carousels.
+- Micro-delight at 60fps: animate ONLY transform and opacity (never width/height/top — those cause jank); buttons scale down slightly on press; generated prompts type themselves out with a blinking cursor (requestAnimationFrame, ~1 second, then show full text); copy buttons confirm with a small pop; status pills pop in when added. 200–500ms, ease-out. Respect prefers-reduced-motion by disabling all of it.
+- Quality details: tiny uppercase letter-spaced label above each section title (e.g. "01 — RESUME"); hairline dividers; a footer with a large "Let's connect" headline and my email as a big accent link.
+- Sticky minimal top nav on EVERY page from day one, identical everywhere: my name small and bold on the left (links to index.html); links right — Home · Resume · Cover Letters · LinkedIn · Interview Prep — as plain relative links (index.html, resume.html, coverletter.html, linkedin.html, interview.html), small caps, letter-spaced. Build the full nav even for pages that don't exist yet, so pages never need re-editing later. EXCEPTION — index.html (my public portfolio) is standalone: anchor nav only (About · Projects · Contact), never links my tool pages, and contains nothing private (no phone/address, no tracker, no skill gaps).
+
+RULES
+- Single self-contained HTML file: inline CSS/JS only; Google Fonts allowed with system fallback; no external libraries.
+- resume.html also needs a clean print stylesheet (plain black-on-white, 1–2 pages).
+- Fully responsive; headlines scale down gracefully on phones.
+- Never generic: no purple gradients, no icon-box grids, no emoji decoration, no stock imagery, never default fonts.
+- Never invent facts about me. Only use information I gave you.
+
+AI WIRING (every "generate a prompt" tool on my pages — tailor, cover letter, LinkedIn rewrite, interview prep, outreach kit)
+- Each tool supports an optional free auto mode. The "Connect free AI" panel (both keys) lives ONLY on resume.html — every other page just reads the same localStorage, which is shared across my pages since they sit in one folder. So the auto buttons appear on every page automatically once I've saved the key on the resume page; other pages' hints should say where to connect it ("Resume page → Connect free AI") rather than growing their own panels. Store keys ONLY in localStorage — never write a key into any page's HTML/JS, never into any file you give me to save.
+- Use TWO always-separate buttons, never one button that relabels itself — that's fragile and hard to trust: "Copy prompt to paste elsewhere" is always visible and always just builds the prompt and copies it to my clipboard, no matter what. "✨ Auto-tailor with AI" only appears once a key is saved (hidden otherwise via a shared CSS class so it's one toggle, not per-button logic) and calls OpenRouter directly (POST https://openrouter.ai/api/v1/chat/completions, Authorization: Bearer <key>, model openai/gpt-oss-20b:free unless I tell you that one's gone — check openrouter.ai/models?max_price=0), filling the result box itself. Both buttons must keep working independently of each other at all times.
+- If the live auto-tailor call fails for any reason, show a plain alert telling me to use "Copy prompt to paste elsewhere" instead — never a dead end, and never leave the result box half-filled with an error.
+- Always show the disclosure by the key field: this sends my data to OpenRouter (not Anthropic), a free model does the writing so I should verify the result, and my key never leaves this browser.
+- Anywhere I'd paste a job description (tailor tool, interview prep), also let me paste a link instead: a "paste the text" / "paste a link instead" toggle. Link mode fetches the page via https://r.jina.ai/<url> (no key, no signup, free — prefix the URL and GET it), pulls the text after "Markdown Content:" in the response, and uses that as the job description. If the fetch fails or returns almost nothing (some sites, especially ones requiring login, block this), tell me to paste the text instead rather than getting stuck.
+- The "Connect free AI" panel also has a SECOND optional field: a link-reader key (free from jina.ai, no credit card). Anonymous link fetching rides a shared public lane that sometimes gets rate-blocked for popular domains (LinkedIn especially); a saved reader key skips that lane. Send it as "Authorization: Bearer <key>" on the r.jina.ai fetch; if a keyed fetch returns 401/403, automatically retry without the key. Same storage rule as the AI key: localStorage only, never in the file. Unlike the OpenRouter key, this one is safe for an instructor to share with the whole class — nothing billable on it.
+- On the Job Tracker, let me optionally paste a job link before typing company/role: fetch it the same way and guess company/role from the "Title:" line. Handle job-board title shapes explicitly: strip a trailing "| LinkedIn" or "| Indeed", then try "Company hiring Role in City" (LinkedIn's pattern → company + role), then "Role - Company" split on dash/pipe/"at". If nothing parses, put the whole title in Role and leave Company blank — never invent a company/role that isn't a reasonable read of the title. Pre-filled fields stay editable. The tracker has FOUR columns: Company, Role, Date (defaults to today, editable), Status.
+- Next to the tailor buttons, add a "＋ Add to tracker" button: one click adds the current job to my tracker table — company + role guessed from the fetched link's title (or left blank with a note to fill them in, if I pasted text), today's date, status "Saved". It scrolls me to the new row so I see it happened.
+- Every tool with input boxes gets a small "✕ Clear" button that empties them in one click (the tailor tool's clear also hides the generated-prompt box; the tracker's clear also resets date to today and status to Saved).
+- On my tailored resume result, add an "Open in Google Docs ↗" button next to the copy button — and it MUST be a real link, not a script: an &lt;a href="https://docs.new" target="_blank" rel="noopener"&gt; styled like my other buttons, whose onclick copies the tailored text to my clipboard and returns true (or returns false with a "nothing to open yet" alert if the box is empty). A real anchor click is never popup-blocked; window.open from a script often is — that exact bug shipped twice, so never use window.open for this. No Google sign-in or API needed.
+- Add a "🔍 Highlight what changed" button by the tailored result: it word-diffs the result box against my original resume text (longest-common-subsequence over words, computed in JS on the page — not by asking the AI) and shows the result with every added or reworded word wrapped in a highlight mark, so I can SEE the tailoring rather than trust the model's self-report. Auto-run it after a successful auto-tailor. If the boxes are identical, say "no visible changes" plainly.
+
+MY STYLE: [REPLACE THIS LAST LINE with your chosen style's token block from the artifact]</div></div>
+
+  <div class="step"><h3><span class="num">4</span>Pick your style, drop in its tokens</h3>
+    <ol><li>Look at the five heroes in the artifact and choose — <strong>no chat message needed</strong>.</li>
+    <li>Scroll to the artifact's <strong>STYLE TOKENS</strong> section → copy your chosen style's block.</li>
+    <li>Reopen your Project instructions → the placeholder is the <strong>last line</strong> — replace it with what you copied → save.</li></ol>
+    <div class="tip">💡 One visit to paste the rulebook (while Claude was busy), one visit to append your tokens. Done — every future page inherits both.</div></div>
+
+  <div class="step"><h3><span class="num">5</span>Build your resume page</h3>
+    <div class="tip">✋ <strong>Paste order matters (your clipboard still holds the style tokens!):</strong> ① Copy the prompt below → paste it into the chat box. Don't send yet. ② Open your resume file → select all → copy. ③ Click at the very END of the text in the chat box and paste — your resume lands under "PASTE YOUR RESUME". ④ Look at the last lines: is that your actual resume, complete? Now send.</div>
+    <div class="prompt"><span class="label">Prompt B · Build resume.html</span><button class="copy">Copy</button>Build resume.html for my Career Hub following my project instructions, with four parts: (1) a hero with my name oversized and my profile photo in a styled circle (img src="photo.jpg" — with a graceful fallback to my initials in the circle if the file is missing); (2) my resume as a beautifully typeset editorial document — roles with tiny uppercase date labels, achievements as clean bullets with quantified results in the accent color, skills as outlined tags; (3) a "Tailor for a job" tool in two labeled steps (my resume text lives in the page already from part 2 — don't duplicate it in an editable box, just use it): Step 1 — a box where I paste a job description (or toggle to paste a link instead), with a "Copy prompt to paste elsewhere" button that always builds a complete prompt (my resume + the job) and copies it to my clipboard, plus (only once I've connected a free key) a separate "✨ Auto-tailor with AI" button that calls the free model directly and fills Step 2 for me — two distinct buttons, not one that changes behavior — plus a "＋ Add to tracker" button (per my AI WIRING rules: adds this job to the tracker below with guessed company/role from the link title, today's date, status "Saved"), plus a small hint above them noting the in-project shortcut: paste the job description straight into our chat and say "tailor my resume" — you already have it — and that the copy-prompt button is the portable version that works with any AI; Step 2 — labeled "Bring the tailored version back", a textarea where I paste your answer (make clear in the label this box doesn't fill itself — this is the actual point of the loop: it becomes the finished, job-specific resume I copy into the application, a doc, or a PDF export; pasting over it each time I tailor for a new job keeps it holding my latest one), with its own copy button, an "Open in Google Docs" button, and a "🔍 Highlight what changed" button (both per my AI WIRING rules — the highlight word-diffs against my original resume so I can see the tailoring is real); (4) a "Job Tracker" table where I add jobs (company, role, date — defaults to today, status: Saved/Applied/Interview/Offer) with status as small accent-outlined pills and a "Copy my tracker as text" button. Every section scroll-reveals; the whole page should look like an award-winning designer made it.
+
+BEFORE BUILDING, sanity-check my resume below: if it looks garbled, cut off, or isn't actually a resume (e.g. I pasted the wrong thing), STOP and tell me in one short message instead of building. If it's just messy from PDF copying (broken line breaks, scrambled columns), silently reconstruct it — but never invent facts. If anything important is missing, ask all your questions in ONE message first.
+
+MY RESUME (pasted below this line):
+[CLICK HERE AND PASTE YOUR RESUME]</div>
+    <div class="tip">📷 <strong>Photo (optional):</strong> the page shows your initials until a file named exactly <span class="pill">photo.jpg</span> sits next to it — put one in the same folder on your computer, and upload it to your repo with the page. No photo is completely fine.</div></div>
+
+  <div class="step"><h3><span class="num">6</span>Try the tailor loop</h3>
+    <div class="fig"><svg viewBox="0 0 714 165" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The tailor loop: your page writes the prompt — Claude does the tailoring — you verify"><defs><marker id="ar4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#E63946"/></marker></defs>
+<rect x="10" y="30" width="180" height="120" rx="10" fill="#FDFCF8" stroke="#D8D8D2"/>
+<text x="26" y="56" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">Your resume.html</text>
+<rect x="26" y="68" width="148" height="36" rx="6" fill="#fff" stroke="#D8D8D2"/>
+<text x="34" y="90" font-family="Helvetica,Arial,sans-serif" font-size="10" fill="#999">paste job description…</text>
+<rect x="26" y="114" width="140" height="22" rx="11" fill="#111318"/>
+<text x="36" y="129" font-family="Helvetica,Arial,sans-serif" font-size="9.5" fill="#fff">Copy prompt to paste elsewhere</text>
+<path d="M200 90 C 240 90, 250 90, 288 90" stroke="#E63946" stroke-width="2.5" fill="none" marker-end="url(#ar4)"/>
+<text x="206" y="76" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#E63946" font-weight="bold">already copied</text>
+<rect x="296" y="30" width="180" height="120" rx="10" fill="#F0EEE9" stroke="#D8D8D2"/>
+<text x="312" y="56" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">Claude (your project)</text>
+<rect x="312" y="68" width="148" height="24" rx="12" fill="#fff" stroke="#D8D8D2"/>
+<text x="322" y="84" font-family="Helvetica,Arial,sans-serif" font-size="10" fill="#999">paste the prompt here</text>
+<text x="312" y="118" font-family="Helvetica,Arial,sans-serif" font-size="10.5" fill="#555">→ returns your resume</text>
+<text x="312" y="132" font-family="Helvetica,Arial,sans-serif" font-size="10.5" fill="#555">   tailored to that job</text>
+<path d="M486 90 C 530 90, 540 90, 576 90" stroke="#E63946" stroke-width="2.5" fill="none" marker-end="url(#ar4)"/>
+<text x="492" y="76" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#E63946" font-weight="bold">verify facts!</text>
+<rect x="584" y="30" width="120" height="120" rx="10" fill="#FDFCF8" stroke="#D8D8D2"/>
+<text x="600" y="60" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">Tailored</text>
+<text x="600" y="76" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">resume ✓</text>
+<text x="600" y="104" font-family="Helvetica,Arial,sans-serif" font-size="10.5" fill="#555">100% true,</text>
+<text x="600" y="118" font-family="Helvetica,Arial,sans-serif" font-size="10.5" fill="#555">job-matched</text></svg><div class="cap">The tailor loop: your page writes the prompt — Claude does the tailoring — you verify</div></div><ol><li>Paste a real job description into your page's tailor box → click <strong>Copy prompt to paste elsewhere</strong>. It's already on your clipboard — no separate copy click.</li>
+    <li>Paste straight into Claude → read your tailored resume.</li>
+    <li><strong>Verify every line.</strong> If Claude invented or exaggerated anything, tell it to fix it. Your resume must be 100% true.</li></ol>
+    <div class="tip">🔑 <strong>Connected your free key from Setup?</strong> A second button appears — <strong>✨ Auto-tailor with AI</strong> — that skips steps 1–2 for you: it calls the free AI directly and drops the tailored resume straight into the result box. "Copy prompt to paste elsewhere" stays right next to it either way, in case you'd rather paste it into Claude or another AI instead. You still do step 3 either way: verify every fact, since a free model can get things wrong just like anyone. If auto-tailor ever fails (bad key, model hiccup), you'll get a plain message telling you to use the copy button instead — you're never stuck.</div>
+    <div class="tip">💡 <strong>Already in your Project chat?</strong> Skip the page entirely — paste the job description straight into chat and say "tailor my resume." Claude already has your resume from Project knowledge. The page's tailor tool is your <em>portable</em> copy: it works the exact same way with any AI, anywhere, even outside this class. And one honest note: Claude can only <em>talk</em> to you in chat — it can't reach into resume.html and fill in the boxes itself unless you've connected your free key above. The "tailored result" box on your page is where the finished, job-specific resume ends up either way — that's what you actually copy into your application.</div></div>
+
+  <div class="step"><h3><span class="num">7</span>Save to GitHub</h3>
+    <ol><li>In Claude: download the artifact (<span class="pill">resume.html</span>).</li>
+    <li>In your repo: <strong>Add file → Upload files</strong> → drag the file in.</li>
+    <li>Commit message: <span class="pill">Add resume page</span> → <strong>Commit changes</strong>.</li></ol>
+    <div class="fig"><svg viewBox="0 0 660 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Download from Claude, then on GitHub: Add file → Upload files → drag it in → Commit changes"><defs><marker id="ar5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#E63946"/></marker></defs><rect x="1" y="1" width="658" height="298" rx="10" fill="#FDFDFC" stroke="#D8D8D2"/><rect x="1" y="1" width="658" height="34" rx="10" fill="#F1F1EE"/><rect x="1" y="24" width="658" height="11" fill="#F1F1EE"/><circle cx="20" cy="18" r="4.5" fill="#E5675C"/><circle cx="36" cy="18" r="4.5" fill="#E9C46A"/><circle cx="52" cy="18" r="4.5" fill="#8AC48A"/><rect x="70" y="8" width="320" height="20" rx="10" fill="#fff" stroke="#DDD"/><text x="82" y="22" font-family="monospace" font-size="11" fill="#666">github.com/you/career-hub</text>
+<rect x="14" y="46" width="300" height="110" rx="8" fill="#F7F6F3" stroke="#E4E2DC"/>
+<text x="28" y="68" font-family="Helvetica,Arial,sans-serif" font-size="11.5" font-weight="bold" fill="#1a1a1a">Claude — artifact panel</text>
+<rect x="28" y="80" width="200" height="60" rx="6" fill="#fff" stroke="#E4E2DC"/>
+<text x="38" y="102" font-family="Helvetica,Arial,sans-serif" font-size="10.5" fill="#999">resume.html (preview)</text>
+<rect x="238" y="80" width="66" height="22" rx="11" fill="#C1521E"/>
+<text x="247" y="95" font-family="Helvetica,Arial,sans-serif" font-size="10" fill="#fff">Download</text>
+<path d="M160 190 C 180 175, 220 130, 240 108" stroke="#E63946" stroke-width="2.5" fill="none" marker-end="url(#ar5)"/>
+<text x="40" y="205" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#E63946" font-weight="bold">1. download the file from Claude</text>
+<rect x="346" y="46" width="300" height="110" rx="8" fill="#fff" stroke="#D0D7DE"/>
+<text x="360" y="68" font-family="Helvetica,Arial,sans-serif" font-size="11.5" font-weight="bold" fill="#1a1a1a">portfolio</text>
+<rect x="500" y="54" width="70" height="22" rx="6" fill="#F6F8FA" stroke="#D0D7DE"/>
+<text x="508" y="69" font-family="Helvetica,Arial,sans-serif" font-size="10.5" fill="#1a1a1a">Add file ▾</text>
+<rect x="578" y="54" width="56" height="22" rx="6" fill="#1F883D"/>
+<text x="588" y="69" font-family="Helvetica,Arial,sans-serif" font-size="10.5" fill="#fff">Code ▾</text>
+<rect x="492" y="80" width="120" height="44" rx="6" fill="#fff" stroke="#D0D7DE"/>
+<text x="502" y="98" font-family="Helvetica,Arial,sans-serif" font-size="10.5" fill="#555">Create new file</text>
+<rect x="496" y="104" width="112" height="16" rx="4" fill="#DDF4FF"/>
+<text x="502" y="116" font-family="Helvetica,Arial,sans-serif" font-size="10.5" font-weight="bold" fill="#0969DA">Upload files</text>
+<path d="M430 190 C 450 175, 480 140, 500 118" stroke="#E63946" stroke-width="2.5" fill="none" marker-end="url(#ar5)"/>
+<text x="352" y="205" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#E63946" font-weight="bold">2. Add file → Upload files</text>
+<rect x="14" y="218" width="632" height="64" rx="8" fill="#F6F8FA" stroke="#D0D7DE" stroke-dasharray="5 4"/>
+<text x="222" y="246" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#57606A">Drag resume.html here, then</text>
+<rect x="252" y="254" width="130" height="20" rx="5" fill="#1F883D"/>
+<text x="266" y="268" font-family="Helvetica,Arial,sans-serif" font-size="10.5" fill="#fff" font-weight="bold">Commit changes</text></svg><div class="cap">Download from Claude, then on GitHub: Add file → Upload files → drag it in → Commit changes</div></div><div class="tip">💡 Every commit is a saved snapshot. Uploading a file with the same name later = new version; the old one stays in history.</div>
+    <div class="tip">🧠 <strong>Also drag resume.html into your Project knowledge</strong> (Project page → + Add content). Claude cannot see last week's chats — Project knowledge is how it remembers your pages and facts in later weeks. Do this every week with each finished page.</div>
+    <div class="tip">👀 <strong>To view your finished page:</strong> double-click the downloaded <span class="pill">resume.html</span> on your computer — it opens in your browser and everything works. Note: clicking the file <em>inside GitHub</em> shows the code, not the page — that's normal! GitHub renders it as a real website in Week 4, when we turn on GitHub Pages.</div>
+    <div class="tip">🏠 <strong>The "Home" link doesn't go anywhere yet — that's expected.</strong> It points to <span class="pill">index.html</span>, your portfolio page, which you build in Week 3 (GitHub never creates it for you). Your nav is built complete on day one — every future page already linked — so we never have to regenerate pages just to fix links. Each week one more link comes alive; by Week 5 they all work.</div></div>
+
+  <div class="check"><strong>✅ Done today when:</strong><ul>
+    <li>Your style is saved in Project instructions</li>
+    <li>resume.html works: resume + tailor box + tracker</li>
+    <li>resume.html is visible in your GitHub repo</li></ul>
+  <p style="margin-top:8px"><strong>Homework:</strong> tailor your resume for 2 real postings · add them to your tracker · bring one job posting you actually want next week · <em>optional:</em> have a photo? save it as <span class="pill">photo.jpg</span> in the same folder as resume.html (and upload it to your repo) — the circle in your resume hero fills in automatically; until then your initials show, which is the built-in look, not a bug · <strong>one-time:</strong> your repo is private, so add your instructor as a collaborator (repo → Settings → Collaborators → Add people → [INSTRUCTOR GITHUB USERNAME]) so your work counts for assignment credit.</p>
+  <p style="margin-top:8px"><strong>Stretch homework (optional):</strong> in Claude → <strong>Settings → Connectors</strong>, connect <strong>GitHub</strong> and authorize your account. Then ask Claude: <em>"Commit my latest resume.html to my career-hub repo."</em> If it works, Claude can do your uploads from now on — you did it manually today so you understand what it's doing. If the authorization confuses you, skip it: drag-drop always works.</p></div>
+</section>
+
+<!-- ================ WEEK 2 ================ -->
+<section class="week" id="w2">
+  <div class="goal"><h2>Week 2 — Cover Letter Studio + Outreach Kit</h2>
+  <p>You leave with <span class="pill">coverletter.html</span>, one real human-edited cover letter — and a real follow-up email for the application you sent last week.</p></div>
+
+  <div class="step"><h3><span class="num">1</span>Build your Story Bank</h3>
+    <div class="prompt"><span class="label">Prompt A · Story bank interview</span><button class="copy">Copy</button>Help me build my "story bank" for cover letters. Ask me everything you need as ONE numbered list of questions covering: 3 achievements with numbers, why I came to the U.S. / what drives me, my work style, and what I want in my next role. I will answer all of them in one message. Then summarize my story bank back to me in the same reply style — keep my authentic voice; don't invent anything.</div>
+    <div class="tip">💡 Answer every question in a single message — rough notes are fine, Claude will polish them.</div><div class="fig"><svg viewBox="0 0 772 185" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The one-round interview: Claude asks everything at once, you answer once — your story bank costs 2 messages, not 10"><defs><marker id="br7" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#E63946"/></marker></defs>
+<rect x="10" y="20" width="250" height="150" rx="10" fill="#F0EEE9" stroke="#D8D8D2"/>
+<text x="24" y="44" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">Claude asks — ONE message</text>
+<text x="24" y="68" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#555">1. Your 3 best achievements + numbers?</text>
+<text x="24" y="86" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#555">2. Why did you come to the U.S.?</text>
+<text x="24" y="104" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#555">3. Your work style?</text>
+<text x="24" y="122" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#555">4. What do you want next?</text>
+<text x="24" y="140" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#555">5. …</text>
+<path d="M270 95 C 300 95, 310 95, 338 95" stroke="#E63946" stroke-width="2.5" fill="none" marker-end="url(#br7)"/>
+<text x="262" y="76" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#E63946" font-weight="bold">answer ALL</text>
+<text x="262" y="90" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#E63946" font-weight="bold">in one reply</text>
+<rect x="346" y="20" width="180" height="150" rx="10" fill="#FDFCF8" stroke="#D8D8D2"/>
+<text x="360" y="44" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">Your ONE reply</text>
+<text x="360" y="68" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#555">1. Coverage +38%…</text>
+<text x="360" y="86" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#555">2. Family + ambition…</text>
+<text x="360" y="104" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#555">3. Calm, checklists…</text>
+<text x="360" y="122" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#555">4. Program manager…</text>
+<text x="360" y="144" font-family="Helvetica,Arial,sans-serif" font-size="10" fill="#999">(rough notes are fine)</text>
+<path d="M536 95 C 566 95, 576 95, 604 95" stroke="#E63946" stroke-width="2.5" fill="none" marker-end="url(#br7)"/>
+<text x="540" y="80" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#E63946" font-weight="bold">= 2 messages total</text>
+<rect x="612" y="20" width="150" height="150" rx="10" fill="#FDFCF8" stroke="#D8D8D2"/>
+<text x="626" y="44" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">Story Bank ✓</text>
+<rect x="626" y="56" width="122" height="30" rx="6" fill="#fff" stroke="#D8D8D2"/><text x="634" y="75" font-family="Helvetica,Arial,sans-serif" font-size="10" fill="#555">01 · The 38%</text>
+<rect x="626" y="92" width="122" height="30" rx="6" fill="#fff" stroke="#D8D8D2"/><text x="634" y="111" font-family="Helvetica,Arial,sans-serif" font-size="10" fill="#555">02 · Zero downtime</text>
+<rect x="626" y="128" width="122" height="30" rx="6" fill="#fff" stroke="#D8D8D2"/><text x="634" y="147" font-family="Helvetica,Arial,sans-serif" font-size="10" fill="#555">03 · Cold chain</text></svg><div class="cap">The one-round interview: Claude asks everything at once, you answer once — your story bank costs 2 messages, not 10</div></div></div>
+
+  <div class="step"><h3><span class="num">2</span>Build the page</h3>
+    <div class="prompt"><span class="label">Prompt B · Build coverletter.html</span><button class="copy">Copy</button>Using my project instructions and style, build coverletter.html for my Career Hub with: (1) my Story Bank as numbered editorial cards ("01", "02"… as large ghosted numerals) that lift on hover, each with a short title and the achievement with its number in the accent color; (2) a "New cover letter" tool: I paste a job description + company name, with a "Copy prompt to paste elsewhere" button that always builds a complete prompt (including my story bank) and copies it to my clipboard, plus (once my key is saved on the resume page) a separate "✨ Auto-draft with AI" button that calls the free model directly — two distinct buttons per my project instructions' AI WIRING rules, never one that changes behavior — and a "Your letter" result textarea below where the finished letter lands either way (auto-draft fills it; copy/paste mode I paste it in), with its own copy button and an "Open in Google Docs ↗" link per the AI WIRING rules, and a note telling me to edit at least five sentences into my own words — the letter must sound like me: confident, specific, no clichés like "I am writing to express my interest" — plus a small hint noting I can also just paste the job description straight into our chat and say "draft my cover letter" since you already have my story bank; (3) a "Letters" section where finished letters display like elegantly typeset correspondence — generous margins, a hairline rule under the date — that I can ask you to add as I write them. (4) an "Outreach Kit" — three small tools side by side, each with a button that both generates and auto-copies a copy-ready prompt using my story bank and the same honest voice: a follow-up email for an application I sent about a week ago, a thank-you note within 24 hours of an interview, and a 3-sentence recruiter outreach message. Hero headline for this page: "Letters that sound like me" with one accent italic word. Include the full site nav from my project instructions.</div></div>
+
+  <div class="step"><h3><span class="num">3</span>Write a real letter — then make it yours</h3>
+    <ol><li>Use the job posting you brought. Paste it in the page → copy the prompt → get your draft.</li>
+    <li><strong>The 5-sentence rule:</strong> change at least 5 sentences into your own words.</li></ol>
+    <div class="tip">💡 If it sounds generic, tell Claude: <em>"Rewrite using only concrete facts from my story bank; delete any sentence that could be in anyone's letter."</em></div></div>
+
+  <div class="step"><h3><span class="num">4</span>Write a REAL follow-up</h3>
+    <ul><li>Last week's homework was sending a real application. Use the Outreach Kit: generate the follow-up prompt for THAT application → get the draft → make it yours → send it today or tomorrow.</li></ul>
+    <div class="tip">💡 Most applicants never follow up — a short, specific follow-up is one of the highest-return emails in a job search.</div></div>
+
+  <div class="step"><h3><span class="num">5</span>Peer review (breakout)</h3>
+    <ul><li>Swap letters with your partner. Flag anything that sounds like a robot — or isn't true.</li></ul></div>
+
+  <div class="step"><h3><span class="num">7</span>Save to GitHub</h3>
+    <ol><li>Download <span class="pill">coverletter.html</span> → repo → <strong>Add file → Upload files</strong> → commit <span class="pill">Add cover letter studio</span>.</li>
+    <li>Drag the file into your <strong>Project knowledge</strong> too — so Claude remembers your story bank and letters next week.</li></ol></div>
+
+  <div class="check"><strong>✅ Done today when:</strong><ul>
+    <li>Story bank exists · coverletter.html (with Outreach Kit) in your repo · one edited letter finished · one real follow-up sent or scheduled</li></ul>
+  <p style="margin-top:8px"><strong>Finished early? One style refinement:</strong> ask Claude for exactly ONE change you'd enjoy — a different accent color, a new font pairing, or a subtle animation — <em>"Change only this, touch nothing else."</em> One message, your taste, no rabbit holes.</p>
+  <p style="margin-top:8px"><strong>Homework:</strong> send one real application (tailored resume + this letter) · log it in your tracker · <strong>next week your hub goes LIVE:</strong> bring a professional headshot file if you want one, think of 2–3 projects/accomplishments you’re proud of, and remove anything private from your pages.</p></div>
+</section>
+
+<!-- ================ WEEK 3 ================ -->
+<section class="week" id="w3">
+  <div class="goal"><h2>Week 3 — Your Portfolio + GO LIVE</h2>
+  <p>Today you build a public portfolio and get your shareable link: <span class="pill">https://YOUR-USERNAME.github.io/portfolio</span>. Your toolkit (resume, letters, interview prep) stays in your <strong>private</strong> repo — only the portfolio goes public. Today's class was about AI ethics and privacy — this split IS that lesson, applied.</p></div>
+
+  <div class="step"><h3><span class="num">1</span>Privacy first — decide what goes public</h3>
+    <ul><li><strong>Your AI data:</strong> open your AI tool's data settings (Claude: Settings → Privacy · ChatGPT: Settings → Data Controls) and make a deliberate choice about history/training. That's digital responsibility from today's class.</li>
+    <li><strong>Public vs private:</strong> your toolkit repo is private and stays that way. Only today's <span class="pill">index.html</span> goes public — curated for strangers: no phone, no street address, no job tracker, no skill gaps. Contact = email or LinkedIn button only.</li>
+    <li><strong>Photo:</strong> a headshot is optional — photos can invite bias (today's topic!). If you want one, name the file exactly <span class="pill">photo.jpg</span>. No photo = your styled initials.</li></ul></div>
+
+  <div class="step"><h3><span class="num">2</span>Define your projects</h3>
+    <div class="prompt"><span class="label">Prompt A · Projects interview</span><button class="copy">Copy</button>Help me define 3 portfolio projects from my career. Using my resume and story bank in this project, DRAFT the 3 best candidates yourself — for each: a title, the situation, what I did, the measurable result, and tools used — then ask me in the same message what to correct or replace. Real work accomplishments, certifications, or community work all count. The Career Hub itself is project #4: "Built an AI-powered career site."</div>
+    <div class="tip">💡 Claude drafts first from your resume and story bank — you only correct. One round, not ten.</div></div>
+
+  <div class="step"><h3><span class="num">3</span>Add the template + choose your three knobs</h3>
+    <ul><li>Download <span class="pill">portfolio-template.html</span> from the class links sheet → in your Claude Project, click <strong>+ Add content</strong> (Project knowledge) → upload it.</li>
+    <li>We ALL build the same proven layout (inspired by heynesh.com) — what makes yours <em>yours</em> is three choices:</li></ul>
+    <ol style="margin-top:8px"><li><strong>Colors</strong> — your Week 1 palette (or tell Claude a new 3-color set)</li>
+    <li><strong>Fonts</strong> — your display + body pairing</li>
+    <li><strong>Orientation</strong> — hero name+photo <span class="pill">center</span> / <span class="pill">left</span> · journey cards <span class="pill">staggered</span> / <span class="pill">rail</span> · projects <span class="pill">side-scroll</span> / <span class="pill">grid</span></li></ol></div>
+
+  <div class="step"><h3><span class="num">4</span>Build the portfolio</h3>
+    <div class="prompt"><span class="label">Prompt B · Customize the template</span><button class="copy">Copy</button>I added portfolio-template.html to this project's knowledge. Turn it into MY index.html: (1) THEME TOKENS at the top of the file: use my style's colors and fonts; (2) ORIENTATION: set the body classes to my three choices — I choose hero-[CENTER/LEFT], journey-[STAGGER/RAIL], projects-[SCROLL/GRID]; (3) replace every [bracketed placeholder] with my real content: my SHORT display name for the giant hero letters, full name, title, city, bold 2–3 word statement, my 5 trait words, 2 stat chips with MY real numbers, a 5–7 card Journey from my career — including my move to the U.S., told as a strength — the projects we defined earlier (each keeps its dark gradient), three "What I Bring" cards, and 4 Q&A answers recruiters would ask (include work authorization if I'm comfortable). Public-safe: no phone, no street address, nothing private. Keep the template's layout, spacing, and animations EXACTLY as they are — change only tokens, orientation classes, and content. Ask all questions in one message first if anything is missing.</div>
+    <div class="tip">💡 In Claude's preview you'll see your <strong>initials instead of your photo</strong> — that's the built-in fallback. Your photo appears once photo.jpg is uploaded next to index.html in your repo. Everyone shares the layout; nobody shares your story, colors, or numbers.</div></div>
+
+  <div class="step"><h3><span class="num">5</span>Create your PUBLIC portfolio repo + upload</h3>
+    <ol><li>GitHub → <strong>+</strong> → <strong>New repository</strong> → name: <span class="pill">portfolio</span> → <strong>Public</strong> → ✅ Add a README → Create.</li>
+    <li>Download <span class="pill">index.html</span> from Claude.</li>
+    <li>In the <strong>portfolio</strong> repo: <strong>Add file → Upload files</strong> → drag <span class="pill">index.html</span> + <span class="pill">photo.jpg</span> → commit <span class="pill">Publish my portfolio</span>.</li></ol>
+    <div class="tip">🔒 <strong>Two repos, two jobs:</strong> <span class="pill">career-hub</span> (private) = your toolkit. <span class="pill">portfolio</span> (public) = the one page strangers see. Keep all downloaded files in ONE folder on your computer — the pages still link to each other locally. And drag index.html into your <strong>Project knowledge</strong> like every week.</div></div>
+
+  <div class="step"><h3><span class="num">6</span>Turn on GitHub Pages</h3>
+    <ol><li>In the <strong>portfolio</strong> repo → <strong>Settings → Pages</strong>.</li>
+    <li>Source: <strong>Deploy from a branch</strong> → Branch: <strong>main</strong> → <strong>Save</strong>.</li>
+    <li>Wait 1–2 minutes → refresh → click your live link. 🎉</li></ol>
+    <div class="fig"><svg viewBox="0 0 660 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Settings → Pages → Deploy from a branch → main → Save — then the green live-site banner appears"><defs><marker id="ar6" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#E63946"/></marker></defs><rect x="1" y="1" width="658" height="328" rx="10" fill="#FDFDFC" stroke="#D8D8D2"/><rect x="1" y="1" width="658" height="34" rx="10" fill="#F1F1EE"/><rect x="1" y="24" width="658" height="11" fill="#F1F1EE"/><circle cx="20" cy="18" r="4.5" fill="#E5675C"/><circle cx="36" cy="18" r="4.5" fill="#E9C46A"/><circle cx="52" cy="18" r="4.5" fill="#8AC48A"/><rect x="70" y="8" width="320" height="20" rx="10" fill="#fff" stroke="#DDD"/><text x="82" y="22" font-family="monospace" font-size="11" fill="#666">github.com/you/portfolio/settings/pages</text>
+<rect x="14" y="46" width="632" height="26" rx="6" fill="#fff" stroke="#D0D7DE"/>
+<text x="28" y="64" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#57606A">Code&#160;&#160;&#160;Issues&#160;&#160;&#160;Pull requests&#160;&#160;&#160;Actions</text>
+<rect x="500" y="49" width="70" height="20" rx="5" fill="#F6F8FA" stroke="#D0D7DE"/>
+<text x="510" y="63" font-family="Helvetica,Arial,sans-serif" font-size="11" font-weight="bold" fill="#1a1a1a">⚙ Settings</text>
+<path d="M440 100 C 470 90, 500 82, 520 72" stroke="#E63946" stroke-width="2.5" fill="none" marker-end="url(#ar6)"/>
+<text x="300" y="106" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#E63946" font-weight="bold">1. Settings tab</text>
+<rect x="14" y="84" width="150" height="180" rx="8" fill="#F6F8FA" stroke="#D0D7DE"/>
+<text x="28" y="108" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#555">General</text>
+<text x="28" y="132" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#555">Collaborators</text>
+<rect x="20" y="144" width="138" height="22" rx="5" fill="#DDF4FF"/>
+<text x="28" y="159" font-family="Helvetica,Arial,sans-serif" font-size="11" font-weight="bold" fill="#0969DA">Pages</text>
+<path d="M240 200 C 210 190, 180 170, 162 158" stroke="#E63946" stroke-width="2.5" fill="none" marker-end="url(#ar6)"/>
+<text x="246" y="205" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#E63946" font-weight="bold">2. Pages (left sidebar)</text>
+<text x="190" y="120" font-family="Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" fill="#1a1a1a">Build and deployment</text>
+<text x="190" y="142" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#57606A">Source</text>
+<rect x="190" y="150" width="190" height="26" rx="6" fill="#F6F8FA" stroke="#D0D7DE"/>
+<text x="200" y="168" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#1a1a1a">Deploy from a branch ▾</text>
+<text x="400" y="142" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#57606A">Branch</text>
+<rect x="400" y="150" width="110" height="26" rx="6" fill="#F6F8FA" stroke="#D0D7DE"/>
+<text x="412" y="168" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#1a1a1a">main ▾</text>
+<rect x="522" y="150" width="60" height="26" rx="6" fill="#1F883D"/>
+<text x="537" y="168" font-family="Helvetica,Arial,sans-serif" font-size="11.5" fill="#fff" font-weight="bold">Save</text>
+<path d="M560 220 C 570 200, 566 190, 558 180" stroke="#E63946" stroke-width="2.5" fill="none" marker-end="url(#ar6)"/>
+<text x="420" y="238" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#E63946" font-weight="bold">3. main → Save</text>
+<rect x="190" y="256" width="456" height="50" rx="8" fill="#DAFBE1" stroke="#1F883D"/>
+<text x="206" y="278" font-family="Helvetica,Arial,sans-serif" font-size="11.5" font-weight="bold" fill="#116329">✓ Your site is live at</text>
+<text x="206" y="296" font-family="monospace" font-size="11.5" fill="#116329">https://YOUR-USERNAME.github.io/portfolio/</text>
+<text x="20" y="292" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#E63946" font-weight="bold">wait 1–2 min,</text>
+<text x="20" y="306" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#E63946" font-weight="bold">then refresh</text></svg><div class="cap">Settings → Pages → Deploy from a branch → main → Save — then the green live-site banner appears</div></div>
+    <div class="tip">💡 Seeing 404? Check the file is named exactly <span class="pill">index.html</span>, your repo is Public (Settings → General → visibility), then wait 2 minutes and hard-refresh. Photo missing? Filename must match exactly — <span class="pill">photo.jpg</span>, not <span class="pill">Photo.JPG</span>.</div></div>
+
+  <div class="check"><strong>✅ Done today when:</strong><ul>
+    <li>Your portfolio is live at <span class="pill">…github.io/portfolio</span> with your photo (or initials) and projects · your toolkit repo is still Private</li></ul>
+  <p style="margin-top:8px"><strong>Homework:</strong> email your live link to your instructor · send it with one real application · bring your current LinkedIn headline + About text next week (we optimize your profile and pin your live site to it).</p></div>
+</section>
+
+<!-- ================ WEEK 4 ================ -->
+<section class="week" id="w4">
+  <div class="goal"><h2>Week 4 — LinkedIn Optimizer + Pin Your Proof</h2>
+  <p>You leave with <span class="pill">linkedin.html</span>, a real improved LinkedIn headline — and your live Career Hub pinned to your profile where recruiters look.</p></div>
+
+  <div class="step"><h3><span class="num">1</span>Build the page</h3>
+    <div class="prompt"><span class="label">Prompt A · Build linkedin.html</span><button class="copy">Copy</button>Build linkedin.html for my Career Hub (project style): (1) a "Profile Audit" tool — I paste my current LinkedIn headline, About, and experience text, plus a target job title, and the page shows a scorecard designed like a beautiful minimal dashboard: one oversized score numeral in the accent color, and each checklist item as a row with a thin animated accent progress bar — headline uses the [Role | Value | Keywords] formula, About starts with a hook and has numbers, skills match my target role's keywords, no clichés ("hardworking team player"); (2) for each weak item, a button that both generates a rewrite prompt (with my pasted text included) and copies it to my clipboard in one click, ready to paste back to you; (3) a "Keyword Bank" section: terms for my target role as outlined tags that fill with the accent color on hover — use what you already know about me from this project; if my target role is unclear, include that in your single clarifying message. Hero headline: "Get found" with one accent italic word.</div></div>
+
+  <div class="step"><h3><span class="num">2</span>Audit → rewrite → update for real</h3>
+    <ol><li>Paste your real profile text → read your scorecard.</li>
+    <li>Generate rewrite prompts → get Claude's rewrites. <strong>Every claim must be true; keywords natural, not stuffed.</strong></li>
+    <li>Open <strong>linkedin.com</strong> → update your headline <em>now</em>. That's today's win.</li></ol>
+    <div class="fig"><svg viewBox="0 0 772 205" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The audit loop: score your profile → Claude rewrites weak items → paste the fix into your real LinkedIn before class ends"><defs><marker id="br8" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#E63946"/></marker></defs>
+<rect x="10" y="20" width="230" height="170" rx="10" fill="#FDFCF8" stroke="#D8D8D2"/>
+<text x="24" y="44" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">Your linkedin.html audit</text>
+<text x="24" y="92" font-family="Georgia,serif" font-size="40" fill="#E63946" font-weight="bold">38</text>
+<text x="76" y="92" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#555">/ 100</text>
+<text x="24" y="116" font-family="Helvetica,Arial,sans-serif" font-size="10.5" fill="#555">✖ headline formula</text><rect x="24" y="122" width="200" height="4" rx="2" fill="#EEE"/><rect x="24" y="122" width="40" height="4" rx="2" fill="#E63946"/>
+<text x="24" y="144" font-family="Helvetica,Arial,sans-serif" font-size="10.5" fill="#555">✖ numbers in About</text><rect x="24" y="150" width="200" height="4" rx="2" fill="#EEE"/><rect x="24" y="150" width="36" height="4" rx="2" fill="#E63946"/>
+<text x="24" y="172" font-family="Helvetica,Arial,sans-serif" font-size="10.5" fill="#555">✅ keywords present</text><rect x="24" y="178" width="200" height="4" rx="2" fill="#EEE"/><rect x="24" y="178" width="200" height="4" rx="2" fill="#1F883D"/>
+<path d="M250 105 C 280 105, 290 105, 318 105" stroke="#E63946" stroke-width="2.5" fill="none" marker-end="url(#br8)"/>
+<text x="244" y="88" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#E63946" font-weight="bold">copy rewrite</text>
+<text x="244" y="101" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#E63946" font-weight="bold">prompt</text>
+<rect x="326" y="20" width="180" height="170" rx="10" fill="#F0EEE9" stroke="#D8D8D2"/>
+<text x="340" y="44" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">Claude rewrites</text>
+<rect x="340" y="56" width="152" height="52" rx="6" fill="#fff" stroke="#D8D8D2"/>
+<text x="348" y="74" font-family="Helvetica,Arial,sans-serif" font-size="10" fill="#555">Healthcare PM | EHR</text>
+<text x="348" y="90" font-family="Helvetica,Arial,sans-serif" font-size="10" fill="#555">rollouts, zero downtime</text>
+<text x="340" y="132" font-family="Helvetica,Arial,sans-serif" font-size="10.5" fill="#555">every claim true,</text>
+<text x="340" y="148" font-family="Helvetica,Arial,sans-serif" font-size="10.5" fill="#555">keywords natural</text>
+<path d="M516 105 C 546 105, 556 105, 584 105" stroke="#E63946" stroke-width="2.5" fill="none" marker-end="url(#br8)"/>
+<text x="512" y="88" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#E63946" font-weight="bold">paste into your</text>
+<text x="512" y="101" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#E63946" font-weight="bold">REAL profile now</text>
+<rect x="592" y="20" width="170" height="170" rx="10" fill="#fff" stroke="#D0D7DE"/>
+<rect x="592" y="20" width="170" height="34" rx="10" fill="#0A66C2"/><rect x="592" y="42" width="170" height="12" fill="#0A66C2"/>
+<text x="606" y="42" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#fff" font-weight="bold">Linked in</text>
+<circle cx="622" cy="82" r="16" fill="#EBE6DA"/>
+<text x="646" y="80" font-family="Helvetica,Arial,sans-serif" font-size="11" font-weight="bold" fill="#1a1a1a">Abena Osei</text>
+<text x="646" y="94" font-family="Helvetica,Arial,sans-serif" font-size="9.5" fill="#555">Healthcare PM | EHR…</text>
+<rect x="606" y="112" width="142" height="22" rx="11" fill="#0A66C2"/>
+<text x="628" y="127" font-family="Helvetica,Arial,sans-serif" font-size="10.5" fill="#fff" font-weight="bold">headline updated ✓</text>
+<text x="606" y="162" font-family="Helvetica,Arial,sans-serif" font-size="10" fill="#999">today's win</text></svg><div class="cap">The audit loop: score your profile → Claude rewrites weak items → paste the fix into your real LinkedIn before class ends</div></div></div>
+
+  <div class="step"><h3><span class="num">3</span>Bias check</h3>
+    <div class="prompt"><span class="label">Prompt B · Bias lens</span><button class="copy">Copy</button>Here is my new About section: [PASTE]. What assumptions might a biased screener make from my name, accent, or foreign experience — and how can my wording preempt them fairly, without hiding who I am?</div></div>
+
+  <div class="step"><h3><span class="num">4</span>Pin the proof</h3>
+    <ol><li>Add your live portfolio URL (<span class="pill">…github.io/portfolio</span>) to LinkedIn — <strong>Featured section</strong> (best) or the website field.</li>
+    <li>Ask Claude: <em>"Write one sentence &le;30 words in PARI format (Problem, Approach with AI, Result, Insight) about building this Career Hub"</em> → add it to your About and your portfolio.</li></ol></div>
+
+  <div class="step"><h3><span class="num">5</span>Save to GitHub</h3>
+    <ol><li>Download <span class="pill">linkedin.html</span> → upload to repo → commit <span class="pill">Add LinkedIn optimizer</span>.</li>
+    <li>Drag the file into your <strong>Project knowledge</strong> too.</li></ol></div>
+
+  <div class="check"><strong>✅ Done today when:</strong><ul>
+    <li>linkedin.html is in your repo · your live headline is updated · your hub URL is on your profile</li></ul>
+  <p style="margin-top:8px"><strong>Homework:</strong> finish your About + top 3 skills on LinkedIn · log applications in your tracker · bring a target job posting next week for interview prep.</p></div>
+</section>
+
+<!-- ================ WEEK 5 ================ -->
+<section class="week" id="w5">
+  <div class="goal"><h2>Week 5 — Interview Prep + Skill Gap</h2>
+  <p>The final page: <span class="pill">interview.html</span>. Your hub is complete — next week you present it.</p></div>
+
+  <div class="step"><h3><span class="num">1</span>Your honest skill-gap analysis</h3>
+    <div class="prompt"><span class="label">Prompt A · Skill gap</span><button class="copy">Copy</button>I was a [JOB TITLE] in [COUNTRY]; my target U.S. role is [TITLE]. Using my resume in this project: (1) list this role's top 10 skills in the U.S. market now; (2) mark each ✅ I have / 🔶 partial / ❌ gap, citing the specific resume lines you used as evidence; (3) for the top 3 gaps, give a 3–6 month learning plan with free resources; (4) which of my existing skills are my unfair advantage? Be honest, not flattering.</div></div>
+
+  <div class="step"><h3><span class="num">2</span>Build the page</h3>
+    <div class="prompt"><span class="label">Prompt B · Build interview.html</span><button class="copy">Copy</button>Build interview.html for my Career Hub (project style): (1) an "Interview Prep" tool — I paste a job description (or a link, same toggle as my resume tool) with a "Copy prompt to paste elsewhere" button that always builds and copies a prompt (including my resume + story bank), plus (once I've connected a free key) a separate "✨ Auto-tailor with AI" button that calls the free model directly and fills the result for me — two distinct buttons, per my project instructions' AI WIRING rules — either way I get: 8 likely interview questions (behavioral + role-specific), strong sample answers in STAR format using MY real experience, and 3 questions I should ask them — with a small hint that in my Project chat I can skip the page and just say "prep me for this interview" after pasting the job description; (2) my STAR Story Bank — 5 stories as editorial cards with large ghosted numerals, the four STAR parts as tiny uppercase labels (SITUATION / TASK / ACTION / RESULT) and the Result line in the accent color, cards lift on hover; (3) "My Skill Plan" — the skill-gap table styled as a refined matrix: each skill a row with a ✅/🔶/❌ status pill and a thin accent progress bar, the learning plan as a vertical timeline with accent dots and month labels. Full site nav like my other tool pages. Do NOT touch my other pages. Hero headline: "Ready for the room" with one accent italic word.</div></div>
+
+  <div class="step"><h3><span class="num">3</span>Practice out loud (breakout pairs)</h3>
+    <ul><li>Generate questions for your real posting. Answer ONE out loud to your partner.</li>
+    <li>Partner checks: did it include a number? Was it under 90 seconds?</li></ul></div>
+
+  <div class="step"><h3><span class="num">4</span>Save + final quality check</h3>
+    <ol><li>Upload <span class="pill">interview.html</span> to your <strong>private</strong> <span class="pill">career-hub</span> repo → commit <span class="pill">Complete career hub</span>. (Your public portfolio repo is untouched — this page is personal.)</li>
+    <li>Drag it into <strong>Project knowledge</strong> — now ALL your pages are there, which is exactly what the QA prompt below needs.</li></ol><div class="fig"><svg viewBox="0 0 772 215" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Week 5 upload: interview.html joins your PRIVATE toolkit repo — your public portfolio never sees your skill gaps"><defs><marker id="br9" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#E63946"/></marker></defs>
+<rect x="10" y="20" width="320" height="185" rx="10" fill="#fff" stroke="#D0D7DE"/>
+<text x="24" y="44" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">career-hub (private) — your toolkit</text>
+<text x="24" y="70" font-family="monospace" font-size="11.5" fill="#555">📄 coverletter.html</text>
+<text x="24" y="90" font-family="monospace" font-size="11.5" fill="#555">📄 index.html</text>
+<rect x="18" y="98" width="304" height="22" rx="5" fill="#FFF3F3"/>
+<text x="24" y="113" font-family="monospace" font-size="11.5" fill="#B32430">📄 interview.html — NEW today</text>
+<text x="24" y="140" font-family="monospace" font-size="11.5" fill="#555">📄 linkedin.html</text>
+<text x="24" y="160" font-family="monospace" font-size="11.5" fill="#555">📄 resume.html · 🖼 photo.jpg</text>
+<path d="M470 112 C 420 112, 390 112, 340 112" stroke="#E63946" stroke-width="2.5" fill="none" marker-end="url(#br9)"/>
+<text x="352" y="96" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#E63946" font-weight="bold">upload to the</text>
+<text x="352" y="109" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#E63946" font-weight="bold">PRIVATE repo</text>
+<rect x="478" y="50" width="284" height="120" rx="10" fill="#F6F8FA" stroke="#D0D7DE" stroke-dasharray="5 4"/>
+<text x="500" y="86" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">Upload today:</text>
+<text x="500" y="112" font-family="monospace" font-size="12" fill="#116329">📄 interview.html</text>
+<rect x="500" y="130" width="120" height="24" rx="6" fill="#1F883D"/>
+<text x="512" y="146" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#fff" font-weight="bold">Commit changes</text>
+<text x="24" y="196" font-family="Helvetica,Arial,sans-serif" font-size="10.5" fill="#999">your public portfolio repo is untouched — skill gaps and prep stay private</text></svg><div class="cap">Week 5 upload: interview.html joins your PRIVATE toolkit repo — your public portfolio never sees your skill gaps</div></div>
+    <div class="prompt"><span class="label">Prompt C · Hub QA</span><button class="copy">Copy</button>Review all my pages in this project's knowledge (resume, cover letters, linkedin, interview, and my public portfolio index): broken links? inconsistent style? any private info that shouldn't be public — especially on the portfolio? anything a recruiter would find unprofessional? Give me a prioritized fix list.</div></div>
+
+  <div class="step"><h3><span class="num">5</span>Get ready to present</h3>
+    <ul><li>Next week, 5 minutes each: tour your live hub · one thing AI did well · one thing you had to correct · your skill plan's next step.</li></ul>
+    <div class="prompt"><span class="label">Prompt D · Rehearse</span><button class="copy">Copy</button>Act as the ABN presentation panel. I will present my Career Hub to you in 5 minutes. Listen to my outline, then ask me two challenging but fair questions about it: [PASTE YOUR OUTLINE]</div></div>
+
+  <div class="check"><strong>✅ Done today when:</strong><ul>
+    <li>interview.html in your private toolkit · portfolio still clean and public · QA fix #1 done</li></ul></div>
+</section>
+
+</main>
+<footer>ABN · AI in the Workforce — Career Hub labs. Build in Claude · Save on GitHub · Style method adapted from frontend-slides (Zara Zhang).</footer>
+
+<script>
+  const tabs=document.getElementById('tabs');
+  function openTab(id){
+    const b=tabs.querySelector(`button[data-w="${id}"]`); if(!b||b.style.display==='none') return;
+    tabs.querySelectorAll('button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.querySelectorAll('section.week').forEach(s=>s.classList.remove('show'));
+    document.getElementById(id).classList.add('show');
+    window.scrollTo({top:0});
+  }
+  tabs.addEventListener('click',e=>{
+    const b=e.target.closest('button'); if(!b) return;
+    openTab(b.dataset.w);
+  });
+  /* Deep link + gating: share the page as ...#week2 (or #w2) — it opens on that week
+     and hides LATER weeks (earlier ones stay for catch-up). No hash = everything visible. */
+  function applyHash(){
+    const m=(location.hash||'').match(/#w(?:eek)?(\d)/i);
+    if(!m) return;
+    const n=Math.min(5,Math.max(1,+m[1]));
+    tabs.querySelectorAll('button').forEach(b=>{
+      const w=b.dataset.w;
+      b.style.display=(w==='setup'||+w.slice(1)<=n)?'':'none';
+    });
+    openTab('w'+n);
+  }
+  window.addEventListener('hashchange',applyHash);
+  applyHash();
+  document.querySelectorAll('.copy').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const block=btn.parentElement.cloneNode(true);
+      block.querySelector('.copy').remove();
+      const lbl=block.querySelector('.label'); if(lbl) lbl.remove();
+      navigator.clipboard.writeText(block.textContent.trim()).then(()=>{
+        btn.textContent='Copied ✓';
+        setTimeout(()=>btn.textContent='Copy',1600);
+      });
+    });
+  });
+</script>
+</body>
+</html>
