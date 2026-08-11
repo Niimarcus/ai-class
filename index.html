@@ -352,10 +352,34 @@ MY RESUME (pasted below this line):
     <ol><li>Download <span class="pill">coverletter.html</span> → repo → <strong>Add file → Upload files</strong> → commit <span class="pill">Add cover letter studio</span>.</li>
     <li>Drag the file into your <strong>Project knowledge</strong> too — so Claude remembers your story bank and letters next week.</li></ol></div>
 
+  <div id="w2homework"></div>
+  <div class="step"><h3><span class="num">6</span>Homework 1 — add the Outreach Kit to your page</h3>
+    <p style="margin-bottom:10px">The follow-up email is the highest-return message in a job search — most applicants never send one. This adds three message-writers to the page you already built. Paste in your project chat, then download and re-upload the file with the same name:</p>
+    <div class="prompt"><span class="label">Prompt C · Add the Outreach Kit</span><button class="copy">Copy</button>Add an "Outreach Kit" section to my existing coverletter.html — change NOTHING else on the page. Three cards side by side: Follow-up email (I applied about a week ago and heard nothing — polite nudge with substance), Thank-you note (within 24 hours of an interview — specific, warm, short), and Recruiter outreach (3 sentences that earn a reply, not a pitch). Each card has a "Write this one" button that selects it. Below the cards, ONE shared tool: inputs for company/person and role, then — per my project instructions' AI WIRING rules — a "✨ Write it with AI" button (visible only when my key is saved) that writes the finished message directly into a result box, a "Copy prompt to paste elsewhere" fallback button, and "✕ Clear" buttons for both the inputs and the result box. My story points go INSIDE the prompts behind the scenes but are never displayed on the page. The result box gets its own copy button. Match the page's existing style exactly.</div>
+    <div class="tip">💡 Made your follow-up? Send it the same day — a short, specific follow-up on last week's application puts you ahead of almost everyone.</div></div>
+
+  <div class="step"><h3><span class="num">7</span>Homework 2 — build your first Gem (Google Gemini)</h3>
+    <p style="margin-bottom:10px">In class we said custom assistants are a <em>pattern</em>, not a product — your Claude Project is one. Prove it to yourself by building the same thing in Google's tool. It's free.</p>
+    <ol><li>Go to <a href="https://gemini.google.com" target="_blank" rel="noopener" class="ext">gemini.google.com</a> and sign in with your Google account.</li>
+    <li>In the left sidebar, click <strong>Explore Gems</strong> (diamond icon) → <strong>New Gem</strong>.</li>
+    <li>Name it: <strong>My Career Assistant</strong>.</li>
+    <li>In the instructions box, paste the block below — replacing the two [BRACKETS] with your real resume text and the story points from your Week 2 chat.</li>
+    <li>Click <strong>Save</strong>, open your new Gem, and test it: paste any job description and say <em>"draft my cover letter"</em>.</li></ol>
+    <div class="prompt"><span class="label">Gem instructions · paste into your new Gem</span><button class="copy">Copy</button>You are my career assistant. Use ONLY these facts about me — never invent anything.
+
+MY RESUME:
+[PASTE YOUR RESUME TEXT HERE]
+
+MY STORY POINTS:
+[PASTE YOUR STORY POINTS FROM OUR WEEK 2 CHAT HERE]
+
+When I give you a job description, tailor my resume or draft a cover letter from these facts. Keep my voice: confident, specific, warm — no clichés like "I am writing to express my interest." When something is unclear, ask ALL your questions in one message. Always end by listing what you changed and which keywords you matched, so I can verify every fact.</div>
+    <div class="tip">💡 Notice what you just did: same resume, same story points, same rules — a custom assistant in a completely different company's AI. You now know the pattern, and it works everywhere. (Don't see Gems in the sidebar? Use a computer browser, not the mobile app.)</div></div>
+
   <div class="check"><strong>✅ Done today when:</strong><ul>
     <li>Story bank exists · coverletter.html is in your repo · one letter with 5 sentences edited into your own words</li></ul>
-  <p style="margin-top:8px"><strong>Finished early?</strong> Pick ONE: (a) swap letters with a neighbor — flag anything that sounds like a robot or isn't true; (b) one style refinement — ask Claude for exactly ONE change, <em>"Change only this, touch nothing else"</em>; or (c) ask Claude to add an "Outreach Kit" to your page: three cards (follow-up email, thank-you note, recruiter message) — pick one, fill in company + role, and it writes the message for you (same two-button AI wiring as everything else; your story bank is baked into the prompt behind the scenes, never displayed).</p>
-  <p style="margin-top:8px"><strong>Homework:</strong> send one real application (tailored resume + this letter) · log it in your tracker · then in your Project chat say: <em>"Write a short follow-up email for the application I sent last week, using my story bank"</em> — make it yours and send it; most applicants never follow up, so this one email puts you ahead · <strong>next week your hub goes LIVE:</strong> bring a headshot file if you want one, think of 2–3 projects/accomplishments you're proud of.</p></div>
+  <p style="margin-top:8px"><strong>Finished early?</strong> Pick ONE: (a) swap letters with a neighbor — flag anything that sounds like a robot or isn't true; (b) one style refinement — ask Claude for exactly ONE change, <em>"Change only this, touch nothing else"</em>; or (c) run Prompt C below — add the Outreach Kit to your page.</p>
+  <p style="margin-top:8px"><strong>Homework:</strong> send one real application (tailored resume + this letter) · log it in your tracker · run <strong>Prompt C</strong> (step 6) to add the Outreach Kit to your page, then use it to write a follow-up for the application you sent last week — make it yours and send it (in a hurry? just tell Claude in your project chat: "write a short follow-up email for last week's application, using my story bank") · <strong>next week your hub goes LIVE:</strong> bring a headshot file if you want one, think of 2–3 projects/accomplishments you're proud of.</p></div>
 </section>
 
 <!-- ================ WEEK 3 ================ -->
@@ -554,6 +578,17 @@ MY RESUME (pasted below this line):
   /* Deep link + gating: share the page as ...#week2 (or #w2) — it opens on that week
      and hides LATER weeks (earlier ones stay for catch-up). No hash = everything visible. */
   function applyHash(){
+    var hw=(location.hash||'').match(/#(?:hw|homework)-?(\d)/i);
+    if(hw){
+      var hn=Math.min(5,Math.max(1,+hw[1]));
+      tabs.querySelectorAll('button').forEach(function(b){
+        var w=b.dataset.w;
+        b.style.display=(w==='setup'||+w.slice(1)<=hn)?'':'none';
+      });
+      openTab('w'+hn);
+      setTimeout(function(){var a=document.getElementById('w'+hn+'homework');if(a)a.scrollIntoView({behavior:'smooth'})},300);
+      return;
+    }
     if(/#(setup|before)/i.test(location.hash||'')){
       tabs.querySelectorAll('button').forEach(b=>{b.style.display=b.dataset.w==='setup'?'':'none'});
       openTab('setup');return}
