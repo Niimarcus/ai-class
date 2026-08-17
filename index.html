@@ -291,7 +291,7 @@ MY RESUME (pasted below this line):
     <li>Your style is saved in Project instructions</li>
     <li>resume.html works: resume + tailor box + tracker</li>
     <li>resume.html is visible in your GitHub repo</li></ul>
-  <p style="margin-top:8px"><strong>Homework:</strong> tailor your resume for 2 real postings · add them to your tracker · bring one job posting you actually want next week · <em>optional:</em> have a photo? save it as <span class="pill">photo.jpg</span> in the same folder as resume.html (and upload it to your repo) — the circle in your resume hero fills in automatically; until then your initials show, which is the built-in look, not a bug · <strong>one-time:</strong> your repo is private, so add your instructor as a collaborator (repo → Settings → Collaborators → Add people → [INSTRUCTOR GITHUB USERNAME]) so your work counts for assignment credit.</p>
+  <p style="margin-top:8px"><strong>Homework:</strong> tailor your resume for 2 real postings · add them to your tracker · bring one job posting you actually want next week · <em>optional:</em> have a photo? save it as <span class="pill">photo.jpg</span> in the same folder as resume.html (and upload it to your repo) — the circle in your resume hero fills in automatically; until then your initials show, which is the built-in look, not a bug · <strong>one-time:</strong> your repo is private, so add your instructor as a collaborator (repo → Settings → Collaborators → Add people → Niimarcus) so your work counts for assignment credit.</p>
   <p style="margin-top:8px"><strong>Stretch homework (optional):</strong> in Claude → <strong>Settings → Connectors</strong>, connect <strong>GitHub</strong> and authorize your account. Then ask Claude: <em>"Commit my latest resume.html to my career-hub repo."</em> If it works, Claude can do your uploads from now on — you did it manually today so you understand what it's doing. If the authorization confuses you, skip it: drag-drop always works.</p></div>
 </section>
 
@@ -387,33 +387,40 @@ When I give you a job description, tailor my resume or draft a cover letter from
   <div class="goal"><h2>Week 3 — Your Portfolio + GO LIVE</h2>
   <p>Today you build a public portfolio and get your shareable link: <span class="pill">https://YOUR-USERNAME.github.io/portfolio</span>. Your toolkit (resume, letters, interview prep) stays in your <strong>private</strong> repo — only the portfolio goes public. Today's class was about AI ethics and privacy — this split IS that lesson, applied.</p></div>
 
-  <div class="step"><h3><span class="num">1</span>Privacy first — decide what goes public</h3>
+  <div class="tip" style="border-left:6px solid var(--accent2)">🐢 <strong>Behind from Week 2?</strong> That's fine — today's build only needs your resume page in your Project knowledge. Finish coverletter.html at home with the Week 2 tab; jump into today now.</div>
+
+  <div class="step"><h3><span class="num">1</span>Open your tools — exactly like this</h3>
+    <ol><li>Go to <a href="https://claude.ai" target="_blank" rel="noopener" class="ext">claude.ai</a> → sign in → left sidebar → <strong>Projects</strong> → open <strong>My Career Hub</strong> → <strong>New chat inside the project</strong> (the project name must show at the top of your chat).</li>
+    <li>Second tab: <a href="https://github.com" target="_blank" rel="noopener" class="ext">github.com</a> → sign in. (Today you'll create a SECOND repository — we do it together in step 6.)</li></ol></div>
+
+  <div class="step"><h3><span class="num">2</span>Privacy first — decide what goes public</h3>
     <ul><li><strong>Your AI data:</strong> open your AI tool's data settings (Claude: Settings → Privacy · ChatGPT: Settings → Data Controls) and make a deliberate choice about history/training. That's digital responsibility from today's class.</li>
     <li><strong>Public vs private:</strong> your toolkit repo is private and stays that way. Only today's <span class="pill">index.html</span> goes public — curated for strangers: no phone, no street address, no job tracker, no skill gaps. Contact = email or LinkedIn button only.</li>
     <li><strong>Photo:</strong> a headshot is optional — photos can invite bias (today's topic!). If you want one, name the file exactly <span class="pill">photo.jpg</span>. No photo = your styled initials.</li></ul></div>
 
-  <div class="step"><h3><span class="num">2</span>Define your projects</h3>
+  <div class="step"><h3><span class="num">3</span>Define your projects</h3>
     <div class="prompt"><span class="label">Prompt A · Projects interview</span><button class="copy">Copy</button>Help me define 3 portfolio projects from my career. Using my resume and story bank in this project, DRAFT the 3 best candidates yourself — for each: a title, the situation, what I did, the measurable result, and tools used — then ask me in the same message what to correct or replace. Real work accomplishments, certifications, or community work all count. The Career Hub itself is project #4: "Built an AI-powered career site."</div>
     <div class="tip">💡 Claude drafts first from your resume and story bank — you only correct. One round, not ten.</div></div>
 
-  <div class="step"><h3><span class="num">3</span>Add the template + choose your three knobs</h3>
-    <ul><li>Download <span class="pill">portfolio-template.html</span> from the class links sheet → in your Claude Project, click <strong>+ Add content</strong> (Project knowledge) → upload it.</li>
+  <div class="step"><h3><span class="num">4</span>Add the template + choose your three knobs</h3>
+    <ul><li><a href="portfolio-template.html" download="portfolio-template.html" class="ext"><strong>Click here to download portfolio-template.html</strong></a> — it saves to your Downloads folder.</li>
+    <li>In your Claude Project (the project page, not the chat): click <strong>+ Add content</strong> under Project knowledge → <strong>Upload file</strong> → pick <span class="pill">portfolio-template.html</span> from Downloads.</li>
     <li>We ALL build the same proven layout (inspired by heynesh.com) — what makes yours <em>yours</em> is three choices:</li></ul>
     <ol style="margin-top:8px"><li><strong>Colors</strong> — your Week 1 palette (or tell Claude a new 3-color set)</li>
     <li><strong>Fonts</strong> — your display + body pairing</li>
     <li><strong>Orientation</strong> — hero name+photo <span class="pill">center</span> / <span class="pill">left</span> · journey cards <span class="pill">staggered</span> / <span class="pill">rail</span> · projects <span class="pill">side-scroll</span> / <span class="pill">grid</span></li></ol></div>
 
-  <div class="step"><h3><span class="num">4</span>Build the portfolio</h3>
+  <div class="step"><h3><span class="num">5</span>Build the portfolio</h3>
     <div class="prompt"><span class="label">Prompt B · Customize the template</span><button class="copy">Copy</button>I added portfolio-template.html to this project's knowledge. Turn it into MY index.html: (1) THEME TOKENS at the top of the file: use my style's colors and fonts; (2) ORIENTATION: set the body classes to my three choices — I choose hero-[CENTER/LEFT], journey-[STAGGER/RAIL], projects-[SCROLL/GRID]; (3) replace every [bracketed placeholder] with my real content: my SHORT display name for the giant hero letters, full name, title, city, bold 2–3 word statement, my 5 trait words, 2 stat chips with MY real numbers, a 5–7 card Journey from my career — including my move to the U.S., told as a strength — the projects we defined earlier (each keeps its dark gradient), three "What I Bring" cards, and 4 Q&A answers recruiters would ask (include work authorization if I'm comfortable). Public-safe: no phone, no street address, nothing private. Keep the template's layout, spacing, and animations EXACTLY as they are — change only tokens, orientation classes, and content. Ask all questions in one message first if anything is missing.</div>
     <div class="tip">💡 In Claude's preview you'll see your <strong>initials instead of your photo</strong> — that's the built-in fallback. Your photo appears once photo.jpg is uploaded next to index.html in your repo. Everyone shares the layout; nobody shares your story, colors, or numbers.</div></div>
 
-  <div class="step"><h3><span class="num">5</span>Create your PUBLIC portfolio repo + upload</h3>
+  <div class="step"><h3><span class="num">6</span>Create your PUBLIC portfolio repo + upload</h3>
     <ol><li>GitHub → <strong>+</strong> → <strong>New repository</strong> → name: <span class="pill">portfolio</span> → <strong>Public</strong> → ✅ Add a README → Create.</li>
     <li>Download <span class="pill">index.html</span> from Claude.</li>
     <li>In the <strong>portfolio</strong> repo: <strong>Add file → Upload files</strong> → drag <span class="pill">index.html</span> + <span class="pill">photo.jpg</span> → commit <span class="pill">Publish my portfolio</span>.</li></ol>
     <div class="tip">🔒 <strong>Two repos, two jobs:</strong> <span class="pill">career-hub</span> (private) = your toolkit. <span class="pill">portfolio</span> (public) = the one page strangers see. Keep all downloaded files in ONE folder on your computer — the pages still link to each other locally. And drag index.html into your <strong>Project knowledge</strong> like every week.</div></div>
 
-  <div class="step"><h3><span class="num">6</span>Turn on GitHub Pages</h3>
+  <div class="step"><h3><span class="num">7</span>Turn on GitHub Pages</h3>
     <ol><li>In the <strong>portfolio</strong> repo → <strong>Settings → Pages</strong>.</li>
     <li>Source: <strong>Deploy from a branch</strong> → Branch: <strong>main</strong> → <strong>Save</strong>.</li>
     <li>Wait 1–2 minutes → refresh → click your live link. 🎉</li></ol>
