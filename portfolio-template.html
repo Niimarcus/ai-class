@@ -178,8 +178,17 @@ body.projects-grid .projwrap{display:grid;grid-template-columns:repeat(auto-fit,
 .bring h3{font-family:var(--display);font-weight:800;font-size:1.25rem;margin-bottom:10px}
 .bring ul{list-style:none;font-size:14.5px} .bring li{padding:4px 0;font-weight:600;color:color-mix(in srgb,var(--ink) 78%,var(--bg))}
 .bring li::before{content:"✦ ";color:var(--accent)}
-/* ---------- FAQ ---------- */
-.faq{margin-top:40px;display:flex;flex-direction:column;gap:12px}
+/* ---------- REFERENCES (simple text cards) ---------- */
+.refs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:44px}
+.ref{background:color-mix(in srgb,var(--bg) 60%,#fff 14%);border:1px solid color-mix(in srgb,var(--ink) 8%,transparent);
+  border-radius:18px;padding:26px;transition:transform .35s ease,box-shadow .35s ease}
+.ref:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.09)}
+.ref h3{font-family:var(--display);font-weight:800;font-size:1.25rem;margin-bottom:6px}
+.ref p{font-size:14.5px;color:color-mix(in srgb,var(--ink) 78%,var(--bg))}
+.ref .rc{margin-top:12px;font-family:monospace;font-size:12.5px;color:var(--accent);word-break:break-word}
+/* ---------- FAQ (two-column, like the reference site) ---------- */
+.faq{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.faq{grid-template-columns:1fr}}
 .faq details{background:color-mix(in srgb,var(--bg) 60%,#fff 14%);border:1px solid color-mix(in srgb,var(--ink) 8%,transparent);border-radius:14px;transition:box-shadow .3s ease}
 .faq details[open]{box-shadow:0 12px 32px rgba(0,0,0,.08)}
 .faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;padding:18px 22px;font-weight:800;font-size:15.5px}
@@ -211,7 +220,7 @@ footer .fine{margin-top:56px;font-size:12.5px;color:color-mix(in srgb,var(--ink)
   <div class="box stats"><div><b>[8+]</b><span>[years experience]</span></div><div><b>[XX]</b><span>[your best number]</span></div></div>
   <div class="box"><nav>
     <a href="#top" class="on">Home</a><a href="#journey">My Journey</a><a href="#projects">Projects</a>
-    <a href="#bring">What I Bring</a><a href="#faq">Q&amp;A</a><a href="#contact">Contact</a>
+    <a href="#bring">What I Bring</a><a href="#refs">References</a><a href="#faq">Q&amp;A</a><a href="#contact">Contact</a>
   </nav></div>
   <div class="box mail" onclick="navigator.clipboard.writeText('[you@email.com]');this.querySelector('i').textContent='copied!'"><span>[you@email…]</span><i style="font-style:normal">⧉</i></div>
   <div class="cta"><a class="pill" href="mailto:[you@email.com]">Email Me</a></div>
@@ -254,10 +263,16 @@ footer .fine{margin-top:56px;font-size:12.5px;color:color-mix(in srgb,var(--ink)
   <div class="bring"><div class="b"><div class="ic">✦</div><h3>[Strength theme]</h3><ul><li>[Proof]</li><li>[Proof]</li><li>[Proof]</li></ul></div><div class="b"><div class="ic">✦</div><h3>[Strength theme]</h3><ul><li>[Proof]</li><li>[Proof]</li><li>[Proof]</li></ul></div><div class="b"><div class="ic">✦</div><h3>[Strength theme]</h3><ul><li>[Proof]</li><li>[Proof]</li><li>[Proof]</li></ul></div></div>
 </section>
 
+<section id="refs" class="reveal">
+  <span class="badge">REFERENCES</span>
+  <h2 class="big">People I&rsquo;ve <span class="ghost">worked with</span></h2>
+  <div class="refs"><div class="ref"><h3>[Reference name]</h3><p>[Their role · Company or school where you worked together]</p><p class="rc">[phone] · [email]</p></div><div class="ref"><h3>[Reference name]</h3><p>[Their role · Company or school where you worked together]</p><p class="rc">[phone] · [email]</p></div><div class="ref"><h3>[Reference name]</h3><p>[Their role · Company or school where you worked together]</p><p class="rc">[phone] · [email]</p></div></div>
+</section>
+
 <section id="faq" class="reveal">
   <span class="badge">QUICK ANSWERS</span>
   <h2 class="big">You&rsquo;d Ask <span class="ghost">Anyway</span></h2>
-  <div class="faq"><details><summary>[Question recruiters ask]</summary><div class="bd">[Your confident answer.]</div></details><details><summary>[Question recruiters ask]</summary><div class="bd">[Your confident answer.]</div></details><details><summary>[Question recruiters ask]</summary><div class="bd">[Your confident answer.]</div></details><details><summary>[Question recruiters ask]</summary><div class="bd">[Your confident answer.]</div></details></div>
+  <div class="faq"><details><summary>When can you start?</summary><div class="bd">[Your availability — e.g. immediately, two weeks&rsquo; notice, or a specific date.]</div></details><details><summary>Salary expectations?</summary><div class="bd">[Your range, or &ldquo;open to discussion based on the full role.&rdquo;]</div></details><details><summary>Open to relocation or remote?</summary><div class="bd">[Where and how you can work — e.g. remote, hybrid in [city], open to relocating.]</div></details><details><summary>Languages you speak?</summary><div class="bd">[e.g. English (fluent), French (conversational), Twi (native).]</div></details></div>
 </section>
 </main>
 
@@ -336,7 +351,7 @@ document.querySelectorAll('.chip b, aside .stats b').forEach(el=>cio.observe(el)
 const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;
 document.querySelectorAll('aside nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id))}}),
 {rootMargin:'-40% 0px -55% 0px'});
-['top','journey','projects','bring','faq','contact'].forEach(id=>{const el=document.getElementById(id);if(el)spy.observe(el)});
+['top','journey','projects','bring','refs','faq','contact'].forEach(id=>{const el=document.getElementById(id);if(el)spy.observe(el)});
 /* drag-to-scroll for the horizontal projects strip */
 (function(){const pw=document.querySelector('.projwrap');
 if(!pw||!document.body.classList.contains('projects-scroll'))return;
