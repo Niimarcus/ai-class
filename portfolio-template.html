@@ -42,8 +42,9 @@ a:focus-visible,summary:focus-visible{outline:2.5px solid var(--accent);outline-
 body.hero-left .hero{justify-content:flex-start;padding-left:8vw}
 body.hero-left .hero .giant{text-align:right;left:auto;right:2vw}
 .hero .state{position:absolute;z-index:3;bottom:20vh;left:50%;transform:translateX(-50%);text-align:center;width:min(680px,92vw)}
-.hero .state h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,5.2vw,4rem);line-height:1.02;color:#fff;
-  text-shadow:0 1px 4px rgba(0,0,0,.45),0 4px 40px rgba(0,0,0,.4)}
+.hero .state h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,5.2vw,4rem);line-height:1.02;color:var(--on-dark);
+  text-shadow:0 1px 4px color-mix(in srgb,var(--ink) 45%,transparent),0 4px 40px color-mix(in srgb,var(--ink) 40%,transparent)}
+body.hero-left .hero .state h1{color:var(--ink);text-shadow:none}
 .hero .ctas{position:absolute;z-index:3;bottom:9vh;left:50%;transform:translateX(-50%);display:flex;gap:14px}
 .chip{position:absolute;z-index:3;background:color-mix(in srgb,var(--bg) 55%,transparent);backdrop-filter:blur(10px);
   border:1px solid color-mix(in srgb,var(--ink) 10%,transparent);border-radius:14px;padding:16px 20px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
@@ -119,7 +120,7 @@ body.journey-stagger .jcard.reveal.in{transform:none}
 .dark{background:var(--ink);color:var(--on-dark);margin-top:130px;padding:110px 0 100px}
 .dark .wrap{max-width:1060px;margin:0 auto;padding:0 5vw}
 body.rail .dark .wrap{margin-left:max(270px,calc(50% - 530px + 60px))}
-.dark h2.big{color:#fff} .dark h2.big .ghost{color:color-mix(in srgb,#fff 26%,var(--ink))}
+.dark h2.big{color:var(--on-dark)} .dark h2.big .ghost{color:color-mix(in srgb,var(--on-dark) 26%,var(--ink))}
 .projwrap{margin-top:52px}
 body.projects-scroll .projwrap{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:18px;cursor:grab}
 body.projects-scroll .projwrap.grabbing{cursor:grabbing;scroll-snap-type:none;user-select:none}
@@ -218,9 +219,9 @@ footer .fine{margin-top:56px;font-size:12.5px;color:color-mix(in srgb,var(--ink)
 </main>
 
 <section class="dark" id="projects"><div class="wrap reveal">
-  <span class="badge" style="border-color:#fff;color:#fff">SELECTED WORK</span>
+  <span class="badge" style="border-color:var(--on-dark);color:var(--on-dark)">SELECTED WORK</span>
   <h2 class="big">Made to <span class="ghost">Perform</span></h2>
-  <p class="lede" style="color:rgba(255,255,255,.75)">[One line about your work.]</p>
+  <p class="lede" style="color:color-mix(in srgb,var(--on-dark) 75%,transparent)">[One line about your work.]</p>
   <div class="projwrap"><div class="proj" style="background:linear-gradient(160deg,#2C4A3B,#101E17)"><div class="top"><span class="n">01</span><div class="tags"><span>[Tag]</span><span>[Tag]</span></div></div><div class="mid"><b>01</b></div><h3>[Project]</h3><p>[One-sentence story.]</p><p class="res">[Measurable result]</p><span class="go">↗</span></div><div class="proj" style="background:linear-gradient(160deg,#33305C,#14121F)"><div class="top"><span class="n">02</span><div class="tags"><span>[Tag]</span><span>[Tag]</span></div></div><div class="mid"><b>02</b></div><h3>[Project]</h3><p>[One-sentence story.]</p><p class="res">[Measurable result]</p><span class="go">↗</span></div><div class="proj" style="background:linear-gradient(160deg,#59372A,#1D110C)"><div class="top"><span class="n">03</span><div class="tags"><span>[Tag]</span><span>[Tag]</span></div></div><div class="mid"><b>03</b></div><h3>[Project]</h3><p>[One-sentence story.]</p><p class="res">[Measurable result]</p><span class="go">↗</span></div></div>
 </div></section>
 
