@@ -40,8 +40,8 @@ a:focus-visible,summary:focus-visible{outline:2.5px solid var(--accent);outline-
    Have a transparent-background cutout PNG? It just looks even better here. */
 .hero .photo img{width:100%;display:block;border-radius:26px 26px 0 0;
   -webkit-mask-image:linear-gradient(180deg,#000 74%,transparent);mask-image:linear-gradient(180deg,#000 74%,transparent)}
-.hero .photo .initials{width:min(340px,52vw);aspect-ratio:3/4;border-radius:24px 24px 0 0;background:linear-gradient(180deg,color-mix(in srgb,var(--ink) 82%,var(--accent)),var(--ink));
-  display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:5rem;color:var(--accent)}
+.hero .photo .initials{width:min(240px,46vw);aspect-ratio:1/1;border-radius:50%;margin:0 auto calc(20vh + 3.2*clamp(2rem,5.2vw,4rem));background:linear-gradient(180deg,color-mix(in srgb,var(--ink) 82%,var(--accent)),var(--ink));
+  display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:clamp(2.6rem,12vw,5rem);color:var(--accent)}
 body.hero-left .hero{justify-content:flex-start;padding-left:8vw}
 body.hero-left .hero .giant{text-align:right;left:auto;right:2vw}
 .hero .state{position:absolute;z-index:3;bottom:20vh;left:50%;transform:translateX(-50%);text-align:center;width:min(680px,92vw)}
@@ -229,7 +229,7 @@ footer .fine{margin-top:56px;font-size:12.5px;color:color-mix(in srgb,var(--ink)
 
 <header class="hero" id="top">
   <div class="giant">[NAME]</div>
-  <div class="photo"><img src="photo.jpg" alt="[YOUR NAME]" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=initials>[AB]</div>'"></div>
+  <div class="photo"><img src="photo.jpg" alt="[YOUR NAME]" data-next="photo.png photo.jpeg photo.JPG" onload="var s=this.getAttribute('src'),f=function(){var a=document.querySelector('.about-portrait');if(a)a.style.backgroundImage='url('+s+')'};document.readyState=='loading'?document.addEventListener('DOMContentLoaded',f):f()" onerror="var n=(this.dataset.next||'').split(' ').filter(Boolean);if(n.length){this.dataset.next=n.slice(1).join(' ');this.src=n[0]}else{this.style.display='none';this.parentElement.innerHTML='<div class=initials>[AB]</div>'}"></div>
   <div class="chip c1"><b>[8+]</b><span>[years experience]</span></div>
   <div class="chip c2"><b>[XX]</b><span>[your best number]</span></div>
   <div class="chip c3"><ul><li>[Trait]</li><li>[Trait]</li><li>[Trait]</li><li>[Trait]</li><li>[Trait]</li></ul></div>
