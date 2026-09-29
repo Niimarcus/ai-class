@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boston AI Career Class</title>
+<meta name="description" content="Curtis Hall cohort: 4 Saturdays, Oct 3 to 24, 2026, 1 to 4 pm. Plans, prompts and checklists.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  /* Same tokens and components as index.html, plus a few additions for the in-person cohort. */
+  :root{
+    --ink:#111318; --paper:#FFFFFF; --soft:#F4F4F0; --accent:#1D4ED8; --accent2:#E63946;
+    --line:#D8D8D2; --mono:'Space Mono',ui-monospace,monospace;
+    --accent2-text:#B42331; --muted:#4A4F5C;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--soft);color:var(--ink);font-size:17px;line-height:1.55;overflow-wrap:break-word}
+  a{color:var(--accent)}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+  .skip{position:absolute;left:-9999px;top:0;background:#fff;color:var(--ink);padding:10px 14px;z-index:50;font-weight:700}
+  .skip:focus{left:12px;top:12px}
+  header{background:var(--ink);color:#fff;padding:28px 32px 22px;border-bottom:6px solid var(--accent)}
+  header h1{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(24px,3.4vw,36px);letter-spacing:-.01em;line-height:1.15}
+  header p{color:#C9CDD6;margin-top:8px;font-size:16px}
+  header .kbd{color:#fff;background:#2A2E38;padding:1px 7px;border-radius:4px;font-family:var(--mono);font-size:14px}
+  header a{color:#fff}
+  nav{display:flex;flex-wrap:wrap;gap:8px;padding:12px 32px;background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+  nav a{font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;padding:8px 15px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;text-decoration:none;white-space:nowrap}
+  nav a:hover{background:var(--ink);color:#fff}
+  nav a.here{background:var(--accent);border-color:var(--accent);color:#fff}
+  main{max-width:980px;margin:0 auto;padding:30px 24px 80px}
+  section,.step,.rule{scroll-margin-top:100px}
+  h2.sec{font-family:'Archivo',sans-serif;font-weight:900;font-size:28px;margin:44px 0 14px;line-height:1.2}
+  .goal{background:var(--paper);border:2px solid var(--ink);border-left:12px solid var(--accent);padding:18px 22px;margin-bottom:22px;border-radius:6px}
+  .goal h2{font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;margin-bottom:6px;line-height:1.2}
+  .goal p{font-size:17px}
+  .step{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:20px 22px 22px;margin-bottom:18px}
+  .step h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:20px;display:flex;align-items:baseline;gap:12px;margin-bottom:10px;line-height:1.3}
+  .step h4{font-family:'Archivo',sans-serif;font-weight:700;font-size:17px;margin:14px 0 4px}
+  .num{font-family:'Archivo',sans-serif;font-weight:900;color:#fff;background:var(--ink);min-width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;font-size:17px;flex:none;padding:0 6px}
+  .step ol,.step ul,.check ul,.check ol,.rule ul{margin:8px 0 4px 26px}
+  .step li,.check li,.rule li{margin-bottom:7px}
+  .prompt{position:relative;background:#0F1220;color:#E7E9F2;font-family:var(--mono);font-size:15px;line-height:1.6;padding:50px 18px 16px;border-radius:8px;margin:16px 0 6px;border-left:6px solid var(--accent2)}
+  .prompt .label{position:absolute;top:-11px;left:14px;background:var(--accent2-text);color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase;padding:2px 10px;border-radius:4px}
+  .prompt .ptext{white-space:pre-wrap}
+  .copy{position:absolute;top:12px;right:12px;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;background:#fff;color:var(--ink);border:none;padding:7px 14px;border-radius:6px;cursor:pointer}
+  .copy:hover{background:var(--accent);color:#fff}
+  .copy:focus-visible{outline:3px solid #FFD84D;outline-offset:2px}
+  .copyhint{display:none;position:absolute;top:14px;left:18px;right:120px;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:#FFD84D}
+  .copyhint.show{display:block}
+  .msgs{display:inline-block;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;background:#EAF1FF;color:#123A9C;border:1px solid #BFD3FF;border-radius:999px;padding:2px 10px;margin-left:4px;white-space:nowrap}
+  .check{background:#EAF1FF;border:1px solid #BFD3FF;border-radius:8px;padding:14px 18px;margin-top:6px;margin-bottom:18px}
+  .check strong{font-family:'Archivo',sans-serif}
+  .check.done ul{list-style:none;margin-left:2px}
+  .check.done label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+  .check.done input{width:20px;height:20px;margin-top:3px;flex:none;accent-color:var(--accent)}
+  .tip{font-size:16px;color:#333;background:#FFF8E6;border:1px solid #EFE1AE;border-radius:8px;padding:10px 14px;margin-top:10px}
+  .catch{font-size:16px;background:#fff;border:2px dashed var(--ink);border-radius:8px;padding:12px 16px;margin:0 0 18px}
+  .catch strong{font-family:'Archivo',sans-serif}
+  .rule{background:#FFF1F2;border:2px solid var(--accent2-text);border-radius:8px;padding:16px 20px;margin:0 0 20px}
+  .rule h2,.rule h3{font-family:'Archivo',sans-serif;font-weight:900;font-size:20px;color:var(--accent2-text);margin-bottom:6px;line-height:1.25}
+  .rule .cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}
+  .pill{display:inline-block;font-family:var(--mono);font-size:14.5px;background:var(--soft);border:1px solid var(--line);padding:0 7px;border-radius:5px;word-break:break-all}
+  .path{font-weight:700}
+  table.plan{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:8px;margin:6px 0 18px;font-size:16px}
+  table.plan caption{text-align:left;font-family:'Archivo',sans-serif;font-weight:700;font-size:17px;padding:0 0 6px}
+  table.plan th,table.plan td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.plan th{background:var(--ink);color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px}
+  table.plan td:first-child{font-family:var(--mono);font-size:14.5px;white-space:nowrap}
+  table.plan tr.brk td{background:#FFF8E6;font-weight:700}
+  .tablewrap{overflow-x:auto}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  details.helpers{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px 18px;margin-bottom:18px}
+  details.helpers summary{cursor:pointer;font-family:'Archivo',sans-serif;font-weight:700;font-size:17px}
+  a.ext{color:var(--accent2-text);text-decoration:underline;text-underline-offset:2px;font-weight:inherit}
+  a.ext:hover{color:var(--accent)}
+  footer{max-width:980px;margin:0 auto;padding:0 24px 40px;color:#555;font-size:15px}
+  @media (max-width:640px){
+    body{font-size:17px} header{padding:22px 16px 18px} main{padding:20px 16px 70px}
+    nav{padding:10px 16px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
+    nav a{font-size:14px;padding:7px 12px}
+    .step{padding:16px 14px 18px} .prompt{padding:52px 12px 14px;font-size:14.5px}
+    .rule .cols,.grid2{grid-template-columns:1fr}
+    table.plan{font-size:15px} table.plan th,table.plan td{padding:7px 8px}
+    h2.sec{font-size:24px} .goal h2{font-size:23px}
+  }
+  @media print{
+    nav,.copy,.copyhint,.skip{display:none!important}
+    body{background:#fff;font-size:11.5pt}
+    header{background:#fff;color:#000;border-bottom:3px solid #000;padding:0 0 8px}
+    header p{color:#000}
+    .prompt{background:#fff;color:#000;border:1px solid #000;border-left:6px solid #000;padding-top:20px}
+    .prompt .label{background:#000;color:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .step,.check,.rule,.tip,.catch,table.plan{break-inside:avoid}
+    main{padding:10px 0}
+  }
+  .goal h3{font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;margin-bottom:6px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the main content</a>
+
+<header>
+  <h1>AI Career Class · Boston, Fall 2026</h1>
+  <p>Free class from African Bridge Network (ABN), funded by the City of Boston. Build with Claude, save on GitHub.</p>
+  <p>This page: <span class="kbd">niimarcus.github.io/ai-class/boston.html</span></p>
+</header>
+<nav aria-label="Page sections">
+  <a href="#before">Before Saturday</a>
+  <a href="#s1">Sat 1 · Oct 3</a>
+  <a href="#s2">Sat 2 · Oct 10</a>
+  <a href="#s3">Sat 3 · Oct 17</a>
+  <a href="#s4">Sat 4 · Oct 24</a>
+  <a href="#home">Take-home</a>
+  <a href="stuck.html">Stuck?</a>
+  <a href="cheatsheet.html">Cheat sheet</a>
+</nav>
+<main id="main">
+
+<div class="goal">
+  <h2>When and where</h2>
+  <ul style="margin:6px 0 0 24px">
+    <li><strong>4 Saturdays:</strong> October 3, 10, 17 and 24, 2026</li>
+    <li><strong>Time:</strong> 1:00 pm to 4:00 pm. Account help from 12:30 pm on October 3.</li>
+    <li><strong>Place:</strong> Curtis Hall Community Center, 20 South Street, Jamaica Plain, Boston</li>
+    <li><strong>You leave with:</strong> a resume page, a cover letter, a live portfolio website, and interview practice.</li>
+  </ul>
+</div>
+
+
+<div class="rule" id="privacy" role="note" aria-labelledby="privacy-h">
+  <h2 id="privacy-h">Privacy rule: check before you paste into AI</h2>
+  <div class="cols">
+    <div><strong>Remove first:</strong>
+      <ul><li>Street address</li><li>Phone number</li><li>ID, visa, A-number or case numbers</li><li>Date of birth</li><li>Other people's names, phones and emails</li></ul></div>
+    <div><strong>OK to keep:</strong>
+      <ul><li>Your name, city and email</li><li>Your jobs, dates and schools</li><li>Your skills and numbers</li></ul></div>
+  </div>
+  <p style="margin-top:6px"><strong>Your public page:</strong> references say "Contact on request". No line about work authorization.</p>
+</div>
+
+<div class="tip"><strong>Your free messages.</strong> Free Claude gives you about 15 to 40 messages every 5 hours. Each Saturday needs about <strong>6 to 10</strong>. Tips: answer all of Claude's questions in one message. Ask for small changes, not a new page. Skip "thank you" messages. If Claude says you reached the limit, see <a href="#limit">What to do at the limit</a>.</div>
+
+<!-- ============ BEFORE ============ -->
+<section id="before" aria-labelledby="before-h">
+<h2 class="sec" id="before-h">Before Saturday: set up at home (20 minutes)</h2>
+<p style="margin-bottom:12px">Do this on a computer if you can. No computer? Come at <strong>12:30 pm on October 3</strong>. We help you at the account clinic.</p>
+<div class="check done"><strong>Setup checklist</strong><ul>
+  <li><label><input type="checkbox"> <span>Make a free Claude account at <a class="ext" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>. Google sign-in is easiest.</span></label></li>
+  <li><label><input type="checkbox"> <span>Send Claude one message, like "Hello". Check it answers.</span></label></li>
+  <li><label><input type="checkbox"> <span>Make a free account at <a class="ext" href="https://github.com/signup" target="_blank" rel="noopener">github.com</a>. Use your name as username, like <span class="pill">amina-diallo</span>.</span></label></li>
+  <li><label><input type="checkbox"> <span>Open your email. Click the link from GitHub to confirm.</span></label></li>
+  <li><label><input type="checkbox"> <span>Keep your email password with you. You need it on Saturday.</span></label></li>
+  <li><label><input type="checkbox"> <span>Get your resume as text: Word, Google Docs, or a PDF.</span></label></li>
+  <li><label><input type="checkbox"> <span>No resume? Write half a page: jobs, school, skills. Any language is OK.</span></label></li>
+  <li><label><input type="checkbox"> <span>Remove private details from a copy. Read the privacy rule above.</span></label></li>
+  <li><label><input type="checkbox"> <span>Find one real job posting you want. Keep the link.</span></label></li>
+  <li><label><input type="checkbox"> <span>Optional: a photo of you, chest up, in good light.</span></label></li>
+  <li><label><input type="checkbox"> <span>Bring your phone for sign-in codes, and a charger.</span></label></li>
+</ul></div>
+<div class="tip"><strong>Copy and paste mode only.</strong> This class uses no keys and no extra services. You copy a prompt from this page, paste it into Claude, and copy the answer back. That is all.</div>
+</section>
+
+<!-- ============ SAT 1 ============ -->
+<section id="s1" aria-labelledby="s1-h">
+<h2 class="sec" id="s1-h">Saturday 1 · October 3: Accounts and your resume page</h2>
+<div class="rule" role="note"><h3>Before you paste into AI (Saturday 1)</h3>
+  <p>Remove your street address, phone, ID, visa, A-number and case numbers, and other people's details. <a href="#privacy">Full privacy rule</a></p></div>
+<div class="goal"><h3>Goal today</h3><p>Your accounts work. Your resume text and <span class="pill">resume.html</span> are saved in GitHub. You tailor your resume for one real job.</p></div>
+
+<details class="helpers"><summary>For helpers: 12:30 account clinic plan</summary>
+  <ol style="margin:10px 0 0 24px">
+    <li>12:30: Table at the door. Ask: "Claude? GitHub? Phone with you?"</li>
+    <li>12:30-12:45: Helper 1 fixes Claude sign-up. Helper 2 fixes GitHub sign-up.</li>
+    <li>12:45-1:00: Confirm emails. Test: one message in Claude, one repo on GitHub.</li>
+    <li>No phone for codes? Use email codes. Pair with a partner.</li>
+    <li>Pairs: each person uses their own GitHub.</li>
+    <li>Pairs share one Claude today. Paste only what both agree to share.</li>
+    <li>Write down who is not finished. Help them at 3:35.</li>
+    <li>Shared computers: use a Guest or Incognito window if allowed.</li>
+  </ol>
+</details>
+
+<div class="tablewrap"><table class="plan"><caption>Saturday 1 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI messages</th></tr></thead><tbody><tr><td>12:30-1:00</td><td>Account clinic (optional). Come early if your accounts are not ready.</td><td>0</td></tr><tr><td>1:00-1:10</td><td>Welcome. Wi-Fi. The privacy rule. Your message budget.</td><td>0</td></tr><tr><td>1:10-1:35</td><td>Steps 1-2: sign in, test Claude, check GitHub.</td><td>1</td></tr><tr><td>1:35-1:50</td><td>Step 3: make your private repo. Save my-resume.txt.</td><td>0</td></tr><tr><td>1:50-2:25</td><td>Steps 4-5: build resume.html with Prompt 1A. Save it to GitHub.</td><td>1-2</td></tr><tr class="brk"><td>2:25-2:35</td><td>Break (10 minutes)</td><td>-</td></tr><tr><td>2:35-3:05</td><td>Step 6: tailor your resume for a real job (Prompt 1B). Check every line.</td><td>1-2</td></tr><tr><td>3:05-3:35</td><td>Step 7: change one thing on your page (Prompt 1C). Save again.</td><td>1-2</td></tr><tr><td>3:35-3:50</td><td>Help time and catch-up. Check a partner's page.</td><td>0-1</td></tr><tr><td>3:50-4:00</td><td>Done checklist. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
+<p><span class="msgs">About 6 to 8 messages today</span></p>
+
+<div class="step"><h3><span class="num">1</span>Open your two tabs</h3>
+  <ol><li>Tab 1: <a class="ext" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>. Sign in.</li>
+  <li>Tab 2: <a class="ext" href="https://github.com" target="_blank" rel="noopener">github.com</a>. Sign in.</li>
+  <li>Shared computer? Use a Guest or Incognito window if you can.</li></ol></div>
+
+<div class="step"><h3><span class="num">2</span>Test Claude</h3>
+  <ol><li>Click <span class="path">New chat</span>.</li>
+  <li>Type "Hello" and send it. This is message 1.</li></ol></div>
+
+<div class="step" id="s1-step3"><h3><span class="num">3</span>Make your private repo and save your resume text</h3>
+  <p>A repo is a folder on GitHub. This one is private: only you see it.</p>
+  <ol><li>On GitHub, click <span class="path">+</span> (top right) → <span class="path">New repository</span>.</li>
+  <li>Name: <span class="pill">career-hub</span>. Choose <strong>Private</strong>.</li>
+  <li>Check <span class="path">Add a README file</span>. Click <span class="path">Create repository</span>.</li>
+  <li>Open your resume. Select all (Ctrl+A). Copy (Ctrl+C).</li>
+  <li>Save it as a new file named <span class="pill">my-resume.txt</span> (steps below).</li>
+  <li>In GitHub, delete your address, phone and ID numbers first.</li></ol>
+  <h4>How to save a new file on GitHub</h4>
+  <ol>
+  <li>Open your repo on <a class="ext" href="https://github.com" target="_blank" rel="noopener">github.com</a>.</li>
+  <li>Click <span class="path">Add file → Create new file</span>.</li>
+  <li>Type the file name, for example <span class="pill">my-resume.txt</span>.</li>
+  <li>Click in the big box. Press <strong>Ctrl+V</strong> to paste.</li>
+  <li>Click the green <span class="path">Commit changes</span> button, then <span class="path">Commit changes</span> again.</li>
+</ol>
+  <div class="tip"><strong>Why GitHub?</strong> Shared computers delete your Downloads. GitHub keeps your work safe for next Saturday.</div></div>
+
+<div class="step"><h3><span class="num">4</span>Build your resume page <span class="msgs">1-2 messages</span></h3>
+  <ol><li>Click <span class="path">Copy</span> on Prompt 1A below.</li>
+  <li>In Claude, click <span class="path">New chat</span>. Paste. Do not send yet.</li>
+  <li>Pick one style in the [PICK ONE] line. Delete the others.</li>
+  <li>On GitHub, open <span class="pill">my-resume.txt</span>. Click <span class="path">Copy raw file</span>.</li>
+  <li>In Claude, replace <span class="pill">[PASTE YOUR RESUME TEXT HERE]</span> with your resume.</li>
+  <li>Check the end is your real resume. Now send.</li>
+  <li>Claude asks questions? Answer all of them in one message.</li></ol>
+  <div class="prompt"><span class="label">Prompt 1A · Build resume.html</span><button class="copy" type="button" aria-label="Copy: Prompt 1A · Build resume.html">Copy</button><div class="ptext">Build me a one-page website called resume.html. Use ONLY the resume text I paste at the bottom of this message. Do not invent anything.
+
+The page has 4 parts:
+1. Top: my name (big), my job title, and a circle with my initials. No photo.
+2. My resume, neatly laid out: each job with dates, short bullet points, skills as small tags. Show numbers in the accent color.
+3. A "Tailor for a job" box: I paste a job description, then press "Copy prompt". The button builds one prompt with my resume and the job description, and copies it. I will paste that prompt into Claude.
+4. A small "Job tracker" table: company, role, date, status (Saved, Applied, Interview, Offer). Add a "Copy tracker as text" button. Do not save anything in the browser.
+
+Rules:
+- Every copy button: if copying is blocked, select the text and show "Press Ctrl+C to copy".
+- One HTML file. CSS and JavaScript inside the file. No outside libraries. Google Fonts are OK.
+- No API keys, no sign-in, no calls to any AI service.
+- Works on a phone. Prints cleanly on 1 or 2 pages, black text on white.
+- My style: [PICK ONE: Ink and Paper (cream, dark text, orange) / Blueprint (white, navy, blue) / Studio Pop (warm gray, black, yellow) / Velvet Night (very dark purple, ivory, gold) / Poster Bold (white, black, red)]
+- If my resume looks cut off, or is not a resume, stop and tell me in one short message.
+- If something important is missing, ask ALL your questions in ONE message.
+- Give me the complete file.
+
+Privacy: I removed my street address, phone number, and any ID, visa, A-number or case numbers. If you still see any of these below, do not use them, and tell me to remove them.
+
+MY RESUME (paste your my-resume.txt text below this line):
+[PASTE YOUR RESUME TEXT HERE]</div></div>
+  <div class="tip"><strong>Get your saved text back:</strong> on GitHub, open the file (for example <span class="pill">my-resume.txt</span>). Click the <span class="path">Copy raw file</span> button (two small squares, top right of the file).</div>
+</div>
+
+<div class="step"><h3><span class="num">5</span>Save resume.html to GitHub</h3>
+  <div class="tip"><strong>Get the code from Claude:</strong> on the page panel, click <span class="path">Copy</span>. No panel? Find the code box in Claude's answer and click its <span class="path">Copy</span> button. Check the code ends with <span class="pill">&lt;/html&gt;</span>.</div>
+  <ol>
+  <li>Open your repo on <a class="ext" href="https://github.com" target="_blank" rel="noopener">github.com</a>.</li>
+  <li>Click <span class="path">Add file → Create new file</span>.</li>
+  <li>Type the file name, for example <span class="pill">resume.html</span>.</li>
+  <li>Click in the big box. Press <strong>Ctrl+V</strong> to paste.</li>
+  <li>Click the green <span class="path">Commit changes</span> button, then <span class="path">Commit changes</span> again.</li>
+</ol>
+  <div class="tip">GitHub shows code when you open this file. That is normal. You see the page in Claude.</div></div>
+
+<div class="step"><h3><span class="num">6</span>Tailor your resume for a real job <span class="msgs">1-2 messages</span></h3>
+  <ol><li>Copy Prompt 1B. Paste it into a <span class="path">New chat</span>.</li>
+  <li>Replace the two [PASTE ...] lines: your resume, then the job.</li>
+  <li>Send. Read every line of the answer.</li>
+  <li>Something is not true? Tell Claude to fix it.</li>
+  <li>Save the result on GitHub as <span class="pill">tailored-company-name.txt</span>.</li></ol>
+  <div class="prompt"><span class="label">Prompt 1B · Tailor for one job</span><button class="copy" type="button" aria-label="Copy: Prompt 1B · Tailor for one job">Copy</button><div class="ptext">Tailor my resume for the job below. Use ONLY facts from my resume. Do not invent skills, numbers, dates or jobs.
+
+Give me 3 things:
+1. The tailored resume, as plain text I can copy.
+2. A short list: what you changed, and which words from the job you matched.
+3. Any line you were not sure about, so I can check it.
+
+Privacy: I removed my street address, phone number, and any ID, visa, A-number or case numbers. If you still see any of these below, do not use them, and tell me to remove them.
+
+MY RESUME (paste your my-resume.txt text):
+[PASTE YOUR RESUME TEXT HERE]
+
+THE JOB POSTING (paste the full job text):
+[PASTE THE JOB POSTING HERE]</div></div>
+  <div class="tip">Your page's "Tailor for a job" box builds the same kind of prompt. Use either one.</div></div>
+
+<div class="step"><h3><span class="num">7</span>Change one thing on your page <span class="msgs">1-2 messages</span></h3>
+  <ol><li>Go back to the chat with your resume page.</li>
+  <li>Copy Prompt 1C. Write your one change. Send.</li>
+  <li>On GitHub, open <span class="pill">resume.html</span>. Click the pencil (Edit).</li>
+  <li>Click in the code. Press Ctrl+A, then Ctrl+V.</li>
+  <li>Click <span class="path">Commit changes</span> two times.</li></ol>
+  <div class="prompt"><span class="label">Prompt 1C · One small change</span><button class="copy" type="button" aria-label="Copy: Prompt 1C · One small change">Copy</button><div class="ptext">Change ONE thing on my resume.html page. Keep everything else exactly the same.
+
+The change: [WRITE ONE CHANGE. Examples: "make my name smaller" / "use dark blue instead of orange" / "fix the date of my second job to 2019-2022"]
+
+Give me the complete updated file.
+
+If you cannot see my page in this chat, tell me. I will paste the code below.
+
+MY PAGE CODE (only if this is a new chat; copy it from resume.html on GitHub):
+[PASTE CODE HERE, OR DELETE THIS LINE]</div></div>
+  <div class="tip">Small changes save messages. Never ask Claude to "make the page again".</div></div>
+
+<div class="check done"><strong>Done today when:</strong><ul><li><label><input type="checkbox"> <span>I can sign in to Claude and GitHub.</span></label></li><li><label><input type="checkbox"> <span>My private repo <span class='pill'>career-hub</span> has <span class='pill'>my-resume.txt</span> and <span class='pill'>resume.html</span>.</span></label></li><li><label><input type="checkbox"> <span>I tailored my resume for one job and checked every line.</span></label></li><li><label><input type="checkbox"> <span>I signed out of Claude, GitHub and email. (<a href='signout.html'>Sign-out checklist</a>)</span></label></li></ul></div>
+<p><strong>Homework (optional):</strong> tailor for 2 more jobs. Bring one job posting next Saturday.</p>
+</section>
+
+<!-- ============ SAT 2 ============ -->
+<section id="s2" aria-labelledby="s2-h">
+<h2 class="sec" id="s2-h">Saturday 2 · October 10: Story bank, cover letter, portfolio draft</h2>
+<div class="rule" role="note"><h3>Before you paste into AI (Saturday 2)</h3>
+  <p>Remove your street address, phone, ID, visa, A-number and case numbers, and other people's details. <a href="#privacy">Full privacy rule</a></p></div>
+<div class="catch"><strong>Missed Saturday 1? Start here.</strong> Do the <a href="#before">setup checklist</a>. Then do <a href="#s1-step3">Saturday 1, step 3</a>: make <span class="pill">career-hub</span> and save <span class="pill">my-resume.txt</span>. That file is all you need today. Build resume.html later.</div>
+<div class="goal"><h3>Goal today</h3><p>Your story bank and one real cover letter are saved. Your portfolio draft <span class="pill">index.html</span> is in a new public repo.</p></div>
+
+<div class="tablewrap"><table class="plan"><caption>Saturday 2 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI messages</th></tr></thead><tbody><tr><td>1:00-1:10</td><td>Sign in. Privacy rule. Open my-resume.txt on GitHub.</td><td>0</td></tr><tr><td>1:10-1:35</td><td>Steps 1-2: story bank (Prompt 2A). Answer TRUE or FALSE. Save it.</td><td>2</td></tr><tr><td>1:35-2:25</td><td>Steps 3-4: cover letter (Prompt 2B). Change 5 sentences into your words. Save it.</td><td>1-2</td></tr><tr class="brk"><td>2:25-2:35</td><td>Break (10 minutes)</td><td>-</td></tr><tr><td>2:35-2:50</td><td>Step 5: make your public portfolio repo. Download the template.</td><td>0</td></tr><tr><td>2:50-3:35</td><td>Step 6: portfolio draft (Prompt 2C). Save index.html.</td><td>1-2</td></tr><tr><td>3:35-3:50</td><td>Pair check: read a partner's letter. Mark any robot sentences.</td><td>0</td></tr><tr><td>3:50-4:00</td><td>Done checklist. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
+<p><span class="msgs">About 5 to 7 messages today</span></p>
+
+<div class="step"><h3><span class="num">1</span>Open your tools</h3>
+  <ol><li>Sign in to Claude and GitHub.</li>
+  <li>On GitHub, open <span class="pill">career-hub</span> → <span class="pill">my-resume.txt</span>.</li>
+  <li>Click <span class="path">Copy raw file</span>. Your resume is now copied.</li></ol></div>
+
+<div class="step"><h3><span class="num">2</span>Build your story bank <span class="msgs">2 messages</span></h3>
+  <ol><li>Copy Prompt 2A. Paste it into a <span class="path">New chat</span>.</li>
+  <li>Replace [PASTE YOUR RESUME TEXT HERE] with your resume. Send.</li>
+  <li>Claude ends with a reply line. Copy it.</li>
+  <li>Change any fact that is wrong to FALSE, with the fix.</li>
+  <li>Send it back. Claude gives your final STORY BANK.</li>
+  <li>Save it in <span class="pill">career-hub</span> as <span class="pill">story-bank.txt</span>.</li></ol>
+  <div class="prompt"><span class="label">Prompt 2A · Story bank</span><button class="copy" type="button" aria-label="Copy: Prompt 2A · Story bank">Copy</button><div class="ptext">Help me build a "story bank" for cover letters and interviews. Use ONLY my resume below.
+
+1. Write my 3 strongest achievements as short stories, 3 to 4 sentences each. Simple, confident English. Keep every number.
+2. Then give me a numbered FACT LIST of every fact you used. I will answer each one with TRUE or FALSE. If FALSE, I will type the correction.
+3. Then an ADD? list: up to 3 extras that could help (for example, a language I speak, or my journey to the U.S. told as a strength). I answer ADD or SKIP.
+4. End with ONE reply line I can copy, change, and send back, with everything set to TRUE and SKIP. Example: 1 TRUE · 2 TRUE · 3 TRUE · ADD 1 SKIP · ADD 2 SKIP
+
+After my reply, give me the final story bank as plain text, with the title STORY BANK at the top.
+Do not ask open questions. Do not invent facts. If my resume does not say it, put it in the ADD? list.
+
+Privacy: I removed my street address, phone number, and any ID, visa, A-number or case numbers. If you still see any of these below, do not use them, and tell me to remove them.
+
+MY RESUME (paste your my-resume.txt text):
+[PASTE YOUR RESUME TEXT HERE]</div></div>
+  <div class="tip">Example reply: <em>1 TRUE · 2 TRUE · 3 FALSE: it was 14,000 records · ADD 1 ADD</em></div></div>
+
+<div class="step"><h3><span class="num">3</span>Write one real cover letter <span class="msgs">1-2 messages</span></h3>
+  <ol><li>Copy Prompt 2B. Paste it into a <span class="path">New chat</span>.</li>
+  <li>Fill in: company, job posting, story bank, resume.</li>
+  <li>Send. Check every fact in Claude's list.</li></ol>
+  <div class="prompt"><span class="label">Prompt 2B · Cover letter</span><button class="copy" type="button" aria-label="Copy: Prompt 2B · Cover letter">Copy</button><div class="ptext">Write a cover letter for the job below. Use ONLY facts from my story bank and my resume.
+
+- 250 to 320 words. Confident, specific and warm. Simple English.
+- No cliches like "I am writing to express my interest".
+- Do not include my street address, my phone number, or any ID or visa number.
+- Do not mention immigration or visa status.
+- After the letter, list every fact you used, so I can check each one.
+
+Privacy: I removed my street address, phone number, and any ID, visa, A-number or case numbers. If you still see any of these below, do not use them, and tell me to remove them.
+
+COMPANY NAME:
+[COMPANY]
+
+THE JOB POSTING (paste the full job text):
+[PASTE THE JOB POSTING HERE]
+
+MY STORY BANK (paste your story-bank.txt text):
+[PASTE YOUR STORY BANK HERE]
+
+MY RESUME (paste your my-resume.txt text):
+[PASTE YOUR RESUME TEXT HERE]</div></div>
+  <div class="tip">Sounds generic? Send: "Use only facts from my story bank. Delete any sentence that could be in anyone's letter."</div></div>
+
+<div class="step"><h3><span class="num">4</span>Make the letter yours, then save it</h3>
+  <ol><li>Copy the letter into the GitHub new-file box.</li>
+  <li>Change at least 5 sentences into your own words.</li>
+  <li>Name it <span class="pill">cover-letter-company-name.txt</span>. Commit.</li></ol></div>
+
+<div class="step" id="s2-step5"><h3><span class="num">5</span>Make your public portfolio repo</h3>
+  <p>This repo is public. Anyone can see it. Your career-hub repo stays private.</p>
+  <ol><li>GitHub → <span class="path">+</span> → <span class="path">New repository</span>.</li>
+  <li>Name: <span class="pill">portfolio</span>. Choose <strong>Public</strong>.</li>
+  <li>Check <span class="path">Add a README file</span>. Click <span class="path">Create repository</span>.</li>
+  <li>Download the template: <a class="ext" href="portfolio-template.html" download="portfolio-template.html">portfolio-template.html</a>.</li></ol></div>
+
+<div class="step"><h3><span class="num">6</span>Build your portfolio draft <span class="msgs">1-2 messages</span></h3>
+  <ol><li>In Claude, click <span class="path">New chat</span>.</li>
+  <li>Drag <span class="pill">portfolio-template.html</span> into the chat box. Or click <span class="path">+</span> to attach it.</li>
+  <li>Copy Prompt 2C. Paste it below the file.</li>
+  <li>Fill in the [ ] parts. Paste your story bank and resume.</li>
+  <li>Send. Answer all questions in one message.</li>
+  <li>Copy the code. Save it in <span class="pill">portfolio</span> as <span class="pill">index.html</span>.</li></ol>
+  <div class="prompt"><span class="label">Prompt 2C · Portfolio draft (index.html)</span><button class="copy" type="button" aria-label="Copy: Prompt 2C · Portfolio draft (index.html)">Copy</button><div class="ptext">I attached a file called portfolio-template.html. Turn it into my public portfolio page. The new file name is index.html.
+
+1. Keep the layout, spacing and animations EXACTLY the same. Change only the colors, fonts and words.
+2. Replace every [bracketed placeholder] with my real facts from the resume and story bank below. Do not invent facts or numbers. If a fact is missing, write a short neutral line and tell me which ones you wrote.
+3. Colors and fonts: [PICK ONE: Ink and Paper / Blueprint / Studio Pop / Velvet Night / Poster Bold, OR write 3 colors you like]. Update the Google Fonts link so the fonts load.
+4. Layout: set the body classes to hero-[center or left] journey-[stagger or rail] projects-[scroll or grid].
+5. Journey: 5 to 7 cards from my career. Projects: my 3 best achievements from the story bank.
+6. THIS PAGE IS PUBLIC. Do NOT include: my phone, street address, date of birth, ID, visa, A-number or case numbers, or any line about work authorization or immigration.
+7. References: name and role only, then "Contact on request". No phone numbers or emails of other people. If I give no references, write "References available on request".
+8. Quick answers: use my answers below. If one is blank, write "Happy to discuss".
+9. Keep the photo code exactly as it is. It tries photo.jpg, then photo.png, then photo.jpeg, then shows my initials.
+10. Give me the complete file in one code block. If anything is missing, ask ALL questions in ONE message first.
+
+MY EMAIL (for the contact button):
+[YOUR EMAIL]
+
+MY LINKEDIN LINK (optional):
+[LINK OR DELETE THIS LINE]
+
+MY QUICK ANSWERS: Start date: [ ] · Salary: [ ] · Remote or relocate: [ ] · Languages: [ ]
+
+MY REFERENCES (name and role only, optional):
+[NAME, ROLE / NAME, ROLE]
+
+MY STORY BANK (paste your story-bank.txt text, or delete this if you do not have one):
+[PASTE YOUR STORY BANK HERE]
+
+MY RESUME (paste your my-resume.txt text):
+[PASTE YOUR RESUME TEXT HERE]</div></div>
+  <div class="tip"><strong>Cannot attach the file?</strong> Open <a class="ext" href="https://raw.githubusercontent.com/Niimarcus/ai-class/main/portfolio-template.html" target="_blank" rel="noopener">the template as text</a>. Press Ctrl+A, then Ctrl+C. Paste it at the top of your message.</div>
+  <div class="tip">Styles to pick from: Ink and Paper (cream, dark, orange). Blueprint (white, navy, blue). Studio Pop (warm gray, black, yellow). Velvet Night (dark purple, ivory, gold). Poster Bold (white, black, red). <a class="ext" href="example-portfolio.html" target="_blank" rel="noopener">See a finished example</a>.</div></div>
+
+<div class="check done"><strong>Done today when:</strong><ul><li><label><input type="checkbox"> <span><span class='pill'>story-bank.txt</span> is saved in career-hub.</span></label></li><li><label><input type="checkbox"> <span>One cover letter is saved, with 5 sentences in my own words.</span></label></li><li><label><input type="checkbox"> <span>My public <span class='pill'>portfolio</span> repo has <span class='pill'>index.html</span>.</span></label></li><li><label><input type="checkbox"> <span>I signed out of everything. (<a href='signout.html'>Sign-out checklist</a>)</span></label></li></ul></div>
+<p><strong>Homework (optional):</strong> send one real application with your tailored resume and letter. Find a photo for next week. Name it <span class="pill">photo</span>.</p>
+</section>
+
+<!-- ============ SAT 3 ============ -->
+<section id="s3" aria-labelledby="s3-h">
+<h2 class="sec" id="s3-h">Saturday 3 · October 17: Your portfolio goes live</h2>
+<div class="rule" role="note"><h3>Before you paste into AI (Saturday 3)</h3>
+  <p>Remove your street address, phone, ID, visa, A-number and case numbers, and other people's details. <a href="#privacy">Full privacy rule</a></p></div>
+<div class="catch"><strong>Missed Saturday 2? Start here.</strong> You need <span class="pill">index.html</span> in a public <span class="pill">portfolio</span> repo. Do <a href="#s2-step5">Saturday 2, steps 5 and 6</a> first. The story bank is optional: delete that part of Prompt 2C.</div>
+<div class="goal"><h3>Goal today</h3><p>Your portfolio is live at <span class="pill">https://YOUR-USERNAME.github.io/portfolio/</span>. It has your photo or initials, your colors, and no private details.</p></div>
+
+<div class="tablewrap"><table class="plan"><caption>Saturday 3 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI messages</th></tr></thead><tbody><tr><td>1:00-1:10</td><td>Sign in. Privacy rule for public pages.</td><td>0</td></tr><tr><td>1:10-1:30</td><td>Step 1: turn on GitHub Pages. Open your live link.</td><td>0</td></tr><tr><td>1:30-2:00</td><td>Step 2: add your photo (optional). Fix the file name.</td><td>0</td></tr><tr><td>2:00-2:25</td><td>Step 3: make it look good (Prompt 3A). Save index.html.</td><td>1-2</td></tr><tr class="brk"><td>2:25-2:35</td><td>Break (10 minutes)</td><td>-</td></tr><tr><td>2:35-3:10</td><td>Step 3 again: one more round of changes. Save.</td><td>1-2</td></tr><tr><td>3:10-3:30</td><td>Step 4: public page check. Fix anything private.</td><td>0-1</td></tr><tr><td>3:30-3:50</td><td>Step 5: open your link on a phone. Swap links with a partner.</td><td>0</td></tr><tr><td>3:50-4:00</td><td>Done checklist. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
+<p><span class="msgs">About 3 to 6 messages today</span></p>
+
+<div class="step"><h3><span class="num">1</span>Turn on GitHub Pages</h3>
+  <ol><li>Open your <span class="pill">portfolio</span> repo. Check it says <strong>Public</strong>.</li>
+  <li>Click <span class="path">Settings</span> → <span class="path">Pages</span> (left side).</li>
+  <li>Source: <span class="path">Deploy from a branch</span>. Branch: <span class="path">main</span>. Click <span class="path">Save</span>.</li>
+  <li>Wait 2 minutes. Refresh the Pages screen.</li>
+  <li>Click <span class="path">Visit site</span>. That is your live link.</li></ol>
+  <div class="tip">See "404"? Wait 2 more minutes. Then read <a href="stuck.html#s404">Stuck: 404</a>.</div>
+  <p style="margin-top:8px">Detailed pictures: <a class="ext" href="index.html#w3">Week 3 lab, step 7</a>.</p></div>
+
+<div class="step"><h3><span class="num">2</span>Add your photo (optional)</h3>
+  <ol><li>Name your photo file just <span class="pill">photo</span>. Windows adds the ending.</li>
+  <li>In <span class="pill">portfolio</span>, click <span class="path">Add file → Upload files</span>.</li>
+  <li>Drag the photo in. Click <span class="path">Commit changes</span>.</li>
+  <li>Wait 1 minute. Refresh your live link.</li></ol>
+  <div class="tip">The page tries <span class="pill">photo.jpg</span>, then <span class="pill">photo.png</span>, then <span class="pill">photo.jpeg</span>. No photo? It shows your initials in a circle. That looks good too.</div>
+  <div class="tip">Photo on your phone? Open github.com in the phone browser. Upload it from there.</div>
+  <div class="tip">Your index.html is from before this class? Its photo code may only know <span class="pill">photo.jpg</span>. Ask for help, or see <a href="stuck.html#photo">Stuck: photo</a>.</div></div>
+
+<div class="step"><h3><span class="num">3</span>Make it look good <span class="msgs">1-2 messages each round</span></h3>
+  <ol><li>On GitHub, open <span class="pill">index.html</span>. Click <span class="path">Copy raw file</span>.</li>
+  <li>Copy Prompt 3A into a <span class="path">New chat</span>. Paste your code last.</li>
+  <li>Write 1 to 3 changes. Send.</li>
+  <li>On GitHub: <span class="pill">index.html</span> → pencil → Ctrl+A → Ctrl+V → Commit.</li>
+  <li>Wait 1 minute. Refresh your live link.</li></ol>
+  <div class="prompt"><span class="label">Prompt 3A · Make it look good</span><button class="copy" type="button" aria-label="Copy: Prompt 3A · Make it look good">Copy</button><div class="ptext">Here is the code of my public portfolio page, index.html. Make ONLY the changes below. Keep everything else exactly the same, including the photo code.
+
+My changes (1 to 3):
+- [EXAMPLE: use navy, white and gold]
+- [EXAMPLE: make my big statement shorter: "Data you can trust"]
+- [EXAMPLE: use the left hero layout]
+
+Also check the page for private details: phone number, street address, date of birth, ID, visa, A-number or case numbers, any work authorization line, and other people's phone numbers or emails. Remove them, and tell me what you removed.
+
+Give me the complete updated file in one code block.
+
+MY PAGE CODE (on GitHub: open index.html, click the "Copy raw file" button, then paste here):
+[PASTE CODE HERE]</div></div>
+  <div class="tip">Ideas: other colors. A shorter big statement. A different hero layout (center or left). Fix a date. Add a skill.</div></div>
+
+<div class="step"><h3><span class="num">4</span>Public page check (no AI needed)</h3>
+  <p>Open your live link. Read the whole page. Check each box.</p>
+  <div class="check done" style="background:#fff"><ul>
+    <li><label><input type="checkbox"> <span>No phone number and no street address.</span></label></li>
+    <li><label><input type="checkbox"> <span>No ID, visa, A-number or case numbers. No date of birth.</span></label></li>
+    <li><label><input type="checkbox"> <span>No line about work authorization or immigration.</span></label></li>
+    <li><label><input type="checkbox"> <span>References say "Contact on request". No one else's phone or email.</span></label></li>
+    <li><label><input type="checkbox"> <span>Every fact is true. Every number is right.</span></label></li>
+    <li><label><input type="checkbox"> <span>No [brackets] left on the page.</span></label></li>
+  </ul></div></div>
+
+<div class="step"><h3><span class="num">5</span>Test it on a phone</h3>
+  <ol><li>Type your live link on your phone.</li>
+  <li>Scroll to the end. Everything should fit the screen.</li>
+  <li>Swap links with a partner. Tell them one thing you like.</li></ol></div>
+
+<div class="check done"><strong>Done today when:</strong><ul><li><label><input type="checkbox"> <span>My portfolio opens at my live link.</span></label></li><li><label><input type="checkbox"> <span>It shows my photo or my initials.</span></label></li><li><label><input type="checkbox"> <span>I did the public page check. Nothing private is on it.</span></label></li><li><label><input type="checkbox"> <span>My career-hub repo is still Private.</span></label></li><li><label><input type="checkbox"> <span>I signed out of everything. (<a href='signout.html'>Sign-out checklist</a>)</span></label></li></ul></div>
+<p><strong>Homework (optional):</strong> send your live link with one application. Bring a job posting for interview practice.</p>
+</section>
+
+<!-- ============ SAT 4 ============ -->
+<section id="s4" aria-labelledby="s4-h">
+<h2 class="sec" id="s4-h">Saturday 4 · October 24: Interview practice and 3-minute talks</h2>
+<div class="rule" role="note"><h3>Before you paste into AI (Saturday 4)</h3>
+  <p>Remove your street address, phone, ID, visa, A-number and case numbers, and other people's details. <a href="#privacy">Full privacy rule</a></p></div>
+<div class="catch"><strong>Missed Saturday 3? Start here.</strong> Your page does not need to be live to present. Prompt 4A needs only <span class="pill">my-resume.txt</span> and a job posting. You can show your page in Claude instead.</div>
+<div class="goal"><h3>Goal today</h3><p>You practice real interview answers out loud. You give a 3-minute talk about your portfolio.</p></div>
+
+<div class="tablewrap"><table class="plan"><caption>Saturday 4 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI messages</th></tr></thead><tbody><tr><td>1:00-1:10</td><td>Sign in. Privacy rule.</td><td>0</td></tr><tr><td>1:10-1:40</td><td>Step 1: interview prep (Prompt 4A). Save it.</td><td>1-2</td></tr><tr><td>1:40-2:10</td><td>Step 2: practice out loud in pairs.</td><td>0</td></tr><tr><td>2:10-2:25</td><td>Step 3: plan your 3-minute talk (Prompt 4B).</td><td>1</td></tr><tr class="brk"><td>2:25-2:35</td><td>Break (10 minutes)</td><td>-</td></tr><tr><td>2:35-3:50</td><td>Step 4: 3-minute talks. 3 minutes each, then 1 question.</td><td>0</td></tr><tr><td>3:50-4:00</td><td>Wrap up. Take-home ideas. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
+<p><span class="msgs">About 2 to 4 messages today</span></p>
+
+<div class="step"><h3><span class="num">1</span>Interview prep <span class="msgs">1-2 messages</span></h3>
+  <ol><li>Copy Prompt 4A into a <span class="path">New chat</span>.</li>
+  <li>Paste the job posting, your story bank and your resume.</li>
+  <li>Send. Read the answers. Fix anything not true.</li>
+  <li>Save it in <span class="pill">career-hub</span> as <span class="pill">interview-prep.txt</span>.</li></ol>
+  <div class="prompt"><span class="label">Prompt 4A · Interview prep</span><button class="copy" type="button" aria-label="Copy: Prompt 4A · Interview prep">Copy</button><div class="ptext">Help me prepare for a job interview for the job below. Use ONLY facts from my resume and story bank.
+
+Give me:
+1. 8 likely interview questions: some about my past behavior, some about this role.
+2. For each question, a sample answer in STAR format (Situation, Task, Action, Result). Each answer takes 60 to 90 seconds to say. Simple English. Use my real numbers.
+3. 3 smart questions I can ask them.
+4. 1 hard question I might get, and a calm, honest way to answer it.
+
+Do not invent experience. If I do not have something the job asks for, say so, and show me how to talk about it honestly.
+
+Privacy: I removed my street address, phone number, and any ID, visa, A-number or case numbers. If you still see any of these below, do not use them, and tell me to remove them.
+
+THE JOB POSTING (paste the full job text):
+[PASTE THE JOB POSTING HERE]
+
+MY STORY BANK (paste your story-bank.txt text, or delete this if you do not have one):
+[PASTE YOUR STORY BANK HERE]
+
+MY RESUME (paste your my-resume.txt text):
+[PASTE YOUR RESUME TEXT HERE]</div></div></div>
+
+<div class="step"><h3><span class="num">2</span>Practice out loud in pairs</h3>
+  <ol><li>Partner A reads one question.</li>
+  <li>Partner B answers out loud, without reading.</li>
+  <li>Partner A checks: a number? Under 90 seconds?</li>
+  <li>Switch. Do 3 questions each.</li></ol></div>
+
+<div class="step"><h3><span class="num">3</span>Plan your 3-minute talk <span class="msgs">1 message</span></h3>
+  <ol><li>Copy Prompt 4B into a <span class="path">New chat</span>.</li>
+  <li>Fill in the 5 lines at the end. Send.</li>
+  <li>Write the 4 parts on paper or a card.</li></ol>
+  <div class="prompt"><span class="label">Prompt 4B · 3-minute talk plan</span><button class="copy" type="button" aria-label="Copy: Prompt 4B · 3-minute talk plan">Copy</button><div class="ptext">Help me plan a 3-minute talk for my class about my career portfolio. Use my notes below.
+
+Give me:
+- One opening sentence.
+- 4 short parts with times (0:00-0:30, 0:30-1:30, 1:30-2:30, 2:30-3:00).
+- One closing sentence.
+Use simple words that are easy to say out loud. Under 400 words total.
+
+The 4 parts:
+1. Who I am, and the job I want.
+2. A short tour of my live portfolio page.
+3. One thing AI did well for me, and one thing I had to fix.
+4. My next step this month.
+
+MY LIVE LINK: [https://YOUR-USERNAME.github.io/portfolio/]
+THE JOB I WANT: [ ]
+WHAT AI DID WELL: [ ]
+WHAT I HAD TO FIX: [ ]
+MY NEXT STEP: [ ]</div></div></div>
+
+<div class="step"><h3><span class="num">4</span>Give your talk</h3>
+  <ul><li><strong>0:00-0:30</strong> Who you are, and the job you want.</li>
+  <li><strong>0:30-1:30</strong> Show your live page on the screen.</li>
+  <li><strong>1:30-2:30</strong> One thing AI did well. One thing you fixed.</li>
+  <li><strong>2:30-3:00</strong> Your next step this month.</li></ul>
+  <div class="tip">Nervous? That is normal. Look at one friendly face. Speak slowly. Three minutes is short.</div></div>
+
+<div class="check done"><strong>Done today when:</strong><ul><li><label><input type="checkbox"> <span><span class='pill'>interview-prep.txt</span> is saved in career-hub.</span></label></li><li><label><input type="checkbox"> <span>I answered 3 questions out loud.</span></label></li><li><label><input type="checkbox"> <span>I gave my 3-minute talk.</span></label></li><li><label><input type="checkbox"> <span>I signed out of everything. (<a href='signout.html'>Sign-out checklist</a>)</span></label></li></ul></div>
+</section>
+
+<!-- ============ LIMIT ============ -->
+<section id="limit" aria-labelledby="limit-h">
+<h2 class="sec" id="limit-h">What to do when Claude says you reached the limit</h2>
+<div class="step">
+  <ol><li>Do not worry. Your work is safe in GitHub.</li>
+  <li>Read the time Claude shows. Write it down.</li>
+  <li>Do the steps with no AI: GitHub saves, checklists, practice.</li>
+  <li>Sit with a partner. Help them and watch.</li>
+  <li>After the time, continue from the prompt on this page.</li></ol>
+  <div class="tip">Print this page, or take a <a href="cheatsheet.html">cheat sheet</a>. The prompts on paper work any day, in any new chat.</div></div>
+</section>
+
+<!-- ============ TAKE-HOME ============ -->
+<section id="home" aria-labelledby="home-h">
+<h2 class="sec" id="home-h">Take-home (optional)</h2>
+<p style="margin-bottom:12px">These are extras. Do them at home, after your messages reset.</p>
+
+<div class="step"><h3><span class="num">A</span>LinkedIn headline and About</h3>
+  <div class="prompt"><span class="label">Take-home · LinkedIn</span><button class="copy" type="button" aria-label="Copy: Take-home · LinkedIn">Copy</button><div class="ptext">Rewrite my LinkedIn headline and About section. Use ONLY facts from my resume and story bank below.
+
+Give me:
+1. 3 headline options, each under 220 characters.
+2. An About section, 150 to 220 words, first person, simple and confident.
+3. 10 skills to add to my profile, taken from my resume.
+
+Do not include my phone, street address, or immigration or visa status.
+
+MY STORY BANK (paste your story-bank.txt text):
+[PASTE YOUR STORY BANK HERE]
+
+MY RESUME (paste your my-resume.txt text):
+[PASTE YOUR RESUME TEXT HERE]</div></div></div>
+
+<div class="step"><h3><span class="num">B</span>Your skill gap plan</h3>
+  <div class="prompt"><span class="label">Take-home · Skill gap</span><button class="copy" type="button" aria-label="Copy: Take-home · Skill gap">Copy</button><div class="ptext">I worked as a [JOB TITLE] in [COUNTRY]. The job I want in the U.S. is [TARGET JOB TITLE]. Use ONLY my resume below.
+
+1. List the top 10 skills for this job in the U.S. today.
+2. Mark each one: HAVE / PARTLY / GAP. For each, quote the resume line you used as proof.
+3. For my top 3 gaps, give me a 3 to 6 month learning plan with free resources.
+4. Which of my skills are my strongest advantage?
+Be honest, not flattering.
+
+MY RESUME (paste your my-resume.txt text):
+[PASTE YOUR RESUME TEXT HERE]</div></div></div>
+
+<div class="step"><h3><span class="num">C</span>More labs from the online class</h3>
+  <p>These labs were made for the online class. Some use a Claude Project. If a prompt says "in this project", paste your resume and story bank into it instead.</p>
+  <ul><li>Build a Gem (a custom assistant) in Google Gemini: <a class="ext" href="index.html#w2">Week 2 lab, Homework 2</a></li>
+  <li>Outreach kit: follow-up, thank-you and recruiter messages: <a class="ext" href="index.html#w2">Week 2 lab, Homework 1</a></li>
+  <li>Connect GitHub to Claude (Connectors): <a class="ext" href="index.html#w1">Week 1 lab, stretch homework</a></li>
+  <li>An animated, more beautiful portfolio: <a class="ext" href="index.html#w4">Week 4 lab</a></li></ul>
+  <div class="tip">Skip any step about keys, OpenRouter, or the link reader. The link reader is off for this cohort. Copy and paste mode works for everything.</div></div>
+</section>
+
+</main>
+<footer>ABN · AI in the Workforce · Boston cohort at Curtis Hall. Build in Claude · Save on GitHub. Pages: <a href="index.html">all labs</a> · <a href="stuck.html">Stuck?</a> · <a href="cheatsheet.html">Cheat sheet</a> · <a href="signout.html">Sign-out checklist</a></footer>
+<script>
+/* Copy buttons. First try the clipboard. If the browser blocks it,
+   select the text and tell the student to press Ctrl+C. */
+(function(){
+  function selectText(el){
+    var r=document.createRange(); r.selectNodeContents(el);
+    var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+  function fallback(btn,box,text){
+    selectText(text);
+    var ok=false;
+    try{ ok=document.execCommand('copy'); }catch(e){ ok=false; }
+    var hint=box.querySelector('.copyhint');
+    if(ok){ done(btn); return; }
+    var mac=/Mac|iPhone|iPad/.test(navigator.platform||'');
+    hint.textContent='Text is selected. Press '+(mac?'Cmd+C':'Ctrl+C')+' to copy.';
+    hint.classList.add('show');
+    btn.textContent='Copy';
+    setTimeout(function(){hint.classList.remove('show')},8000);
+  }
+  function done(btn){
+    btn.textContent='Copied';
+    setTimeout(function(){btn.textContent='Copy'},1800);
+  }
+  document.querySelectorAll('.prompt').forEach(function(box){
+    var btn=box.querySelector('.copy'), text=box.querySelector('.ptext');
+    if(!btn||!text) return;
+    if(!box.querySelector('.copyhint')){
+      var h=document.createElement('span'); h.className='copyhint'; h.setAttribute('role','status'); h.setAttribute('aria-live','polite');
+      box.insertBefore(h,text);
+    }
+    btn.addEventListener('click',function(){
+      var t=text.innerText.replace(/ /g,' ').trim();
+      if(navigator.clipboard&&window.isSecureContext){
+        navigator.clipboard.writeText(t).then(function(){done(btn)},function(){fallback(btn,box,text)});
+      }else{ fallback(btn,box,text); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
