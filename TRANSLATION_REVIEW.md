@@ -3,21 +3,17 @@
 Files: `cheatsheet-fr.html`, `stuck-fr.html`, `stepcards-fr.html` (French, required). `stepcards.html` is the English original. `cheatsheet-ht.html`, `stuck-ht.html`, `stepcards-ht.html` are Kreyòl ayisyen (optional).
 Machine-drafted by Pollen from the English pages, using the terms in Sparecycle `PLANS/COPY_V0_KREYOL_FRENCH.md` (PR #13). Pollen is not a native speaker of either language.
 
-**Scope (Marcus, 2026-09-30): English and French are required. Kreyòl is shown as beta and blocks nothing.**
+**Scope (Marcus, 2026-09-30 19:23): no proofreader blocks anything, for French or Kreyòl.** This list does not gate the merge and does not gate printing. The `reviewed` column stays `no` and is feedback only: if someone reads a page and finds a mistake, note it here and fix it in a later commit.
 
-**Merge condition (Fizz): this PR does not merge until every FRENCH row below says `yes`.** This repo publishes the moment it merges. Do not print a French file until its row says `yes`. Kreyòl beta files may print.
+## French rows (feedback only)
 
-## French rows (gate the merge)
+| File | reviewed | Feedback |
+|---|---|---|
+| cheatsheet-fr.html | no | |
+| stuck-fr.html | no | |
+| stepcards-fr.html | no | |
 
-| File | reviewed | Reviewer | Date |
-|---|---|---|---|
-| cheatsheet-fr.html | no | | |
-| stuck-fr.html | no | | |
-| stepcards-fr.html | no | | |
-
-**Open item for Marcus:** name the person who does the French read (one fluent reader, one sitting). Nobody is named yet.
-
-## Kreyòl rows (feedback, not a gate)
+## Kreyòl rows (feedback only)
 
 Kreyòl ships as **beta** (Marcus, 2026-09-30 18:14). Each Kreyòl page shows a small line at the top in Kreyòl: the translation is new and may have mistakes, tell your teacher if something is unclear. Marcus asks students in class how it reads and collects feedback. Nothing waits on a native review, and the pages are in the README and in the print set.
 

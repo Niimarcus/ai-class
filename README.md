@@ -11,7 +11,7 @@ In-person class: 6 classes, October 28 and 29, November 4, 5, 12 and 19, 2026, 6
 | [cheatsheet.html](https://niimarcus.github.io/ai-class/cheatsheet.html) | One-page printable cheat sheet (US Letter) with a QR code to the cohort page |
 | [stuck.html](https://niimarcus.github.io/ai-class/stuck.html) | "Stuck? Do this" fixes: 404, photo, wrong repo, message limit, copy button, lost chat, broken page, sign-in |
 | [signout.html](https://niimarcus.github.io/ai-class/signout.html) | Shared-computer sign-out checklist (prints on one page) |
-| cheatsheet-fr.html, stuck-fr.html, stepcards.html, stepcards-fr.html | French and English versions of the cheat sheet, stuck page and step cards. French needs a human read before merge: see TRANSLATION_REVIEW.md |
+| cheatsheet-fr.html, stuck-fr.html, stepcards.html, stepcards-fr.html | French and English versions of the cheat sheet, stuck page and step cards. French is machine-drafted and not proofread; feedback welcome: see TRANSLATION_REVIEW.md |
 | cheatsheet-ht.html, stuck-ht.html, stepcards-ht.html | Kreyòl ayisyen (beta). Machine-drafted, shown with a beta line. Feedback is collected in class: see TRANSLATION_REVIEW.md |
 
 `portfolio-template.html` now tries `photo.jpg`, then `photo.png`, then `photo.jpeg` (then `photo.JPG`), and falls back to initials in a circle.
