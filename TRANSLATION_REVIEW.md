@@ -3,7 +3,7 @@
 Files: `cheatsheet-fr.html`, `cheatsheet-ht.html`, `stuck-fr.html`, `stuck-ht.html`, `stepcards-fr.html`, `stepcards-ht.html` (`stepcards.html` is the English original).
 Machine-drafted by Pollen from the English pages, using the terms in Sparecycle `PLANS/COPY_V0_KREYOL_FRENCH.md` (PR #13). Pollen is not a native speaker of either language.
 
-**Do not print or publish any file until its row says `yes`.** Each file starts with an HTML comment saying the same.
+**Merge condition (Fizz): do not merge this PR until every row below says `yes`.** This repo publishes the moment it merges, and the DRAFT comment in each file is invisible to readers. Do not print any file until its row says `yes`. Each file starts with an HTML comment saying the same.
 
 | File | Language | reviewed | Reviewer | Date |
 |---|---|---|---|---|
@@ -28,4 +28,4 @@ Printed on US Letter from headless Chrome: `cheatsheet.html` 1 page, `cheatsheet
 
 ## Step cards (criterion 16)
 
-Layout and text only. Each card has a dashed placeholder where the screenshot goes. Images wait until SYS-502 is on staging (Fizz, Oct 3), because the screens change. Button names on the cards (Send, Listen, A-/A+) follow COPY_V0_KREYOL_FRENCH.md and must be checked against the built screens. Print is 2 US Letter pages. The QR code goes on the projector slide, not on the cards.
+Five cards. Card 2 is "Pick your language, then read this": the language choice sits on the first screen above the privacy text (Fizz, SYS-502 build). Layout and text only. Each card has a dashed placeholder where the screenshot goes. Images wait until SYS-502 is on staging (Fizz, Oct 3), because the screens change. Button names on the cards (Send, Listen, A-/A+) follow COPY_V0_KREYOL_FRENCH.md and must be checked against the built screens. Print is 2 US Letter pages (check again after the screenshots go in). The QR code goes on the projector slide, not on the cards.
