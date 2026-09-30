@@ -36,7 +36,7 @@ The Kreyòl pages ship in the PR but are **unlinked** from the README and from e
 
 ## Layout check
 
-Printed on US Letter from headless Chrome: `cheatsheet.html`, `cheatsheet-fr.html` and `cheatsheet-ht.html` are each 1 page (French needs a 9.3 pt print override, set inside the file). Step cards print on 2 pages.
+Printed on US Letter from headless Chrome: `cheatsheet.html`, `cheatsheet-fr.html` and `cheatsheet-ht.html` are each 1 page without the Kreyòl draft bar (the bar pushes `cheatsheet-ht.html` to 2 pages until it is removed after review; French needs a 9.3 pt print override, set inside the file)). Step cards print on 2 pages.
 
 ## Step cards (criterion 16)
 
