@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!-- Machine-drafted French (SYS-502), not proofread. Feedback only, does not gate printing (Marcus, 2026-09-30). -->
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloqué ? Faites ceci</title>
+<meta name="description" content="Solutions aux problèmes courants du cours d'IA de Cambridge.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  /* Same tokens and components as index.html, plus a few additions for the in-person cohort. */
+  :root{
+    --ink:#111318; --paper:#FFFFFF; --soft:#F4F4F0; --accent:#1D4ED8; --accent2:#E63946;
+    --line:#D8D8D2; --mono:'Space Mono',ui-monospace,monospace;
+    --accent2-text:#B42331; --muted:#4A4F5C;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--soft);color:var(--ink);font-size:17px;line-height:1.55;overflow-wrap:break-word}
+  a{color:var(--accent)}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+  .skip{position:absolute;left:-9999px;top:0;background:#fff;color:var(--ink);padding:10px 14px;z-index:50;font-weight:700}
+  .skip:focus{left:12px;top:12px}
+  header{background:var(--ink);color:#fff;padding:28px 32px 22px;border-bottom:6px solid var(--accent)}
+  header h1{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(24px,3.4vw,36px);letter-spacing:-.01em;line-height:1.15}
+  header p{color:#C9CDD6;margin-top:8px;font-size:16px}
+  header .kbd{color:#fff;background:#2A2E38;padding:1px 7px;border-radius:4px;font-family:var(--mono);font-size:14px}
+  header a{color:#fff}
+  nav{display:flex;flex-wrap:wrap;gap:8px;padding:12px 32px;background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+  nav a{font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;padding:8px 15px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;text-decoration:none;white-space:nowrap}
+  nav a:hover{background:var(--ink);color:#fff}
+  nav a.here{background:var(--accent);border-color:var(--accent);color:#fff}
+  main{max-width:980px;margin:0 auto;padding:30px 24px 80px}
+  section,.step,.rule{scroll-margin-top:100px}
+  h2.sec{font-family:'Archivo',sans-serif;font-weight:900;font-size:28px;margin:44px 0 14px;line-height:1.2}
+  .goal{background:var(--paper);border:2px solid var(--ink);border-left:12px solid var(--accent);padding:18px 22px;margin-bottom:22px;border-radius:6px}
+  .goal h2{font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;margin-bottom:6px;line-height:1.2}
+  .goal p{font-size:17px}
+  .step{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:20px 22px 22px;margin-bottom:18px}
+  .step h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:20px;display:flex;align-items:baseline;gap:12px;margin-bottom:10px;line-height:1.3}
+  .step h4{font-family:'Archivo',sans-serif;font-weight:700;font-size:17px;margin:14px 0 4px}
+  .num{font-family:'Archivo',sans-serif;font-weight:900;color:#fff;background:var(--ink);min-width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;font-size:17px;flex:none;padding:0 6px}
+  .step ol,.step ul,.check ul,.check ol,.rule ul{margin:8px 0 4px 26px}
+  .step li,.check li,.rule li{margin-bottom:7px}
+  .prompt{position:relative;background:#0F1220;color:#E7E9F2;font-family:var(--mono);font-size:15px;line-height:1.6;padding:50px 18px 16px;border-radius:8px;margin:16px 0 6px;border-left:6px solid var(--accent2)}
+  .prompt .label{position:absolute;top:-11px;left:14px;background:var(--accent2-text);color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase;padding:2px 10px;border-radius:4px}
+  .prompt .ptext{white-space:pre-wrap}
+  .copy{position:absolute;top:12px;right:12px;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;background:#fff;color:var(--ink);border:none;padding:7px 14px;border-radius:6px;cursor:pointer}
+  .copy:hover{background:var(--accent);color:#fff}
+  .copy:focus-visible{outline:3px solid #FFD84D;outline-offset:2px}
+  .copyhint{display:none;position:absolute;top:14px;left:18px;right:120px;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:#FFD84D}
+  .copyhint.show{display:block}
+  .msgs{display:inline-block;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;background:#EAF1FF;color:#123A9C;border:1px solid #BFD3FF;border-radius:999px;padding:2px 10px;margin-left:4px;white-space:nowrap}
+  .check{background:#EAF1FF;border:1px solid #BFD3FF;border-radius:8px;padding:14px 18px;margin-top:6px;margin-bottom:18px}
+  .check strong{font-family:'Archivo',sans-serif}
+  .check.done ul{list-style:none;margin-left:2px}
+  .check.done label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+  .check.done input{width:20px;height:20px;margin-top:3px;flex:none;accent-color:var(--accent)}
+  .tip{font-size:16px;color:#333;background:#FFF8E6;border:1px solid #EFE1AE;border-radius:8px;padding:10px 14px;margin-top:10px}
+  .catch{font-size:16px;background:#fff;border:2px dashed var(--ink);border-radius:8px;padding:12px 16px;margin:0 0 18px}
+  .catch strong{font-family:'Archivo',sans-serif}
+  .rule{background:#FFF1F2;border:2px solid var(--accent2-text);border-radius:8px;padding:16px 20px;margin:0 0 20px}
+  .rule h2,.rule h3{font-family:'Archivo',sans-serif;font-weight:900;font-size:20px;color:var(--accent2-text);margin-bottom:6px;line-height:1.25}
+  .rule .cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}
+  .pill{display:inline-block;font-family:var(--mono);font-size:14.5px;background:var(--soft);border:1px solid var(--line);padding:0 7px;border-radius:5px;word-break:break-all}
+  .path{font-weight:700}
+  table.plan{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:8px;margin:6px 0 18px;font-size:16px}
+  table.plan caption{text-align:left;font-family:'Archivo',sans-serif;font-weight:700;font-size:17px;padding:0 0 6px}
+  table.plan th,table.plan td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.plan th{background:var(--ink);color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px}
+  table.plan td:first-child{font-family:var(--mono);font-size:14.5px;white-space:nowrap}
+  table.plan tr.brk td{background:#FFF8E6;font-weight:700}
+  .tablewrap{overflow-x:auto}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  details.helpers{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px 18px;margin-bottom:18px}
+  details.helpers summary{cursor:pointer;font-family:'Archivo',sans-serif;font-weight:700;font-size:17px}
+  a.ext{color:var(--accent2-text);text-decoration:underline;text-underline-offset:2px;font-weight:inherit}
+  a.ext:hover{color:var(--accent)}
+  footer{max-width:980px;margin:0 auto;padding:0 24px 40px;color:#555;font-size:15px}
+  @media (max-width:640px){
+    body{font-size:17px} header{padding:22px 16px 18px} main{padding:20px 16px 70px}
+    nav{padding:10px 16px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
+    nav a{font-size:14px;padding:7px 12px}
+    .step{padding:16px 14px 18px} .prompt{padding:52px 12px 14px;font-size:14.5px}
+    .rule .cols,.grid2{grid-template-columns:1fr}
+    table.plan{font-size:15px} table.plan th,table.plan td{padding:7px 8px}
+    h2.sec{font-size:24px} .goal h2{font-size:23px}
+  }
+  @media print{
+    nav,.copy,.copyhint,.skip{display:none!important}
+    body{background:#fff;font-size:11.5pt}
+    header{background:#fff;color:#000;border-bottom:3px solid #000;padding:0 0 8px}
+    header p{color:#000}
+    .prompt{background:#fff;color:#000;border:1px solid #000;border-left:6px solid #000;padding-top:20px}
+    .prompt .label{background:#000;color:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .step,.check,.rule,.tip,.catch,table.plan{break-inside:avoid}
+    main{padding:10px 0}
+  }
+  h2.st{font-family:'Archivo',sans-serif;font-weight:700;font-size:21px;display:flex;align-items:baseline;gap:12px;margin-bottom:10px;line-height:1.3}
+  .toc li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu principal</a>
+
+<header>
+  <h1>Bloqué ? Faites ceci.</h1>
+  <p>Trouvez votre problème. Faites les étapes dans l'ordre. Toujours bloqué ? Levez la main ou demandez à un partenaire.</p>
+</header>
+<nav aria-label="Pages du cours">
+  <a href="cambridge.html">Page du cours</a>
+  <a href="stuck-fr.html" class="here" aria-current="page">Bloqué ?</a>
+  <a href="cheatsheet-fr.html">Aide-mémoire</a>
+  <a href="signout.html">Déconnexion (en anglais)</a>
+</nav>
+<main id="main">
+<div class="goal"><h2>Choisissez votre problème</h2>
+<ol style="margin:6px 0 0 24px" class="toc"><li><a href="#s404">Mon lien en ligne affiche « 404 »</a></li><li><a href="#photo">Ma photo ne s'affiche pas</a></li><li><a href="#repo">Mauvais dépôt, ou mon dépôt est privé</a></li><li><a href="#limit">Claude dit que j'ai atteint la limite</a></li><li><a href="#copy">Le bouton Copy ne fait rien</a></li><li><a href="#chat">J'ai perdu ma conversation</a></li><li><a href="#broken">Ma page semble cassée après le collage</a></li><li><a href="#password">J'ai oublié mon mot de passe ou le code de connexion</a></li></ol></div>
+<section class="step" id="s404" aria-labelledby="s404-h">
+  <h2 class="st" id="s404-h"><span class="num">1</span>Mon lien en ligne affiche « 404 »</h2>
+  <p><strong>Ce que vous voyez :</strong> Une page blanche qui dit <em>404: There isn't a GitHub Pages site here</em>.</p>
+  <p style="margin-top:8px"><strong>Que faire :</strong></p>
+  <ol><li>Attendez 2 minutes. Puis actualisez la page.</li><li>Vérifiez le lien : <span class='pill'>your-username.github.io/portfolio/</span>. L'orthographe compte.</li><li>Ouvrez le dépôt. Le fichier doit s'appeler exactement <span class='pill'>index.html</span>.</li><li>Pas <span class='pill'>Index.html</span>, pas <span class='pill'>index.html.txt</span>, pas dans un dossier.</li><li>Vérifiez que le dépôt affiche <strong>Public</strong> à côté de son nom.</li><li>Allez dans <span class='path'>Settings → Pages</span>. La branche doit être <span class='path'>main</span>. Cliquez sur Save.</li></ol>
+</section><section class="step" id="photo" aria-labelledby="photo-h">
+  <h2 class="st" id="photo-h"><span class="num">2</span>Ma photo ne s'affiche pas</h2>
+  <p><strong>Ce que vous voyez :</strong> Vos initiales s'affichent dans un cercle, pas votre photo.</p>
+  <p style="margin-top:8px"><strong>Que faire :</strong></p>
+  <ol><li>La photo doit être dans le dépôt <span class='pill'>portfolio</span>, à côté de index.html.</li><li>Le nom doit être <span class='pill'>photo.jpg</span>, <span class='pill'>photo.png</span> ou <span class='pill'>photo.jpeg</span>. Tout en minuscules.</li><li>Piège de Windows : vous avez tapé photo.jpg, mais le fichier est <span class='pill'>photo.jpg.png</span>.</li><li>Solution : renommez le fichier en <span class='pill'>photo</span> seulement. Téléversez-le à nouveau.</li><li>Une photo d'iPhone peut être en HEIC. Téléversez plutôt une capture d'écran.</li><li>Attendez 1 minute. Appuyez sur Ctrl+Maj+R pour actualiser.</li><li>Toujours pas de photo ? Votre index.html est peut-être ancien. Demandez à un assistant.</li></ol>
+</section><section class="step" id="repo" aria-labelledby="repo-h">
+  <h2 class="st" id="repo-h"><span class="num">3</span>Mauvais dépôt, ou mon dépôt est privé</h2>
+  <p><strong>Ce que vous voyez :</strong> Vous avez téléversé des fichiers, mais rien ne change sur votre lien en ligne.</p>
+  <p style="margin-top:8px"><strong>Que faire :</strong></p>
+  <ol><li>Regardez le nom du dépôt en haut de GitHub.</li><li><span class='pill'>career-hub</span> est privé. Il ne fait jamais un site web. C'est voulu.</li><li>Les fichiers de votre site vont dans <span class='pill'>portfolio</span>. Il doit être Public.</li><li>Pour déplacer un fichier : ouvrez-le, cliquez sur <span class='path'>Copy raw file</span>.</li><li>Dans <span class='pill'>portfolio</span> : <span class='path'>Add file → Create new file</span>. Même nom. Collez. Commit.</li><li>Ne rendez jamais career-hub public. Il contient vos notes privées.</li></ol>
+</section><section class="step" id="limit" aria-labelledby="limit-h">
+  <h2 class="st" id="limit-h"><span class="num">4</span>Claude dit que j'ai atteint la limite</h2>
+  <p><strong>Ce que vous voyez :</strong> Un message comme <em>You are out of free messages until 5:00 PM</em>.</p>
+  <p style="margin-top:8px"><strong>Que faire :</strong></p>
+  <ol><li>Pas d'inquiétude. Votre travail est enregistré dans GitHub.</li><li>Notez l'heure que Claude affiche.</li><li>Faites les étapes sans IA : enregistrer, listes de contrôle, pratique.</li><li>Asseyez-vous avec un partenaire. Aidez-le et regardez.</li><li>Après cette heure, ouvrez un New chat. Collez à nouveau le prompt.</li></ol>
+</section><section class="step" id="copy" aria-labelledby="copy-h">
+  <h2 class="st" id="copy-h"><span class="num">5</span>Le bouton Copy ne fait rien</h2>
+  <p><strong>Ce que vous voyez :</strong> Vous cliquez sur Copy, mais le collage donne l'ancien texte ou rien.</p>
+  <p style="margin-top:8px"><strong>Que faire :</strong></p>
+  <ol><li>Vous voyez le texte jaune <em>Press Ctrl+C to copy</em> ? Le texte est sélectionné.</li><li>Appuyez sur <strong>Ctrl+C</strong> (sur Mac : <strong>Cmd+C</strong>). Puis collez.</li><li>Pas de texte jaune ? Cliquez au début, puis Maj+clic à la fin.</li><li>Sur téléphone : appuyez longuement sur le texte, puis touchez <span class='path'>Copy</span>.</li></ol>
+</section><section class="step" id="chat" aria-labelledby="chat-h">
+  <h2 class="st" id="chat-h"><span class="num">6</span>J'ai perdu ma conversation</h2>
+  <p><strong>Ce que vous voyez :</strong> Claude affiche une conversation vide. Votre ancienne conversation a disparu de l'écran.</p>
+  <p style="margin-top:8px"><strong>Que faire :</strong></p>
+  <ol><li>Dans Claude, ouvrez le menu de gauche. Cliquez sur <span class='path'>Chats</span> ou <span class='path'>Recents</span>.</li><li>Cherchez un mot de votre conversation, par exemple votre nom.</li><li>Vous ne le trouvez pas ? Ce n'est pas grave. Vos fichiers sont dans GitHub.</li><li>Ouvrez un New chat. Collez à nouveau le prompt avec votre texte enregistré.</li></ol>
+</section><section class="step" id="broken" aria-labelledby="broken-h">
+  <h2 class="st" id="broken-h"><span class="num">7</span>Ma page semble cassée après le collage</h2>
+  <p><strong>Ce que vous voyez :</strong> La page affiche du code en texte, est à moitié là, ou n'a pas de couleurs.</p>
+  <p style="margin-top:8px"><strong>Que faire :</strong></p>
+  <ol><li>Ouvrez le fichier sur GitHub. La première ligne doit être <span class='pill'>&lt;!DOCTYPE html&gt;</span>.</li><li>La dernière ligne doit être <span class='pill'>&lt;/html&gt;</span>.</li><li>Supprimez tout texte de Claude avant la première ligne ou après la dernière.</li><li>Pas de <span class='pill'>&lt;/html&gt;</span> à la fin ? La réponse de Claude a été coupée.</li><li>Dites à Claude : <em>« You stopped early. Give me the complete file again. »</em> (Vous pouvez l'écrire en français : « Tu t'es arrêté trop tôt. Donne-moi le fichier complet. »)</li><li>Vérifiez que le nom du fichier finit par <span class='pill'>.html</span>, pas <span class='pill'>.txt</span>.</li><li>Cliquez dans la zone de modification. Appuyez sur Ctrl+A, puis Ctrl+V.</li></ol>
+</section><section class="step" id="password" aria-labelledby="password-h">
+  <h2 class="st" id="password-h"><span class="num">8</span>J'ai oublié mon mot de passe ou le code de connexion</h2>
+  <p><strong>Ce que vous voyez :</strong> Vous ne pouvez pas vous connecter à Claude ou à GitHub.</p>
+  <p style="margin-top:8px"><strong>Que faire :</strong></p>
+  <ol><li><strong>Claude</strong> n'a pas de mot de passe. Il vous envoie un code ou un lien par e-mail.</li><li>Ouvrez d'abord votre e-mail. Ou utilisez <span class='path'>Continue with Google</span>.</li><li><strong>GitHub :</strong> cliquez sur <span class='path'>Forgot password?</span>. Ouvrez le lien dans l'e-mail. Créez un nouveau mot de passe.</li><li>GitHub demande un code à 6 chiffres (2FA) ? Ouvrez l'application de codes de votre téléphone.</li><li>Téléphone perdu ? Cliquez sur <span class='path'>Use a recovery code</span>. Tapez un code enregistré.</li><li>Pas de codes de récupération ? Dites-le à un assistant. Travaillez avec un partenaire aujourd'hui.</li></ol>
+</section>
+<div class="tip">Toujours bloqué après ces étapes ? Notez ce que vous voyez (ou prenez l'écran en photo). Montrez-le à un assistant.</div>
+</main>
+<footer>ABN · IA et monde du travail · Cohorte de Cambridge. <a href="cambridge.html">Retour à la page du cours</a> (en anglais)</footer>
+</body>
+</html>

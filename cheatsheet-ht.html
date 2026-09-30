@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!-- BETA: machine-drafted Kreyol (SYS-502), not reviewed by a native reader. Shown as beta with a visible line; feedback is collected in class (Marcus). -->
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fich rapid kou a</title>
+<meta name="description" content="Fich rapid ki ka enprime sou yon paj pou kou AI karyè Cambridge la.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  /* Same tokens and components as index.html, plus a few additions for the in-person cohort. */
+  :root{
+    --ink:#111318; --paper:#FFFFFF; --soft:#F4F4F0; --accent:#1D4ED8; --accent2:#E63946;
+    --line:#D8D8D2; --mono:'Space Mono',ui-monospace,monospace;
+    --accent2-text:#B42331; --muted:#4A4F5C;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--soft);color:var(--ink);font-size:17px;line-height:1.55;overflow-wrap:break-word}
+  a{color:var(--accent)}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+  .skip{position:absolute;left:-9999px;top:0;background:#fff;color:var(--ink);padding:10px 14px;z-index:50;font-weight:700}
+  .skip:focus{left:12px;top:12px}
+  header{background:var(--ink);color:#fff;padding:28px 32px 22px;border-bottom:6px solid var(--accent)}
+  header h1{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(24px,3.4vw,36px);letter-spacing:-.01em;line-height:1.15}
+  header p{color:#C9CDD6;margin-top:8px;font-size:16px}
+  header .kbd{color:#fff;background:#2A2E38;padding:1px 7px;border-radius:4px;font-family:var(--mono);font-size:14px}
+  header a{color:#fff}
+  nav{display:flex;flex-wrap:wrap;gap:8px;padding:12px 32px;background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+  nav a{font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;padding:8px 15px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;text-decoration:none;white-space:nowrap}
+  nav a:hover{background:var(--ink);color:#fff}
+  nav a.here{background:var(--accent);border-color:var(--accent);color:#fff}
+  main{max-width:980px;margin:0 auto;padding:30px 24px 80px}
+  section,.step,.rule{scroll-margin-top:100px}
+  h2.sec{font-family:'Archivo',sans-serif;font-weight:900;font-size:28px;margin:44px 0 14px;line-height:1.2}
+  .goal{background:var(--paper);border:2px solid var(--ink);border-left:12px solid var(--accent);padding:18px 22px;margin-bottom:22px;border-radius:6px}
+  .goal h2{font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;margin-bottom:6px;line-height:1.2}
+  .goal p{font-size:17px}
+  .step{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:20px 22px 22px;margin-bottom:18px}
+  .step h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:20px;display:flex;align-items:baseline;gap:12px;margin-bottom:10px;line-height:1.3}
+  .step h4{font-family:'Archivo',sans-serif;font-weight:700;font-size:17px;margin:14px 0 4px}
+  .num{font-family:'Archivo',sans-serif;font-weight:900;color:#fff;background:var(--ink);min-width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;font-size:17px;flex:none;padding:0 6px}
+  .step ol,.step ul,.check ul,.check ol,.rule ul{margin:8px 0 4px 26px}
+  .step li,.check li,.rule li{margin-bottom:7px}
+  .prompt{position:relative;background:#0F1220;color:#E7E9F2;font-family:var(--mono);font-size:15px;line-height:1.6;padding:50px 18px 16px;border-radius:8px;margin:16px 0 6px;border-left:6px solid var(--accent2)}
+  .prompt .label{position:absolute;top:-11px;left:14px;background:var(--accent2-text);color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase;padding:2px 10px;border-radius:4px}
+  .prompt .ptext{white-space:pre-wrap}
+  .copy{position:absolute;top:12px;right:12px;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;background:#fff;color:var(--ink);border:none;padding:7px 14px;border-radius:6px;cursor:pointer}
+  .copy:hover{background:var(--accent);color:#fff}
+  .copy:focus-visible{outline:3px solid #FFD84D;outline-offset:2px}
+  .copyhint{display:none;position:absolute;top:14px;left:18px;right:120px;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:#FFD84D}
+  .copyhint.show{display:block}
+  .msgs{display:inline-block;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;background:#EAF1FF;color:#123A9C;border:1px solid #BFD3FF;border-radius:999px;padding:2px 10px;margin-left:4px;white-space:nowrap}
+  .check{background:#EAF1FF;border:1px solid #BFD3FF;border-radius:8px;padding:14px 18px;margin-top:6px;margin-bottom:18px}
+  .check strong{font-family:'Archivo',sans-serif}
+  .check.done ul{list-style:none;margin-left:2px}
+  .check.done label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+  .check.done input{width:20px;height:20px;margin-top:3px;flex:none;accent-color:var(--accent)}
+  .tip{font-size:16px;color:#333;background:#FFF8E6;border:1px solid #EFE1AE;border-radius:8px;padding:10px 14px;margin-top:10px}
+  .catch{font-size:16px;background:#fff;border:2px dashed var(--ink);border-radius:8px;padding:12px 16px;margin:0 0 18px}
+  .catch strong{font-family:'Archivo',sans-serif}
+  .rule{background:#FFF1F2;border:2px solid var(--accent2-text);border-radius:8px;padding:16px 20px;margin:0 0 20px}
+  .rule h2,.rule h3{font-family:'Archivo',sans-serif;font-weight:900;font-size:20px;color:var(--accent2-text);margin-bottom:6px;line-height:1.25}
+  .rule .cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}
+  .pill{display:inline-block;font-family:var(--mono);font-size:14.5px;background:var(--soft);border:1px solid var(--line);padding:0 7px;border-radius:5px;word-break:break-all}
+  .path{font-weight:700}
+  table.plan{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:8px;margin:6px 0 18px;font-size:16px}
+  table.plan caption{text-align:left;font-family:'Archivo',sans-serif;font-weight:700;font-size:17px;padding:0 0 6px}
+  table.plan th,table.plan td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.plan th{background:var(--ink);color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px}
+  table.plan td:first-child{font-family:var(--mono);font-size:14.5px;white-space:nowrap}
+  table.plan tr.brk td{background:#FFF8E6;font-weight:700}
+  .tablewrap{overflow-x:auto}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  details.helpers{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px 18px;margin-bottom:18px}
+  details.helpers summary{cursor:pointer;font-family:'Archivo',sans-serif;font-weight:700;font-size:17px}
+  a.ext{color:var(--accent2-text);text-decoration:underline;text-underline-offset:2px;font-weight:inherit}
+  a.ext:hover{color:var(--accent)}
+  footer{max-width:980px;margin:0 auto;padding:0 24px 40px;color:#555;font-size:15px}
+  @media (max-width:640px){
+    body{font-size:17px} header{padding:22px 16px 18px} main{padding:20px 16px 70px}
+    nav{padding:10px 16px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
+    nav a{font-size:14px;padding:7px 12px}
+    .step{padding:16px 14px 18px} .prompt{padding:52px 12px 14px;font-size:14.5px}
+    .rule .cols,.grid2{grid-template-columns:1fr}
+    table.plan{font-size:15px} table.plan th,table.plan td{padding:7px 8px}
+    h2.sec{font-size:24px} .goal h2{font-size:23px}
+  }
+  @media print{
+    nav,.copy,.copyhint,.skip{display:none!important}
+    body{background:#fff;font-size:11.5pt}
+    header{background:#fff;color:#000;border-bottom:3px solid #000;padding:0 0 8px}
+    header p{color:#000}
+    .prompt{background:#fff;color:#000;border:1px solid #000;border-left:6px solid #000;padding-top:20px}
+    .prompt .label{background:#000;color:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .step,.check,.rule,.tip,.catch,table.plan{break-inside:avoid}
+    main{padding:10px 0}
+  }
+  body{background:#fff}
+  .sheet{max-width:980px;margin:0 auto;padding:24px 20px 40px;font-size:16px;line-height:1.45}
+  .top{display:flex;gap:20px;align-items:center;justify-content:space-between;border-bottom:5px solid var(--accent);padding-bottom:12px;margin-bottom:14px}
+  .kicker{font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+  .top h1{font-family:'Archivo',sans-serif;font-weight:900;font-size:34px;line-height:1.1}
+  .url{font-family:var(--mono);font-size:17px;font-weight:700;margin-top:4px}
+  .when{font-size:15px;margin-top:2px}
+  .qr{flex:none;text-align:center;font-size:13px;font-weight:700}
+  .qr svg{width:128px;height:128px;display:block;margin:0 auto 2px}
+  .qrline{shape-rendering:crispEdges}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .box{border:1.5px solid var(--ink);border-radius:8px;padding:10px 14px}
+  .box.wide{grid-column:1/-1}
+  .box.red{border:2.5px solid var(--accent2-text);background:#FFF1F2}
+  .box.red h2{color:var(--accent2-text)}
+  .box.dark{background:var(--ink);color:#fff}
+  .box h2{font-family:'Archivo',sans-serif;font-weight:900;font-size:17px;margin-bottom:5px;line-height:1.2}
+  .box p{margin-bottom:4px}
+  .box ol,.box ul{margin:0 0 4px 20px}
+  .box li{margin-bottom:1px}
+  .sm{font-size:14.5px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:2px 18px}
+  code{font-family:var(--mono);font-size:.88em;background:var(--soft);border:1px solid var(--line);border-radius:4px;padding:0 4px;white-space:nowrap}
+  table.files{border-collapse:collapse;width:100%;margin-bottom:4px}
+  table.files th{text-align:left;font-family:var(--mono);font-size:14px;padding:3px 8px 3px 0;vertical-align:top;white-space:nowrap}
+  table.files td{padding:3px 0;line-height:1.7}
+  .navline{max-width:980px;margin:0 auto;padding:0 20px 30px;font-size:15px}
+  @media (max-width:640px){
+    .sheet{padding:18px 16px 30px}
+    .top{flex-direction:column;align-items:flex-start}
+    .grid,.two{grid-template-columns:1fr}
+    code{white-space:normal}
+  }
+  @page{size:Letter;margin:0.4in}
+  @media print{
+    body{font-size:10.1pt}
+    .sheet{padding:0;font-size:10.1pt;line-height:1.3;max-width:none}
+    .top{padding-bottom:6px;margin-bottom:8px;border-bottom-width:4px}
+    .top h1{font-size:21pt}
+    .url{font-size:12pt} .when{font-size:10pt}
+    .kicker{font-size:8.5pt}
+    .qr svg{width:1.3in;height:1.3in}
+    .qr{font-size:8pt}
+    .grid{gap:9px;grid-template-columns:1fr 1fr}
+    .two{grid-template-columns:1fr 1fr}
+    .box{padding:7px 11px;break-inside:avoid}
+    .box h2{font-size:11.5pt;margin-bottom:3px}
+    .sm{font-size:9.6pt}
+    code{font-size:9pt}
+    table.files th{font-size:9.6pt}
+    .box.red,.box.dark,.box.red h2,code,.top{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .navline{display:none}
+  }
+.betabar{background:#EAF1FF;color:#123A9C;border-bottom:2px solid #BFD3FF;font-weight:700;font-size:16px;padding:8px 16px;text-align:center}@media print{.betabar{font-size:8pt;padding:1px 4px;border:0;background:#fff;color:#000}}
+  @media print{body,.sheet{font-size:9.6pt}.sm{font-size:9.2pt}.box{padding:6px 10px}}
+</style>
+</head>
+<body>
+<p class="betabar" role="note">Kreyòl ayisyen (beta): tradiksyon sa a nouvo, li ka gen erè. Di pwofesè w si yon bagay pa klè.</p>
+<a class="skip" href="#main">Ale nan kontni prensipal la</a>
+
+<main id="main" class="sheet">
+<div class="top">
+  <div class="title">
+    <p class="kicker">ABN · Kou AI pou karyè · Cambridge</p>
+    <h1>Fich rapid kou a</h1>
+    <p class="url">niimarcus.github.io/ai-class/cambridge.html</p>
+    <p class="when">28 ak 29 okt. · 4, 5, 12 ak 19 nov. · 6:00-8:00 p.m. · Cambridge Public Library</p>
+  </div>
+  <div class="qr"><svg role="img" aria-label="Kòd QR paj kou a" viewBox="0 0 41 41" class="segno"><path fill="#fff" d="M0 0h41v41h-41z"/><path class="qrline" stroke="#111318" d="M4 4.5h7m4 0h1m1 0h1m2 0h8m2 0h7m-33 1h1m5 0h1m2 0h1m1 0h1m1 0h5m4 0h1m3 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m1 0h3m1 0h2m1 0h1m1 0h2m1 0h3m1 0h1m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h5m1 0h3m5 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h6m1 0h1m1 0h2m2 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m1 0h3m1 0h1m2 0h2m1 0h1m5 0h1m1 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-25 1h1m1 0h3m1 0h2m2 0h1m2 0h1m-22 1h1m1 0h5m2 0h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h1m1 0h1m1 0h5m-28 1h2m3 0h2m6 0h1m2 0h3m1 0h1m2 0h2m1 0h2m1 0h1m-33 1h1m1 0h1m3 0h1m4 0h2m2 0h2m1 0h1m1 0h3m5 0h1m1 0h2m-25 1h2m2 0h2m1 0h1m1 0h1m4 0h2m2 0h1m2 0h3m-31 1h2m4 0h1m1 0h1m1 0h1m1 0h1m5 0h2m3 0h3m1 0h3m1 0h2m-32 1h2m2 0h1m1 0h2m1 0h2m2 0h3m4 0h1m1 0h1m2 0h1m3 0h3m-30 1h4m2 0h2m2 0h1m11 0h2m1 0h4m-31 1h2m4 0h1m2 0h2m1 0h2m1 0h1m3 0h3m1 0h4m1 0h2m-30 1h3m1 0h3m3 0h4m2 0h1m1 0h1m2 0h4m1 0h3m2 0h1m-31 1h2m1 0h1m1 0h1m3 0h1m2 0h1m2 0h4m1 0h2m2 0h2m1 0h2m1 0h1m-32 1h1m1 0h1m1 0h2m3 0h1m1 0h1m1 0h4m2 0h1m1 0h1m2 0h4m1 0h2m-32 1h1m9 0h3m1 0h1m1 0h6m2 0h2m1 0h6m-31 1h3m1 0h1m3 0h2m1 0h2m1 0h1m5 0h4m1 0h3m-30 1h5m3 0h2m2 0h2m1 0h1m2 0h4m1 0h1m2 0h1m3 0h1m1 0h1m-33 1h1m4 0h2m2 0h1m2 0h7m1 0h3m1 0h3m1 0h2m1 0h1m-32 1h1m1 0h1m1 0h2m1 0h2m1 0h1m3 0h2m2 0h1m1 0h5m1 0h1m1 0h5m-33 1h1m2 0h1m2 0h1m3 0h1m1 0h1m2 0h1m1 0h3m2 0h1m1 0h6m-22 1h1m1 0h1m2 0h2m1 0h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m1 0h1m-33 1h7m3 0h1m1 0h1m2 0h2m1 0h1m2 0h1m1 0h2m1 0h1m1 0h1m1 0h2m-32 1h1m5 0h1m1 0h1m1 0h2m1 0h1m1 0h1m3 0h3m1 0h2m3 0h4m-32 1h1m1 0h3m1 0h1m1 0h1m1 0h1m7 0h2m2 0h1m1 0h6m1 0h2m-33 1h1m1 0h3m1 0h1m1 0h1m2 0h1m3 0h3m1 0h7m2 0h1m1 0h3m-33 1h1m1 0h3m1 0h1m1 0h3m1 0h3m2 0h1m8 0h2m1 0h1m-30 1h1m5 0h1m3 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h4m4 0h1m1 0h1m-31 1h7m1 0h1m2 0h1m1 0h2m2 0h1m5 0h2m1 0h2m3 0h1"/></svg><span>Eskane pou wè paj kou a</span></div>
+</div>
+
+<div class="grid">
+
+<section class="box red">
+  <h2>Règ konfidansyalite: anvan w kole nan AI a</h2>
+  <p><strong>Retire:</strong> adrès · telefòn · ID, viza, nimewo A (A-number), nimewo dosye · dat nesans · non, telefòn ak imèl lòt moun.</p>
+  <p><strong>Kenbe:</strong> non ou, vil ou, imèl ou, travay ou, lekòl ou, konpetans ou.</p>
+  <p><strong>Paj piblik:</strong> pou referans, ekri « Kontakte sou demann ». Pa mete liy sou otorizasyon pou travay.</p>
+</section>
+
+<section class="box">
+  <h2>Sove yon nouvo fichye sou GitHub</h2>
+  <ol>
+    <li>Louvri repo ou a sou github.com.</li>
+    <li><b>Add file → Create new file</b>.</li>
+    <li>Ekri non fichye a.</li>
+    <li>Klike nan gwo bwat la. <b>Ctrl+V</b> pou kole.</li>
+    <li><b>Commit changes</b>, apre sa ankò <b>Commit changes</b>.</li>
+  </ol>
+  <p class="sm"><b>Chanje yon fichye:</b> louvri li → kreyon → Ctrl+A → Ctrl+V → Commit.<br>
+  <b>Kopye li tounen:</b> louvri li → <b>Copy raw file</b> (de kare).<br>
+  Pa sèvi ak Downloads. Òdinatè pataje yo efase yo.</p>
+</section>
+
+<section class="box">
+  <h2>Non fichye: egzat, ti lèt, pa gen espas</h2>
+  <table class="files">
+    <tr><th scope="row">career-hub</th><td>Prive. <code>my-resume.txt</code> <code>resume.html</code> <code>story-bank.txt</code> <code>cover-letter-acme.txt</code> <code>interview-prep.txt</code></td></tr>
+    <tr><th scope="row">portfolio</th><td>Piblik. <code>index.html</code> ak foto ou</td></tr>
+  </table>
+  <p class="sm"><b>Foto:</b> rele li <code>photo</code> sèlman. Windows ajoute fen an. Paj la eseye <code>photo.jpg</code>, <code>.png</code>, <code>.jpeg</code>. Pyèj: <code>photo.jpg.png</code>.<br>
+  Sèvi ak yon tirè, pa yon espas: <code>cover-letter-acme.txt</code>.</p>
+</section>
+
+<section class="box">
+  <h2>Mesaj: anviwon 1 a 6 chak kou</h2>
+  <ul>
+    <li>Reponn tout kesyon Claude yo nan yon sèl mesaj.</li>
+    <li>Mande ti chanjman, pa yon nouvo paj.</li>
+    <li>Pa voye mesaj « mèsi ».</li>
+  </ul>
+  <p class="sm"><b>Ou rive nan limit la?</b> Ekri lè a. Fè etap ki pa bezwen AI yo. Chita ak yon patnè. Kontinye pita ak prompt enprime a.</p>
+</section>
+
+<section class="box wide">
+  <h2>Ou bloke? Pi bon solisyon yo</h2>
+  <div class="two">
+    <p><b>404 sou lyen an:</b> tann 2 min. Fichye a rele <code>index.html</code>. Repo a se Public. Settings → Pages → main → Save.</p>
+    <p><b>Foto a pa parèt:</b> nan repo <code>portfolio</code> la? Non li se <code>photo</code>? Rafrechi ak Ctrl+Shift+R.</p>
+    <p><b>Kopye a pa fè anyen:</b> tèks la chwazi deja. Peze Ctrl+C (Mac: Cmd+C).</p>
+    <p><b>Paj la sanble kase:</b> premye liy <code>&lt;!DOCTYPE html&gt;</code>, dènye liy <code>&lt;/html&gt;</code>. Li koupe? Mande fichye konplè a.</p>
+    <p><b>Anyen pa chanje sou entènèt:</b> move repo. Fichye sit wèb yo ale nan <code>portfolio</code>, pa nan career-hub.</p>
+    <p><b>Mwen pèdi chat mwen:</b> fichye ou yo nan GitHub. Kòmanse yon New chat, kole prompt la ankò.</p>
+    <p><b>Konekte nan Claude:</b> pa gen modpas. Li voye yon kòd nan imèl ou.</p>
+    <p><b>Modpas GitHub:</b> « Forgot password? ». Ou pèdi telefòn 2FA a? Sèvi ak yon kòd rekiperasyon.</p>
+  </div>
+  <p class="sm">Plis èd: <b>niimarcus.github.io/ai-class/stuck.html</b></p>
+</section>
+
+<section class="box wide dark">
+  <h2>Òdinatè pataje? Dekonekte anvan w ale</h2>
+  <p>Sove sou GitHub → Dekonekte nan Claude → Dekonekte nan GitHub → Dekonekte nan imèl ou → Fenèt modpas la: « Never » → Efase Downloads ou → Fèmen tout fenèt. Konsèy: kòmanse nan yon fenèt Guest oswa Incognito (Ctrl+Shift+N).</p>
+</section>
+
+</div>
+</main>
+<p class="navline">Tou : <a href="cambridge.html">Paj kou a</a> (an anglè) · <a href="stuck-ht.html">Ou bloke?</a> · <a href="signout.html">Lis pou dekonekte</a> (an anglè) · Enprime paj sa a: Ctrl+P</p>
+</body>
+</html>
