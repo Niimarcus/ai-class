@@ -5,7 +5,7 @@ Machine-drafted by Pollen from the English pages, using the terms in Sparecycle 
 
 **Scope (Marcus, 2026-09-30): English and French are required. Kreyòl is shown as beta and blocks nothing.**
 
-**Merge condition (Fizz): this PR does not merge until every FRENCH row below says `yes`.** This repo publishes the moment it merges. Do not print any file until its row says `yes`.
+**Merge condition (Fizz): this PR does not merge until every FRENCH row below says `yes`.** This repo publishes the moment it merges. Do not print a French file until its row says `yes`. Kreyòl beta files may print.
 
 ## French rows (gate the merge)
 
