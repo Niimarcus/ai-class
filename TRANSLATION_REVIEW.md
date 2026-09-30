@@ -3,7 +3,7 @@
 Files: `cheatsheet-fr.html`, `stuck-fr.html`, `stepcards-fr.html` (French, required). `stepcards.html` is the English original. `cheatsheet-ht.html`, `stuck-ht.html`, `stepcards-ht.html` are Kreyòl ayisyen (optional).
 Machine-drafted by Pollen from the English pages, using the terms in Sparecycle `PLANS/COPY_V0_KREYOL_FRENCH.md` (PR #13). Pollen is not a native speaker of either language.
 
-**Scope (Marcus, 2026-09-30 18:12): English and French are required. Kreyòl blocks nothing.**
+**Scope (Marcus, 2026-09-30): English and French are required. Kreyòl is shown as beta and blocks nothing.**
 
 **Merge condition (Fizz): this PR does not merge until every FRENCH row below says `yes`.** This repo publishes the moment it merges. Do not print any file until its row says `yes`.
 
@@ -17,15 +17,15 @@ Machine-drafted by Pollen from the English pages, using the terms in Sparecycle 
 
 **Open item for Marcus:** name the person who does the French read (one fluent reader, one sitting). Nobody is named yet.
 
-## Kreyòl rows (do not block)
+## Kreyòl rows (feedback, not a gate)
 
-The Kreyòl pages ship in the PR but are **unlinked** from the README and from every page. Each one shows a yellow "Draft: not reviewed" bar on the page itself. They stay out of the print set until a native reader signs off.
+Kreyòl ships as **beta** (Marcus, 2026-09-30 18:14). Each Kreyòl page shows a small line at the top in Kreyòl: the translation is new and may have mistakes, tell your teacher if something is unclear. Marcus asks students in class how it reads and collects feedback. Nothing waits on a native review, and the pages are in the README and in the print set.
 
-| File | reviewed | Reviewer | Date |
-|---|---|---|---|
-| cheatsheet-ht.html | no | | |
-| stuck-ht.html | no | | |
-| stepcards-ht.html | no | | |
+| File | reviewed | Feedback from class |
+|---|---|---|
+| cheatsheet-ht.html | no (beta) | |
+| stuck-ht.html | no (beta) | |
+| stepcards-ht.html | no (beta) | |
 
 ## Choices for the reviewer
 
@@ -36,7 +36,7 @@ The Kreyòl pages ship in the PR but are **unlinked** from the README and from e
 
 ## Layout check
 
-Printed on US Letter from headless Chrome: `cheatsheet.html`, `cheatsheet-fr.html` and `cheatsheet-ht.html` are each 1 page without the Kreyòl draft bar (the bar pushes `cheatsheet-ht.html` to 2 pages until it is removed after review; French needs a 9.3 pt print override, set inside the file)). Step cards print on 2 pages.
+Printed on US Letter from headless Chrome: `cheatsheet.html`, `cheatsheet-fr.html` and `cheatsheet-ht.html` are each 1 page (Kreyòl needs a 9.6 pt print override for its beta line; French needs a 9.3 pt print override, set inside the file)). Step cards print on 2 pages.
 
 ## Step cards (criterion 16)
 
