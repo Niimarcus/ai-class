@@ -9,9 +9,9 @@ Machine-drafted by Pollen from the English pages, using the terms in Sparecycle 
 
 | File | reviewed | Feedback |
 |---|---|---|
-| cheatsheet-fr.html | no | |
-| stuck-fr.html | no | |
-| stepcards-fr.html | no | |
+| cheatsheet-fr.html | no | PR #5: class chat line changed (laptop first). |
+| stuck-fr.html | no | PR #5: "Onglet fermé" item (laptop first) and the new prompt-button item. |
+| stepcards-fr.html | no | PR #5: page rewritten. New checkpoint cards for Class 1 and Class 2. |
 
 ## Kreyòl rows (feedback only)
 
@@ -19,9 +19,9 @@ Kreyòl ships as **beta** (Marcus, 2026-09-30 18:14). Each Kreyòl page shows a 
 
 | File | reviewed | Feedback from class |
 |---|---|---|
-| cheatsheet-ht.html | no (beta) | |
-| stuck-ht.html | no (beta) | |
-| stepcards-ht.html | no (beta) | |
+| cheatsheet-ht.html | no (beta), **needs native review (PR #5)** | Class chat line changed (laptop first). |
+| stuck-ht.html | no (beta), **needs native review (PR #5)** | "Ou fèmen onglè a?" item (laptop first) and the new item "Touche bouton prompt pwofesè w la ankò...". |
+| stepcards-ht.html | no (beta), **needs native review (PR #5)** | Page rewritten. New checkpoint cards for Class 1 and Class 2 (see below). |
 
 ## Choices for the reviewer
 
@@ -36,4 +36,24 @@ Printed on US Letter from headless Chrome: `cheatsheet.html`, `cheatsheet-fr.htm
 
 ## Step cards (criterion 16)
 
-Five cards. Card 2 is "Pick your language, then read this": the language choice sits on the first screen above the privacy text (Fizz, SYS-502 build). Layout and text only. Each card has a dashed placeholder where the screenshot goes. Images wait until SYS-502 is on staging, because the screens change. Button names (Send, Listen, A-/A+) follow COPY_V0_KREYOL_FRENCH.md and must be checked against the built screens.
+Updated in PR #5 (Cambridge Class 1 and Class 2, "I do, we do, you do"). The step cards now have two parts:
+
+1. **Checkpoint cards**, with the same step numbers as `cambridge.html` (1.1, 2.3 ...): Class 1 has 4 checkpoints, Class 2 has 6. Each card ends with a green-card line.
+2. **How the class chat works**: five cards. The screenshot placeholders are removed (no images exist).
+
+Button names in the class chat come from Sparecycle `app/copy/fr.py` and `app/copy/ht.py`, with the English label in brackets, because the projector shows the English screen: « Réponses » (Answers), "Repons" (Answers), « Ajouter un fichier » (Add a file), "Ajoute yon fichye" (Add a file), and so on. GitHub button names and the teacher's prompt button labels stay in English.
+
+### Kreyòl to check (PR #5, needs native review)
+
+- Tags: "Chwa pa w" (Your choice), "Nan vitès pa w" (On your own), "Kat vèt" (Green card), "Pwen kontwòl" (Checkpoint).
+- Catch-up line: "Ou rete dèyè? Chèche nimewo etap la sou ekran an. Rekòmanse depi dènye pwen kontwòl vèt ou. Yon asistan ap vin ede w."
+- "Swiv pwofesè a sou pwojektè a: yon etap alafwa."
+- "Seleksyone depi tit travay la jiska lafen."
+- "Trennen resume.html ladan l." (drag in)
+- "Lis pou dekonekte" (sign-out checklist).
+- "Envite (Guest) oswa Enkoyito (Incognito)" for the browser window names.
+
+### French choices (PR #5)
+
+- "Point de contrôle", "Carte verte", "À votre rythme" (On your own), "Votre choix".
+- No-break spaces: U+202F before ? ! ; and U+00A0 before : and inside « ». Applied to `stepcards-fr.html`, `cheatsheet-fr.html` and `stuck-fr.html`. Text in [BRACKETS] (prompt parts) is left as in the English prompt.

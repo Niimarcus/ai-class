@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bloqué ? Faites ceci</title>
+<title>Bloqué ? Faites ceci</title>
 <meta name="description" content="Solutions aux problèmes courants du cours d'IA de Cambridge.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
@@ -105,60 +105,60 @@
 <a class="skip" href="#main">Aller au contenu principal</a>
 
 <header>
-  <h1>Bloqué ? Faites ceci.</h1>
-  <p>Trouvez votre problème. Faites les étapes dans l'ordre. Toujours bloqué ? Levez la main ou demandez à un partenaire.</p>
+  <h1>Bloqué ? Faites ceci.</h1>
+  <p>Trouvez votre problème. Faites les étapes dans l'ordre. Toujours bloqué ? Levez la main ou demandez à un partenaire.</p>
 </header>
 <nav aria-label="Pages du cours">
   <a href="cambridge.html">Page du cours</a>
-  <a href="stuck-fr.html" class="here" aria-current="page">Bloqué ?</a>
+  <a href="stuck-fr.html" class="here" aria-current="page">Bloqué ?</a>
   <a href="cheatsheet-fr.html">Aide-mémoire</a>
   <a href="signout.html">Déconnexion (en anglais)</a>
 </nav>
 <main id="main">
 <div class="goal"><h2>Choisissez votre problème</h2>
-<ol style="margin:6px 0 0 24px" class="toc"><li><a href="#s404">Mon lien en ligne affiche « 404 »</a></li><li><a href="#photo">Ma photo ne s'affiche pas</a></li><li><a href="#repo">Mauvais dépôt, ou mon dépôt est privé</a></li><li><a href="#limit">Le chat de la classe dit que je n'ai plus de questions</a></li><li><a href="#copy">Le bouton Copy ne fait rien</a></li><li><a href="#chat">J'ai perdu ma conversation</a></li><li><a href="#broken">Ma page semble cassée après le collage</a></li><li><a href="#password">J'ai oublié mon mot de passe ou le code de connexion</a></li></ol></div>
+<ol style="margin:6px 0 0 24px" class="toc"><li><a href="#s404">Mon lien en ligne affiche « 404 »</a></li><li><a href="#photo">Ma photo ne s'affiche pas</a></li><li><a href="#repo">Mauvais dépôt, ou mon dépôt est privé</a></li><li><a href="#limit">Le chat de la classe dit que je n'ai plus de questions</a></li><li><a href="#copy">Le bouton Copy ne fait rien</a></li><li><a href="#chat">J'ai perdu ma conversation</a></li><li><a href="#broken">Ma page semble cassée après le collage</a></li><li><a href="#password">J'ai oublié mon mot de passe ou le code de connexion</a></li></ol></div>
 <section class="step" id="s404" aria-labelledby="s404-h">
-  <h2 class="st" id="s404-h"><span class="num">1</span>Mon lien en ligne affiche « 404 »</h2>
-  <p><strong>Ce que vous voyez :</strong> Une page blanche qui dit <em>404: There isn't a GitHub Pages site here</em>.</p>
-  <p style="margin-top:8px"><strong>Que faire :</strong></p>
-  <ol><li>Attendez 2 minutes. Puis actualisez la page.</li><li>Vérifiez le lien : <span class='pill'>your-username.github.io/portfolio/</span>. L'orthographe compte.</li><li>Ouvrez le dépôt. Le fichier doit s'appeler exactement <span class='pill'>index.html</span>.</li><li>Pas <span class='pill'>Index.html</span>, pas <span class='pill'>index.html.txt</span>, pas dans un dossier.</li><li>Vérifiez que le dépôt affiche <strong>Public</strong> à côté de son nom.</li><li>Allez dans <span class='path'>Settings → Pages</span>. La branche doit être <span class='path'>main</span>. Cliquez sur Save.</li></ol>
+  <h2 class="st" id="s404-h"><span class="num">1</span>Mon lien en ligne affiche « 404 »</h2>
+  <p><strong>Ce que vous voyez :</strong> Une page blanche qui dit <em>404 : There isn't a GitHub Pages site here</em>.</p>
+  <p style="margin-top:8px"><strong>Que faire :</strong></p>
+  <ol><li>Attendez 2 minutes. Puis actualisez la page.</li><li>Vérifiez le lien : <span class='pill'>your-username.github.io/portfolio/</span>. L'orthographe compte.</li><li>Ouvrez le dépôt. Le fichier doit s'appeler exactement <span class='pill'>index.html</span>.</li><li>Pas <span class='pill'>Index.html</span>, pas <span class='pill'>index.html.txt</span>, pas dans un dossier.</li><li>Vérifiez que le dépôt affiche <strong>Public</strong> à côté de son nom.</li><li>Allez dans <span class='path'>Settings → Pages</span>. La branche doit être <span class='path'>main</span>. Cliquez sur Save.</li></ol>
 </section><section class="step" id="photo" aria-labelledby="photo-h">
   <h2 class="st" id="photo-h"><span class="num">2</span>Ma photo ne s'affiche pas</h2>
-  <p><strong>Ce que vous voyez :</strong> Vos initiales s'affichent dans un cercle, pas votre photo.</p>
-  <p style="margin-top:8px"><strong>Que faire :</strong></p>
-  <ol><li>La photo doit être dans le dépôt <span class='pill'>portfolio</span>, à côté de index.html.</li><li>Le nom doit être <span class='pill'>photo.jpg</span>, <span class='pill'>photo.png</span> ou <span class='pill'>photo.jpeg</span>. Tout en minuscules.</li><li>Piège de Windows : vous avez tapé photo.jpg, mais le fichier est <span class='pill'>photo.jpg.png</span>.</li><li>Solution : renommez le fichier en <span class='pill'>photo</span> seulement. Téléversez-le à nouveau.</li><li>Une photo d'iPhone peut être en HEIC. Téléversez plutôt une capture d'écran.</li><li>Attendez 1 minute. Appuyez sur Ctrl+Maj+R pour actualiser.</li><li>Toujours pas de photo ? Votre index.html est peut-être ancien. Demandez à un assistant.</li></ol>
+  <p><strong>Ce que vous voyez :</strong> Vos initiales s'affichent dans un cercle, pas votre photo.</p>
+  <p style="margin-top:8px"><strong>Que faire :</strong></p>
+  <ol><li>La photo doit être dans le dépôt <span class='pill'>portfolio</span>, à côté de index.html.</li><li>Le nom doit être <span class='pill'>photo.jpg</span>, <span class='pill'>photo.png</span> ou <span class='pill'>photo.jpeg</span>. Tout en minuscules.</li><li>Piège de Windows : vous avez tapé photo.jpg, mais le fichier est <span class='pill'>photo.jpg.png</span>.</li><li>Solution : renommez le fichier en <span class='pill'>photo</span> seulement. Téléversez-le à nouveau.</li><li>Une photo d'iPhone peut être en HEIC. Téléversez plutôt une capture d'écran.</li><li>Attendez 1 minute. Appuyez sur Ctrl+Maj+R pour actualiser.</li><li>Toujours pas de photo ? Votre index.html est peut-être ancien. Demandez à un assistant.</li></ol>
 </section><section class="step" id="repo" aria-labelledby="repo-h">
   <h2 class="st" id="repo-h"><span class="num">3</span>Mauvais dépôt, ou mon dépôt est privé</h2>
-  <p><strong>Ce que vous voyez :</strong> Vous avez téléversé des fichiers, mais rien ne change sur votre lien en ligne.</p>
-  <p style="margin-top:8px"><strong>Que faire :</strong></p>
-  <ol><li>Regardez le nom du dépôt en haut de GitHub.</li><li><span class='pill'>career-hub</span> est privé. Il ne fait jamais un site web. C'est voulu.</li><li>Les fichiers de votre site vont dans <span class='pill'>portfolio</span>. Il doit être Public.</li><li>Pour déplacer un fichier : ouvrez-le, cliquez sur <span class='path'>Copy raw file</span>.</li><li>Dans <span class='pill'>portfolio</span> : <span class='path'>Add file → Create new file</span>. Même nom. Collez. Commit.</li><li>Ne rendez jamais career-hub public. Il contient vos notes privées.</li></ol>
+  <p><strong>Ce que vous voyez :</strong> Vous avez téléversé des fichiers, mais rien ne change sur votre lien en ligne.</p>
+  <p style="margin-top:8px"><strong>Que faire :</strong></p>
+  <ol><li>Regardez le nom du dépôt en haut de GitHub.</li><li><span class='pill'>career-hub</span> est privé. Il ne fait jamais un site web. C'est voulu.</li><li>Les fichiers de votre site vont dans <span class='pill'>portfolio</span>. Il doit être Public.</li><li>Pour déplacer un fichier : ouvrez-le, cliquez sur <span class='path'>Copy raw file</span>.</li><li>Dans <span class='pill'>portfolio</span> : <span class='path'>Add file → Create new file</span>. Même nom. Collez. Commit.</li><li>Ne rendez jamais career-hub public. Il contient vos notes privées.</li></ol>
 </section><section class="step" id="limit" aria-labelledby="limit-h">
   <h2 class="st" id="limit-h"><span class="num">4</span>Le chat de la classe dit que je n'ai plus de questions</h2>
-  <p><strong>Ce que vous voyez :</strong> Un message comme <em>Vous n'avez plus de questions pour cette session. Vous avez posé 20 questions.</em></p>
-  <p style="margin-top:8px"><strong>Que faire :</strong></p>
-  <ol><li>Pas d'inquiétude. Votre travail est enregistré dans GitHub.</li><li>Copiez les réponses dont vous avez besoin. Enregistrez-les sur GitHub maintenant. Le chat disparaît quand vous fermez l'onglet.</li><li>Dites-le à l'enseignant.</li><li>Faites les étapes sans IA : enregistrer, listes de contrôle, pratique.</li><li>Asseyez-vous avec un partenaire. Aidez-le et regardez.</li></ol>
+  <p><strong>Ce que vous voyez :</strong> Un message comme <em>Vous n'avez plus de questions pour cette session. Vous avez posé 20 questions.</em></p>
+  <p style="margin-top:8px"><strong>Que faire :</strong></p>
+  <ol><li>Pas d'inquiétude. Votre travail est enregistré dans GitHub.</li><li>Copiez les réponses dont vous avez besoin. Enregistrez-les sur GitHub maintenant. Le chat disparaît quand vous fermez l'onglet.</li><li>Dites-le à l'enseignant.</li><li>Faites les étapes sans IA : enregistrer, listes de contrôle, pratique.</li><li>Asseyez-vous avec un partenaire. Aidez-le et regardez.</li></ol>
 </section><section class="step" id="copy" aria-labelledby="copy-h">
   <h2 class="st" id="copy-h"><span class="num">5</span>Le bouton Copy ne fait rien</h2>
-  <p><strong>Ce que vous voyez :</strong> Vous cliquez sur Copy, mais le collage donne l'ancien texte ou rien.</p>
-  <p style="margin-top:8px"><strong>Que faire :</strong></p>
-  <ol><li>Vous voyez le texte jaune <em>Press Ctrl+C to copy</em> ? Le texte est sélectionné.</li><li>Appuyez sur <strong>Ctrl+C</strong> (sur Mac : <strong>Cmd+C</strong>). Puis collez.</li><li>Pas de texte jaune ? Cliquez au début, puis Maj+clic à la fin.</li><li>Sur téléphone : appuyez longuement sur le texte, puis touchez <span class='path'>Copy</span>.</li></ol>
+  <p><strong>Ce que vous voyez :</strong> Vous cliquez sur Copy, mais le collage donne l'ancien texte ou rien.</p>
+  <p style="margin-top:8px"><strong>Que faire :</strong></p>
+  <ol><li>Vous voyez le texte jaune <em>Press Ctrl+C to copy</em> ? Le texte est sélectionné.</li><li>Appuyez sur <strong>Ctrl+C</strong> (sur Mac : <strong>Cmd+C</strong>). Puis collez.</li><li>Pas de texte jaune ? Cliquez au début, puis Maj+clic à la fin.</li><li>Sur téléphone : appuyez longuement sur le texte, puis touchez <span class='path'>Copy</span>.</li></ol>
 </section><section class="step" id="chat" aria-labelledby="chat-h">
   <h2 class="st" id="chat-h"><span class="num">6</span>J'ai perdu ma conversation</h2>
-  <p><strong>Ce que vous voyez :</strong> Le chat de la classe est vide. Votre ancienne conversation a disparu de l'écran.</p>
-  <p style="margin-top:8px"><strong>Que faire :</strong></p>
-  <ol><li>Le chat de la classe ne garde pas les conversations. Cela protège votre vie privée. Personne ne peut récupérer l'ancienne conversation.</li><li>Vos fichiers sont dans GitHub.</li><li>Onglet fermé ? Rejoignez le cours à nouveau : scannez le code QR, ou ouvrez <span class='path'>app.sparecycle.org/join</span> et tapez le code affiché à l'écran.</li><li>Collez à nouveau le prompt avec votre texte enregistré.</li><li>La prochaine fois : enregistrez chaque réponse sur GitHub avant de fermer l'onglet.</li></ol>
+  <p><strong>Ce que vous voyez :</strong> Le chat de la classe est vide. Votre ancienne conversation a disparu de l'écran.</p>
+  <p style="margin-top:8px"><strong>Que faire :</strong></p>
+  <ol><li>Le chat de la classe ne garde pas les conversations. Cela protège votre vie privée. Personne ne peut récupérer l'ancienne conversation.</li><li>Vos fichiers sont dans GitHub.</li><li>Onglet fermé ? Rejoignez le cours à nouveau : sur votre ordinateur portable, ouvrez <span class='path'>app.sparecycle.org/join</span> et tapez le code affiché à l'écran. Ou scannez le code QR.</li><li>Touchez à nouveau le bouton du prompt de votre enseignant. Ajoutez votre texte enregistré avec <span class='path'>Ajouter un fichier</span> (Add a file), ou collez-le.</li><li>La prochaine fois : enregistrez chaque réponse sur GitHub avant de fermer l'onglet.</li></ol>
 </section><section class="step" id="broken" aria-labelledby="broken-h">
   <h2 class="st" id="broken-h"><span class="num">7</span>Ma page semble cassée après le collage</h2>
-  <p><strong>Ce que vous voyez :</strong> La page affiche du code en texte, est à moitié là, ou n'a pas de couleurs.</p>
-  <p style="margin-top:8px"><strong>Que faire :</strong></p>
-  <ol><li>Ouvrez le fichier sur GitHub. La première ligne doit être <span class='pill'>&lt;!DOCTYPE html&gt;</span>.</li><li>La dernière ligne doit être <span class='pill'>&lt;/html&gt;</span>.</li><li>Supprimez tout texte de Claude avant la première ligne ou après la dernière.</li><li>Pas de <span class='pill'>&lt;/html&gt;</span> à la fin ? La réponse de Claude a été coupée.</li><li>Dites à Claude : <em>« You stopped early. Give me the complete file again. »</em> (Vous pouvez l'écrire en français : « Tu t'es arrêté trop tôt. Donne-moi le fichier complet. »)</li><li>Vérifiez que le nom du fichier finit par <span class='pill'>.html</span>, pas <span class='pill'>.txt</span>.</li><li>Cliquez dans la zone de modification. Appuyez sur Ctrl+A, puis Ctrl+V.</li></ol>
+  <p><strong>Ce que vous voyez :</strong> La page affiche du code en texte, est à moitié là, ou n'a pas de couleurs.</p>
+  <p style="margin-top:8px"><strong>Que faire :</strong></p>
+  <ol><li>Ouvrez le fichier sur GitHub. La première ligne doit être <span class='pill'>&lt;!DOCTYPE html&gt;</span>.</li><li>La dernière ligne doit être <span class='pill'>&lt;/html&gt;</span>.</li><li>Supprimez tout texte de Claude avant la première ligne ou après la dernière.</li><li>Pas de <span class='pill'>&lt;/html&gt;</span> à la fin ? La réponse de Claude a été coupée.</li><li>Dites à Claude : <em>« You stopped early. Give me the complete file again. »</em> (Vous pouvez l'écrire en français : « Tu t'es arrêté trop tôt. Donne-moi le fichier complet. »)</li><li>Vérifiez que le nom du fichier finit par <span class='pill'>.html</span>, pas <span class='pill'>.txt</span>.</li><li>Cliquez dans la zone de modification. Appuyez sur Ctrl+A, puis Ctrl+V.</li></ol>
 </section><section class="step" id="password" aria-labelledby="password-h">
   <h2 class="st" id="password-h"><span class="num">8</span>J'ai oublié mon mot de passe ou le code de connexion</h2>
-  <p><strong>Ce que vous voyez :</strong> Vous ne pouvez pas vous connecter à GitHub, ou le code du chat de la classe ne marche pas.</p>
-  <p style="margin-top:8px"><strong>Que faire :</strong></p>
-  <ol><li><strong>Chat de la classe :</strong> pas de compte et pas de mot de passe. Tapez à nouveau le code affiché à l'écran. Vérifiez les caractères qui se ressemblent, comme 0 et O.</li><li>Le code ne marche toujours pas ? Scannez le code QR. Ou demandez à un assistant.</li><li><strong>GitHub :</strong> cliquez sur <span class='path'>Forgot password?</span>. Ouvrez le lien dans l'e-mail. Créez un nouveau mot de passe.</li><li>GitHub demande un code à 6 chiffres (2FA) ? Ouvrez l'application de codes de votre téléphone.</li><li>Téléphone perdu ? Cliquez sur <span class='path'>Use a recovery code</span>. Tapez un code enregistré.</li><li>Pas de codes de récupération ? Dites-le à un assistant. Travaillez avec un partenaire aujourd'hui.</li></ol>
+  <p><strong>Ce que vous voyez :</strong> Vous ne pouvez pas vous connecter à GitHub, ou le code du chat de la classe ne marche pas.</p>
+  <p style="margin-top:8px"><strong>Que faire :</strong></p>
+  <ol><li><strong>Chat de la classe :</strong> pas de compte et pas de mot de passe. Tapez à nouveau le code affiché à l'écran. Vérifiez les caractères qui se ressemblent, comme 0 et O.</li><li>Le code ne marche toujours pas ? Scannez le code QR. Ou demandez à un assistant.</li><li><strong>GitHub :</strong> cliquez sur <span class='path'>Forgot password ?</span>. Ouvrez le lien dans l'e-mail. Créez un nouveau mot de passe.</li><li>GitHub demande un code à 6 chiffres (2FA) ? Ouvrez l'application de codes de votre téléphone.</li><li>Téléphone perdu ? Cliquez sur <span class='path'>Use a recovery code</span>. Tapez un code enregistré.</li><li>Pas de codes de récupération ? Dites-le à un assistant. Travaillez avec un partenaire aujourd'hui.</li></ol>
 </section>
-<div class="tip">Toujours bloqué après ces étapes ? Notez ce que vous voyez (ou prenez l'écran en photo). Montrez-le à un assistant.</div>
+<div class="tip">Toujours bloqué après ces étapes ? Notez ce que vous voyez (ou prenez l'écran en photo). Montrez-le à un assistant.</div>
 </main>
 <footer>ABN · IA et monde du travail · Cohorte de Cambridge. <a href="cambridge.html">Retour à la page du cours</a> (en anglais)</footer>
 </body>

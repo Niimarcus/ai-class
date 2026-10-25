@@ -98,16 +98,16 @@
   }
   .goal h3{font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;margin-bottom:6px}
   /* I do, we do, you do: numbered steps grouped in checkpoints. */
-  .catchup{background:#FFF8E6;border:2px solid var(--ink);border-radius:8px;padding:10px 14px;margin:0 0 18px;font-size:16px}
+  .catchup{background:#FFF8E6;border:2px solid var(--ink);border-radius:8px;padding:10px 14px;margin:0 0 18px;font-size:18px}
   .catchup strong{font-family:'Archivo',sans-serif}
   ol.steps{list-style:none;margin:10px 0 6px}
   ol.steps>li{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:start;background:var(--soft);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:6px;padding:10px 14px;margin-bottom:10px}
   ol.steps>li.own{border-left-color:#B45309}
   ol.steps>li.solo{border-left-color:#1F6F3A;background:#EEF8F0}
   ol.steps>li.cp{border:2px dashed var(--ink);background:#fff}
-  ol.steps p{margin:2px 0}
-  .sn{font-family:'Archivo',sans-serif;font-weight:900;font-size:16px;color:#fff;background:var(--ink);border-radius:6px;padding:3px 8px;min-width:48px;text-align:center}
-  .kind{display:inline-block;font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;padding:1px 9px;border-radius:999px;margin:0 2px 2px 0;white-space:nowrap}
+  ol.steps p{margin:2px 0;font-size:18px}
+  .sn{font-family:'Archivo',sans-serif;font-weight:900;font-size:18px;color:#fff;background:var(--ink);border-radius:6px;padding:3px 8px;min-width:48px;text-align:center}
+  .kind{display:inline-block;font-family:'Archivo',sans-serif;font-weight:700;font-size:18px;letter-spacing:.04em;text-transform:uppercase;padding:1px 9px;border-radius:999px;margin:0 2px 2px 0;white-space:nowrap}
   .k-lock{background:#EAF1FF;color:#123A9C;border:1px solid #BFD3FF}
   .k-own{background:#FFF1DE;color:#8A3B00;border:1px solid #F2C894}
   .k-solo{background:#E3F4E8;color:#17592E;border:1px solid #A9D8B8}
@@ -116,7 +116,7 @@
   .who.t{color:var(--accent2-text)} .who.y{color:var(--accent)}
   details.teacher{border-left:6px solid var(--accent2-text)}
   details.helpers h4{font-family:'Archivo',sans-serif;font-weight:700;font-size:17px;margin:14px 0 4px}
-  @media (max-width:640px){ol.steps>li{padding:9px 10px;gap:4px 8px} .sn{min-width:40px;font-size:15px;padding:2px 6px}}
+  @media (max-width:640px){ol.steps>li{padding:9px 10px;gap:4px 8px} .sn{min-width:44px;font-size:18px;padding:2px 6px}}
   @media print{ol.steps>li{break-inside:avoid}}
 </style>
 </head>
@@ -243,8 +243,8 @@
   </ol>
 </details>
 
-<div class="tablewrap"><table class="plan"><caption>Class 1 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI messages</th></tr></thead><tbody><tr><td>5:30-6:00</td><td>Account clinic (optional). Come early if your accounts are not ready.</td><td>0</td></tr><tr><td>6:00-6:10</td><td>Welcome. Wi-Fi. The privacy rule. Your 20 questions. Your green and red cards.</td><td>0</td></tr><tr><td>6:10-6:35</td><td>Checkpoint 1: join. Sign in to GitHub, join the class chat on your laptop, send one question.</td><td>1</td></tr><tr><td>6:35-7:05</td><td>Checkpoints 2 and 3: make your private repo. Save my-resume.txt.</td><td>0</td></tr><tr class="brk"><td>7:05-7:10</td><td>Break (5 minutes)</td><td>-</td></tr><tr><td>7:10-7:35</td><td>Checkpoint 4: save one real job posting.</td><td>0</td></tr><tr><td>7:35-7:50</td><td>Help time and catch-up.</td><td>0</td></tr><tr><td>7:50-8:00</td><td>Done checklist. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
-<p><span class="msgs">About 1 message today</span></p>
+<div class="tablewrap"><table class="plan"><caption>Class 1 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI questions</th></tr></thead><tbody><tr><td>5:30-6:00</td><td>Account clinic (optional). Come early if your accounts are not ready.</td><td>0</td></tr><tr><td>6:00-6:10</td><td>Welcome. Wi-Fi. The privacy rule. Your 20 questions. Your green and red cards.</td><td>0</td></tr><tr><td>6:10-6:35</td><td>Checkpoint 1: join. Sign in to GitHub, join the class chat on your laptop, send one question.</td><td>1</td></tr><tr><td>6:35-7:05</td><td>Checkpoints 2 and 3: make your private repo. Save my-resume.txt.</td><td>0</td></tr><tr class="brk"><td>7:05-7:10</td><td>Break (5 minutes)</td><td>-</td></tr><tr><td>7:10-7:35</td><td>Checkpoint 4: save one real job posting.</td><td>0</td></tr><tr><td>7:35-7:50</td><td>Help time and catch-up.</td><td>0</td></tr><tr><td>7:50-8:00</td><td>Done checklist. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
+<p><span class="msgs">About 1 question today</span></p>
 
 <div class="tip"><strong>How we work: I do, we do, you do.</strong> <span class="kind k-lock">Together</span> The teacher does the step on the screen. You do the same step. <span class="kind k-solo">On your own</span> Your work is different. Do it at your speed. <span class="kind k-own">Your choice</span> You choose. Do not copy the teacher. <span class="kind k-cp">Checkpoint check</span> Hold up your card: green = done, red = I need help.</div>
 
@@ -263,7 +263,7 @@
     <p><span class="who t">Teacher shows:</span> the privacy screen. The teacher reads it out loud.</p>
     <p><span class="who y">You do:</span> read the screen. On a shared or library computer, tick <span class="path">I am on a shared or library computer</span>. Click <span class="path">I understand. Continue.</span> You see the class chat.</p></div></li>
   <li class="own"><span class="sn">1.5</span><div><span class="kind k-own">Your choice</span>
-    <p><span class="who y">You do:</span> Open the Answers row above the message box. Pick your answer language, for example Français (French) or Kreyòl ayisyen (Haitian Creole).</p></div></li>
+    <p><span class="who y">You do:</span> click "Answers" above the message box. Pick your answer language, for example Français (French) or Kreyòl ayisyen (Haitian Creole).</p></div></li>
   <li class="lock"><span class="sn">1.6</span><div><span class="kind k-lock">Together</span>
     <p><span class="who t">Teacher shows:</span> types "Hello" in the message box and sends it.</p>
     <p><span class="who y">You do:</span> type "Hello". Send it. This is question 1.</p></div></li>
@@ -384,8 +384,8 @@
   <p>Your demo chat uses your own 20 questions, like a student. Class 2 uses about 3 to 6.</p>
 </details>
 
-<div class="tablewrap"><table class="plan"><caption>Class 2 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI messages</th></tr></thead><tbody><tr><td>6:00-6:15</td><td>Privacy rule. Checkpoint 1: open career-hub on GitHub. Join the class chat on your laptop.</td><td>0</td></tr><tr><td>6:15-6:50</td><td>Checkpoints 2 to 4: Prompt 1A, your style, add your resume, send. Save, preview and download resume.html. Upload it to GitHub.</td><td>1-2</td></tr><tr class="brk"><td>6:50-6:55</td><td>Break (5 minutes)</td><td>-</td></tr><tr><td>6:55-7:30</td><td>Checkpoint 5: tailor your resume for your job (Prompt 1B). Check every line. Save it on GitHub.</td><td>1-2</td></tr><tr><td>7:30-7:50</td><td>Checkpoint 6: change one thing on your page (Prompt 1C). Save again.</td><td>1-2</td></tr><tr><td>7:50-8:00</td><td>Checkpoint 6, end: download your files. End class. Done checklist. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
-<p><span class="msgs">About 3 to 6 messages today</span></p>
+<div class="tablewrap"><table class="plan"><caption>Class 2 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI questions</th></tr></thead><tbody><tr><td>6:00-6:15</td><td>Privacy rule. Checkpoint 1: open career-hub on GitHub. Join the class chat on your laptop.</td><td>0</td></tr><tr><td>6:15-6:50</td><td>Checkpoints 2 to 4: Prompt 1A, your style, add your resume, send. Save, preview and download resume.html. Upload it to GitHub.</td><td>1-2</td></tr><tr class="brk"><td>6:50-6:55</td><td>Break (5 minutes)</td><td>-</td></tr><tr><td>6:55-7:30</td><td>Checkpoint 5: tailor your resume for your job (Prompt 1B). Check every line. Save it on GitHub.</td><td>1-2</td></tr><tr><td>7:30-7:50</td><td>Checkpoint 6: change one thing on your page (Prompt 1C). Save again.</td><td>1-2</td></tr><tr><td>7:50-8:00</td><td>Checkpoint 6, end: download your files. End class. Done checklist. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
+<p><span class="msgs">About 3 to 6 questions today</span></p>
 
 <div class="tip"><strong>How we work: I do, we do, you do.</strong> <span class="kind k-lock">Together</span> The teacher does the step on the screen. You do the same step. <span class="kind k-solo">On your own</span> Your answer is different. Read it at your speed. <span class="kind k-own">Your choice</span> You choose. Do not copy the teacher. <span class="kind k-cp">Checkpoint check</span> Hold up your card: green = done, red = I need help. <strong>The prompts are buttons in the class chat</strong>, under <em>Prompts from your teacher</em>. Tap a button to put the prompt in the message box. It does not send. The prompts are also on this page, so you can read them.</div>
 
@@ -449,7 +449,7 @@ MY RESUME (paste your my-resume.txt text below this line):
   <div class="tip"><strong>The chat does not send?</strong> A [ ] part is still in your message. The chat tells you which one. Write your words there, or delete it. Then send.</div>
 </div>
 
-<div class="step" id="c2-cp3"><h3><span class="num">3</span>Checkpoint 3: Answer and save <span class="msgs">1-2 messages</span></h3>
+<div class="step" id="c2-cp3"><h3><span class="num">3</span>Checkpoint 3: Answer and save <span class="msgs">1-2 questions</span></h3>
   <ol class="steps">
   <li class="lock"><span class="sn">3.1</span><div><span class="kind k-lock">Together</span>
     <p><span class="who t">Teacher shows:</span> clicks Send.</p>
@@ -483,7 +483,7 @@ MY RESUME (paste your my-resume.txt text below this line):
   <div class="tip">GitHub shows code when you open this file. That is normal. You see the page with <span class="path">Preview</span> in the class chat.</div>
   <div class="tip"><strong>The code box is named page-1.html?</strong> Upload it anyway. On GitHub, open it. Click the pencil (Edit). At the top, change the name to <span class="pill">resume.html</span>. Click <span class="path">Commit changes</span> two times.</div></div>
 
-<div class="step" id="c2-cp5"><h3><span class="num">5</span>Checkpoint 5: Tailor <span class="msgs">1-2 messages</span></h3>
+<div class="step" id="c2-cp5"><h3><span class="num">5</span>Checkpoint 5: Tailor <span class="msgs">1-2 questions</span></h3>
   <p>Tailor your resume for a real job (Prompt 1B).</p>
   <ol class="steps">
   <li class="lock"><span class="sn">5.1</span><div><span class="kind k-lock">Together</span>
@@ -524,7 +524,7 @@ MY RESUME (paste your my-resume.txt text):
 
 </div>
 
-<div class="step" id="c2-cp6"><h3><span class="num">6</span>Checkpoint 6: Your change <span class="msgs">1-2 messages</span></h3>
+<div class="step" id="c2-cp6"><h3><span class="num">6</span>Checkpoint 6: Your change <span class="msgs">1-2 questions</span></h3>
   <p>Change one thing on your page (Prompt 1C).</p>
   <ol class="steps">
   <li class="lock"><span class="sn">6.1</span><div><span class="kind k-lock">Together</span>
@@ -564,7 +564,7 @@ If you cannot see my page in this chat, tell me. I will paste the code below.
 
 MY PAGE CODE (only if this is a new chat; copy it from resume.html on GitHub):
 [PASTE CODE HERE, OR DELETE THIS LINE]</div></div>
-  <div class="tip">Small changes save messages. Never ask the AI to "make the page again".</div>
+  <div class="tip">Small changes save questions. Never ask the AI to "make the page again".</div>
   <div class="tip"><strong>Why Edit, not Upload, this time?</strong> A second download often gets the name <span class="pill">resume (1).html</span>. GitHub then keeps two files. Edit keeps one file with the right name.</div></div>
 
 <div class="check done"><strong>Done today when:</strong><ul><li><label><input type="checkbox"> <span><span class='pill'>resume.html</span> is saved in career-hub.</span></label></li><li><label><input type="checkbox"> <span>I tailored my resume for one job and checked every line.</span></label></li><li><label><input type="checkbox"> <span>I downloaded my files and clicked <span class='path'>End class</span>.</span></label></li><li><label><input type="checkbox"> <span>I signed out of everything. (<a href='signout.html'>Sign-out checklist</a>)</span></label></li></ul></div>
@@ -579,15 +579,15 @@ MY PAGE CODE (only if this is a new chat; copy it from resume.html on GitHub):
 <div class="catch"><strong>Missed class 2? Start here.</strong> You need only <span class="pill">my-resume.txt</span> in <span class="pill">career-hub</span>. See <a href="#c1-step3">Class 1, checkpoints 2 and 3</a>. Build resume.html later.</div>
 <div class="goal"><h3>Goal today</h3><p>Your story bank and one real cover letter are saved in career-hub.</p></div>
 
-<div class="tablewrap"><table class="plan"><caption>Class 3 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI messages</th></tr></thead><tbody><tr><td>6:00-6:10</td><td>Sign in. Privacy rule. Open my-resume.txt on GitHub.</td><td>0</td></tr><tr><td>6:10-6:40</td><td>Steps 1-2: story bank (Prompt 2A). Answer TRUE or FALSE. Save it.</td><td>2</td></tr><tr class="brk"><td>6:40-6:45</td><td>Break (5 minutes)</td><td>-</td></tr><tr><td>6:45-7:25</td><td>Steps 3-4: cover letter (Prompt 2B). Change 5 sentences into your words. Save it.</td><td>1-2</td></tr><tr><td>7:25-7:50</td><td>Pair check: read a partner's letter. Mark any robot sentences.</td><td>0</td></tr><tr><td>7:50-8:00</td><td>Done checklist. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
-<p><span class="msgs">About 3 to 4 messages today</span></p>
+<div class="tablewrap"><table class="plan"><caption>Class 3 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI questions</th></tr></thead><tbody><tr><td>6:00-6:10</td><td>Sign in. Privacy rule. Open my-resume.txt on GitHub.</td><td>0</td></tr><tr><td>6:10-6:40</td><td>Steps 1-2: story bank (Prompt 2A). Answer TRUE or FALSE. Save it.</td><td>2</td></tr><tr class="brk"><td>6:40-6:45</td><td>Break (5 minutes)</td><td>-</td></tr><tr><td>6:45-7:25</td><td>Steps 3-4: cover letter (Prompt 2B). Change 5 sentences into your words. Save it.</td><td>1-2</td></tr><tr><td>7:25-7:50</td><td>Pair check: read a partner's letter. Mark any robot sentences.</td><td>0</td></tr><tr><td>7:50-8:00</td><td>Done checklist. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
+<p><span class="msgs">About 3 to 4 questions today</span></p>
 
 <div class="step"><h3><span class="num">1</span>Open your tools</h3>
   <ol><li>Sign in to Claude and GitHub.</li>
   <li>On GitHub, open <span class="pill">career-hub</span> → <span class="pill">my-resume.txt</span>.</li>
   <li>Click <span class="path">Copy raw file</span>. Your resume is now copied.</li></ol></div>
 
-<div class="step"><h3><span class="num">2</span>Build your story bank <span class="msgs">2 messages</span></h3>
+<div class="step"><h3><span class="num">2</span>Build your story bank <span class="msgs">2 questions</span></h3>
   <ol><li>Copy Prompt 2A. Paste it into a <span class="path">New chat</span>.</li>
   <li>Replace [PASTE YOUR RESUME TEXT HERE] with your resume. Send.</li>
   <li>Claude ends with a reply line. Copy it.</li>
@@ -610,7 +610,7 @@ MY RESUME (paste your my-resume.txt text):
 [PASTE YOUR RESUME TEXT HERE]</div></div>
   <div class="tip">Example reply: <em>1 TRUE · 2 TRUE · 3 FALSE: it was 14,000 records · ADD 1 ADD</em></div></div>
 
-<div class="step"><h3><span class="num">3</span>Write one real cover letter <span class="msgs">1-2 messages</span></h3>
+<div class="step"><h3><span class="num">3</span>Write one real cover letter <span class="msgs">1-2 questions</span></h3>
   <ol><li>Copy Prompt 2B. Paste it into a <span class="path">New chat</span>.</li>
   <li>Fill in: company, job posting, story bank, resume.</li>
   <li>Send. Check every fact in Claude's list.</li></ol>
@@ -654,8 +654,8 @@ MY RESUME (paste your my-resume.txt text):
 <div class="catch"><strong>Missed class 3? Start here.</strong> The story bank is optional today: delete that part of Prompt 2C. You need <span class="pill">my-resume.txt</span>.</div>
 <div class="goal"><h3>Goal today</h3><p>Your portfolio draft <span class="pill">index.html</span> is in a new public repo. It opens at your live link.</p></div>
 
-<div class="tablewrap"><table class="plan"><caption>Class 4 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI messages</th></tr></thead><tbody><tr><td>6:00-6:10</td><td>Sign in. Privacy rule for public pages.</td><td>0</td></tr><tr><td>6:10-6:25</td><td>Step 1: make your public portfolio repo. Download the template.</td><td>0</td></tr><tr><td>6:25-7:15</td><td>Step 2: portfolio draft (Prompt 2C). Save index.html.</td><td>1-2</td></tr><tr class="brk"><td>7:15-7:20</td><td>Break (5 minutes)</td><td>-</td></tr><tr><td>7:20-7:45</td><td>Step 3: turn on GitHub Pages. Open your live link.</td><td>0</td></tr><tr><td>7:45-7:50</td><td>Swap live links with a partner.</td><td>0</td></tr><tr><td>7:50-8:00</td><td>Done checklist. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
-<p><span class="msgs">About 1 to 2 messages today</span></p>
+<div class="tablewrap"><table class="plan"><caption>Class 4 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI questions</th></tr></thead><tbody><tr><td>6:00-6:10</td><td>Sign in. Privacy rule for public pages.</td><td>0</td></tr><tr><td>6:10-6:25</td><td>Step 1: make your public portfolio repo. Download the template.</td><td>0</td></tr><tr><td>6:25-7:15</td><td>Step 2: portfolio draft (Prompt 2C). Save index.html.</td><td>1-2</td></tr><tr class="brk"><td>7:15-7:20</td><td>Break (5 minutes)</td><td>-</td></tr><tr><td>7:20-7:45</td><td>Step 3: turn on GitHub Pages. Open your live link.</td><td>0</td></tr><tr><td>7:45-7:50</td><td>Swap live links with a partner.</td><td>0</td></tr><tr><td>7:50-8:00</td><td>Done checklist. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
+<p><span class="msgs">About 1 to 2 questions today</span></p>
 
 <div class="step" id="c4-step1"><h3><span class="num">1</span>Make your public portfolio repo</h3>
   <p>This repo is public. Anyone can see it. Your career-hub repo stays private.</p>
@@ -664,7 +664,7 @@ MY RESUME (paste your my-resume.txt text):
   <li>Check <span class="path">Add a README file</span>. Click <span class="path">Create repository</span>.</li>
   <li>Download the template: <a class="ext" href="portfolio-template.html" download="portfolio-template.html">portfolio-template.html</a>.</li></ol></div>
 
-<div class="step"><h3><span class="num">2</span>Build your portfolio draft <span class="msgs">1-2 messages</span></h3>
+<div class="step"><h3><span class="num">2</span>Build your portfolio draft <span class="msgs">1-2 questions</span></h3>
   <ol><li>In Claude, click <span class="path">New chat</span>.</li>
   <li>Drag <span class="pill">portfolio-template.html</span> into the chat box. Or click <span class="path">+</span> to attach it.</li>
   <li>Copy Prompt 2C. Paste it below the file.</li>
@@ -724,8 +724,8 @@ MY RESUME (paste your my-resume.txt text):
 <div class="catch"><strong>Missed class 4? Start here.</strong> You need <span class="pill">index.html</span> in a public <span class="pill">portfolio</span> repo. Do <a href="#c4-step1">Class 4, steps 1 to 3</a> first.</div>
 <div class="goal"><h3>Goal today</h3><p>Your live portfolio has your photo or initials, your colors, and no private details.</p></div>
 
-<div class="tablewrap"><table class="plan"><caption>Class 5 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI messages</th></tr></thead><tbody><tr><td>6:00-6:10</td><td>Sign in. Privacy rule for public pages.</td><td>0</td></tr><tr><td>6:10-6:30</td><td>Step 1: add your photo (optional). Fix the file name.</td><td>0</td></tr><tr><td>6:30-7:10</td><td>Step 2: make it look good (Prompt 3A). Save index.html.</td><td>1-2</td></tr><tr class="brk"><td>7:10-7:15</td><td>Break (5 minutes)</td><td>-</td></tr><tr><td>7:15-7:35</td><td>Step 3: public page check. Fix anything private.</td><td>0-1</td></tr><tr><td>7:35-7:50</td><td>Step 4: open your link on a phone. Swap links with a partner.</td><td>0</td></tr><tr><td>7:50-8:00</td><td>Done checklist. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
-<p><span class="msgs">About 2 to 3 messages today</span></p>
+<div class="tablewrap"><table class="plan"><caption>Class 5 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI questions</th></tr></thead><tbody><tr><td>6:00-6:10</td><td>Sign in. Privacy rule for public pages.</td><td>0</td></tr><tr><td>6:10-6:30</td><td>Step 1: add your photo (optional). Fix the file name.</td><td>0</td></tr><tr><td>6:30-7:10</td><td>Step 2: make it look good (Prompt 3A). Save index.html.</td><td>1-2</td></tr><tr class="brk"><td>7:10-7:15</td><td>Break (5 minutes)</td><td>-</td></tr><tr><td>7:15-7:35</td><td>Step 3: public page check. Fix anything private.</td><td>0-1</td></tr><tr><td>7:35-7:50</td><td>Step 4: open your link on a phone. Swap links with a partner.</td><td>0</td></tr><tr><td>7:50-8:00</td><td>Done checklist. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
+<p><span class="msgs">About 2 to 3 questions today</span></p>
 
 <div class="step"><h3><span class="num">1</span>Add your photo (optional)</h3>
   <ol><li>Name your photo file just <span class="pill">photo</span>. Windows adds the ending.</li>
@@ -736,7 +736,7 @@ MY RESUME (paste your my-resume.txt text):
   <div class="tip">Photo on your phone? Open github.com in the phone browser. Upload it from there.</div>
   <div class="tip">Your index.html is from before this class? Its photo code may only know <span class="pill">photo.jpg</span>. Ask for help, or see <a href="stuck.html#photo">Stuck: photo</a>.</div></div>
 
-<div class="step"><h3><span class="num">2</span>Make it look good <span class="msgs">1-2 messages each round</span></h3>
+<div class="step"><h3><span class="num">2</span>Make it look good <span class="msgs">1-2 questions each round</span></h3>
   <ol><li>On GitHub, open <span class="pill">index.html</span>. Click <span class="path">Copy raw file</span>.</li>
   <li>Copy Prompt 3A into a <span class="path">New chat</span>. Paste your code last.</li>
   <li>Write 1 to 3 changes. Send.</li>
@@ -785,10 +785,10 @@ MY PAGE CODE (on GitHub: open index.html, click the "Copy raw file" button, then
 <div class="catch"><strong>Missed class 5? Start here.</strong> Your page does not need to be live to present. Prompt 4A needs only <span class="pill">my-resume.txt</span> and a job posting. You can show your page in Claude instead.</div>
 <div class="goal"><h3>Goal today</h3><p>You practice real interview answers out loud. You give a 3-minute talk about your portfolio.</p></div>
 
-<div class="tablewrap"><table class="plan"><caption>Class 6 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI messages</th></tr></thead><tbody><tr><td>6:00-6:05</td><td>Sign in. Privacy rule.</td><td>0</td></tr><tr><td>6:05-6:30</td><td>Step 1: interview prep (Prompt 4A). Save it.</td><td>1-2</td></tr><tr><td>6:30-6:55</td><td>Step 2: practice out loud in pairs.</td><td>0</td></tr><tr><td>6:55-7:10</td><td>Step 3: plan your 3-minute talk (Prompt 4B).</td><td>1</td></tr><tr class="brk"><td>7:10-7:15</td><td>Break (5 minutes)</td><td>-</td></tr><tr><td>7:15-7:50</td><td>Step 4: 3-minute talks in groups of 5. 3 minutes each, then 1 question.</td><td>0</td></tr><tr><td>7:50-8:00</td><td>Wrap up. Take-home ideas. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
-<p><span class="msgs">About 2 to 3 messages today</span></p>
+<div class="tablewrap"><table class="plan"><caption>Class 6 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI questions</th></tr></thead><tbody><tr><td>6:00-6:05</td><td>Sign in. Privacy rule.</td><td>0</td></tr><tr><td>6:05-6:30</td><td>Step 1: interview prep (Prompt 4A). Save it.</td><td>1-2</td></tr><tr><td>6:30-6:55</td><td>Step 2: practice out loud in pairs.</td><td>0</td></tr><tr><td>6:55-7:10</td><td>Step 3: plan your 3-minute talk (Prompt 4B).</td><td>1</td></tr><tr class="brk"><td>7:10-7:15</td><td>Break (5 minutes)</td><td>-</td></tr><tr><td>7:15-7:50</td><td>Step 4: 3-minute talks in groups of 5. 3 minutes each, then 1 question.</td><td>0</td></tr><tr><td>7:50-8:00</td><td>Wrap up. Take-home ideas. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
+<p><span class="msgs">About 2 to 3 questions today</span></p>
 
-<div class="step"><h3><span class="num">1</span>Interview prep <span class="msgs">1-2 messages</span></h3>
+<div class="step"><h3><span class="num">1</span>Interview prep <span class="msgs">1-2 questions</span></h3>
   <ol><li>Copy Prompt 4A into a <span class="path">New chat</span>.</li>
   <li>Paste the job posting, your story bank and your resume.</li>
   <li>Send. Read the answers. Fix anything not true.</li>
@@ -820,7 +820,7 @@ MY RESUME (paste your my-resume.txt text):
   <li>Partner A checks: a number? Under 90 seconds?</li>
   <li>Switch. Do 3 questions each.</li></ol></div>
 
-<div class="step"><h3><span class="num">3</span>Plan your 3-minute talk <span class="msgs">1 message</span></h3>
+<div class="step"><h3><span class="num">3</span>Plan your 3-minute talk <span class="msgs">1 question</span></h3>
   <ol><li>Copy Prompt 4B into a <span class="path">New chat</span>.</li>
   <li>Fill in the 5 lines at the end. Send.</li>
   <li>Write the 4 parts on paper or a card.</li></ol>
