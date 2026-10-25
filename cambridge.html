@@ -97,6 +97,17 @@
     main{padding:10px 0}
   }
   .goal h3{font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;margin-bottom:6px}
+  /* Follow-along beats: the teacher does one action, students do it, everyone checks. */
+  ol.beats{margin:10px 0 6px 28px}
+  ol.beats>li{background:var(--soft);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:6px;padding:10px 14px;margin-bottom:10px}
+  ol.beats>li::marker{font-family:'Archivo',sans-serif;font-weight:900}
+  ol.beats p{margin:2px 0}
+  .who{font-family:'Archivo',sans-serif;font-weight:700}
+  .who.t{color:var(--accent2-text)} .who.y{color:var(--accent)} .who.c{color:#1F6F3A}
+  details.teacher{border-left:6px solid var(--accent2-text)}
+  details.helpers h4{font-family:'Archivo',sans-serif;font-weight:700;font-size:17px;margin:14px 0 4px}
+  @media (max-width:640px){ol.beats{margin-left:22px} ol.beats>li{padding:9px 10px}}
+  @media print{ol.beats>li{break-inside:avoid}}
 </style>
 </head>
 <body>
@@ -161,7 +172,7 @@
   <li><label><input type="checkbox"> <span>Optional: a photo of you, chest up, in good light.</span></label></li>
   <li><label><input type="checkbox"> <span>Bring your phone for sign-in codes, and a charger.</span></label></li>
 </ul></div>
-<div class="tip"><strong>Copy and paste mode only.</strong> No AI account, no keys, no extra services. You copy a prompt from this page, paste it into the class chat, and copy the answer to GitHub. That is all.</div>
+<div class="tip"><strong>Follow-along mode.</strong> No AI account, no keys, no extra services. In class, the teacher does one step on the screen. You do the same step on your laptop. The prompts are buttons in the class chat. You save your work to GitHub. That is all.</div>
 </section>
 
 <!-- ============ CLASS 1 ============ -->
@@ -171,61 +182,119 @@
   <p>Remove your street address, phone, ID, visa, A-number and case numbers, and other people's details. <a href="#privacy">Full privacy rule</a></p></div>
 <div class="goal"><h3>Goal today</h3><p>Your accounts work. Your resume text and one job posting are saved in your private GitHub repo.</p></div>
 
+<details class="helpers teacher" id="c1-teacher"><summary>For the teacher: projector script (Class 1)</summary>
+  <p style="margin-top:10px"><strong>How the class works:</strong> you do one small action on the projector. Students do the same action on their laptops. Everyone checks the same result. Then you go to the next beat. Wait for most hands up before you move on. Helpers go to the people who are behind.</p>
+  <h4>Before class (on the teacher page)</h4>
+  <ol style="margin:6px 0 0 24px">
+    <li>Sign in to the teacher page at <span class="kbd">app.sparecycle.org</span> on the projector laptop.</li>
+    <li>Class 1 has no teacher prompts. Students type "Hello" in beat 6.</li>
+    <li>Open 3 tabs: this class page, the teacher page, and <a class="ext" href="https://github.com" target="_blank" rel="noopener">github.com</a> (signed in to your demo GitHub account).</li>
+    <li>Have a sample resume file with fake details (fake street address and phone). You delete them on the screen in beat 12. Never show your real private details.</li>
+    <li>Have one real job posting open in a tab for beats 14 to 16.</li>
+    <li>Write the 6-character code on the whiteboard too. Then the code stays in view when you switch to your demo.</li>
+  </ol>
+  <h4>What is on the projector</h4>
+  <div class="tablewrap"><table class="plan"><caption>Class 1 projector</caption><thead><tr><th scope="col">Time</th><th scope="col">On the projector</th></tr></thead><tbody>
+    <tr><td>5:30-6:00</td><td>This class page, the <a href="#privacy">privacy box</a>.</td></tr>
+    <tr><td>6:00-6:10</td><td>The privacy box. Read "Remove first" and "OK to keep" out loud. Say: you get 20 questions.</td></tr>
+    <tr><td>6:10-6:35</td><td>Teacher page → <span class="path">Show on projector</span>: the QR code and the 6-character code. Keep it up until 6:35. Switch to your own chat session for beats 3 to 6, then switch back to the code.</td></tr>
+    <tr><td>6:35-7:05</td><td>GitHub demo: beats 7 to 13 (make <span class="pill">career-hub</span>, save <span class="pill">my-resume.txt</span>).</td></tr>
+    <tr class="brk"><td>7:05-7:10</td><td>Break: <span class="path">Show on projector</span> again, for people who come late.</td></tr>
+    <tr><td>7:10-7:35</td><td>GitHub demo: beats 14 to 16 (save the job posting).</td></tr>
+    <tr><td>7:35-7:50</td><td>Help time: the <a href="stepcards.html">step cards</a>.</td></tr>
+    <tr><td>7:50-8:00</td><td>The <a href="signout.html">sign-out checklist</a>. Then sign out on the projector: in your chat, click <span class="path">End class</span>. Sign out of GitHub and the teacher page. Close the window.</td></tr>
+  </tbody></table></div>
+  <p>Your demo chat uses your own 20 questions, like a student. Class 1 uses 1 question.</p>
+</details>
+
 <details class="helpers"><summary>For helpers: 5:30 account clinic plan</summary>
   <ol style="margin:10px 0 0 24px">
-    <li>5:30: Table at the door. Ask: "GitHub? Email password? Phone with you?" No AI account is needed.</li>
+    <li>5:30: Table at the door. Ask: "GitHub? Email password? Phone with you?" The phone is for sign-in codes only. No AI account is needed.</li>
     <li>5:30-5:45: Helper 1 fixes GitHub sign-up. Helper 2 fixes email sign-in and sign-in codes.</li>
     <li>5:45-6:00: Confirm emails. Test: one repo on GitHub.</li>
     <li>No phone for codes? Use email codes. Pair with a partner.</li>
     <li>Pairs: each person uses their own GitHub.</li>
     <li>6:10: the teacher shows the class chat QR code and the 6-character code on the projector. Keep it on the screen until 6:35.</li>
-    <li>Each person joins the class chat on their own computer or phone. The class chat is for people 18 and older.</li>
+    <li>Each person joins the class chat on their own laptop. The class chat is for people 18 and older.</li>
     <li>The code does not work? Check letters that look the same (0 and O, 1 and I). Too many tries: wait 10 minutes, or scan the QR code.</li>
     <li>Write down who is not finished. Help them at 7:35.</li>
     <li>Library computers: use a Guest or Incognito window if allowed.</li>
   </ol>
 </details>
 
-<div class="tablewrap"><table class="plan"><caption>Class 1 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI messages</th></tr></thead><tbody><tr><td>5:30-6:00</td><td>Account clinic (optional). Come early if your accounts are not ready.</td><td>0</td></tr><tr><td>6:00-6:10</td><td>Welcome. Wi-Fi. The privacy rule. Your 20 questions.</td><td>0</td></tr><tr><td>6:10-6:35</td><td>Steps 1-2: sign in to GitHub, join the class chat, send one question.</td><td>1</td></tr><tr><td>6:35-7:05</td><td>Step 3: make your private repo. Save my-resume.txt.</td><td>0</td></tr><tr class="brk"><td>7:05-7:10</td><td>Break (5 minutes)</td><td>-</td></tr><tr><td>7:10-7:35</td><td>Step 4: save one real job posting.</td><td>0</td></tr><tr><td>7:35-7:50</td><td>Help time and catch-up.</td><td>0</td></tr><tr><td>7:50-8:00</td><td>Done checklist. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
+<div class="tablewrap"><table class="plan"><caption>Class 1 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI messages</th></tr></thead><tbody><tr><td>5:30-6:00</td><td>Account clinic (optional). Come early if your accounts are not ready.</td><td>0</td></tr><tr><td>6:00-6:10</td><td>Welcome. Wi-Fi. The privacy rule. Your 20 questions.</td><td>0</td></tr><tr><td>6:10-6:35</td><td>Steps 1-2: sign in to GitHub, join the class chat on your laptop, send one question.</td><td>1</td></tr><tr><td>6:35-7:05</td><td>Step 3: make your private repo. Save my-resume.txt.</td><td>0</td></tr><tr class="brk"><td>7:05-7:10</td><td>Break (5 minutes)</td><td>-</td></tr><tr><td>7:10-7:35</td><td>Step 4: save one real job posting.</td><td>0</td></tr><tr><td>7:35-7:50</td><td>Help time and catch-up.</td><td>0</td></tr><tr><td>7:50-8:00</td><td>Done checklist. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
 <p><span class="msgs">About 1 message today</span></p>
 
-<div class="step"><h3><span class="num">1</span>Open your two tabs</h3>
-  <ol><li>Shared computer? Open a Guest or Incognito window first if you can.</li>
-  <li>Tab 1: <a class="ext" href="https://github.com" target="_blank" rel="noopener">github.com</a>. Sign in.</li>
-  <li>Tab 2: the class chat. Scan the QR code on the screen with your phone. Or open <span class="kbd">app.sparecycle.org/join</span> and type the 6-character code from the screen.</li>
-  <li>Read the screen about privacy. Click <span class="path">I understand. Continue.</span></li></ol>
-  <div class="tip">No account and no password. Sparecycle does not save what you type. The class chat is for people 18 and older.</div></div>
+<div class="tip"><strong>Follow the teacher.</strong> The teacher does one small step on the screen. You do the same step on your laptop. Then everyone checks the same result. Not the same? Put your hand up. A helper comes to you.</div>
 
-<div class="step"><h3><span class="num">2</span>Test the class chat</h3>
-  <ol><li>Choose your answer language if you want: English, Français or Kreyòl ayisyen (beta).</li>
-  <li>Type "Hello" and send it. This is question 1.</li>
-  <li>Look under the message box: <em>Questions left: 19 of 20</em>.</li></ol></div>
+<div class="step" id="c1-step1"><h3><span class="num">1</span>Open your two tabs</h3>
+  <ol class="beats">
+  <li><p><span class="who t">Teacher shows:</span> a new Guest or Incognito window.</p>
+    <p><span class="who y">You do:</span> on a shared or library computer, open a Guest or Incognito window if you can.</p>
+    <p><span class="who c">Check:</span> you see an empty browser window.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> <a class="ext" href="https://github.com" target="_blank" rel="noopener">github.com</a>, then signs in.</p>
+    <p><span class="who y">You do:</span> Tab 1: open github.com. Sign in.</p>
+    <p><span class="who c">Check:</span> you see your GitHub home page. Your picture is at the top right.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> the QR code and the 6-character code (<span class="path">Show on projector</span>). Then a new tab with <span class="kbd">app.sparecycle.org/join</span>.</p>
+    <p><span class="who y">You do:</span> Tab 2: on your laptop, open <span class="kbd">app.sparecycle.org/join</span> and type the 6-character code from the screen. Click <span class="path">Continue</span>.</p>
+    <p><span class="who c">Check:</span> you see the privacy screen with the class name at the top.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> the privacy screen. The teacher reads it out loud.</p>
+    <p><span class="who y">You do:</span> read the screen. On a shared or library computer, tick <span class="path">I am on a shared or library computer</span>. Click <span class="path">I understand. Continue.</span></p>
+    <p><span class="who c">Check:</span> you see the class chat. Under the message box: <em>Questions left: 20 of 20</em>.</p></li>
+  </ol>
+  <div class="tip">No account and no password. Sparecycle does not save what you type. The class chat is for people 18 and older. <strong>QR code:</strong> you can also scan it, but then the chat opens on your phone. Today we use the laptop.</div></div>
+
+<div class="step" id="c1-step2"><h3><span class="num">2</span>Test the class chat</h3>
+  <ol class="beats" start="5">
+  <li><p><span class="who t">Teacher shows:</span> the answer language menu next to the message box.</p>
+    <p><span class="who y">You do:</span> choose your answer language if you want: English, Français or Kreyòl ayisyen (beta).</p>
+    <p><span class="who c">Check:</span> the menu shows your language.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> types "Hello" in the message box and sends it.</p>
+    <p><span class="who y">You do:</span> type "Hello". Send it. This is question 1.</p>
+    <p><span class="who c">Check:</span> an answer comes. Under the message box: <em>Questions left: 19 of 20</em>.</p></li>
+  </ol></div>
 
 <div class="step" id="c1-step3"><h3><span class="num">3</span>Make your private repo and save your resume text</h3>
-  <p>A repo is a folder on GitHub. This one is private: only you see it.</p>
-  <ol><li>On GitHub, click <span class="path">+</span> (top right) → <span class="path">New repository</span>.</li>
-  <li>Name: <span class="pill">career-hub</span>. Choose <strong>Private</strong>.</li>
-  <li>Check <span class="path">Add a README file</span>. Click <span class="path">Create repository</span>.</li>
-  <li>Open your resume. Select all (Ctrl+A). Copy (Ctrl+C). On a Mac, use Cmd (⌘) for every Ctrl in this class.</li>
-  <li>Save it as a new file named <span class="pill">my-resume.txt</span> (steps below). Remove your private details <strong>before</strong> you click Commit.</li></ol>
-  <h4>How to save a new file on GitHub</h4>
-  <ol>
-  <li>Open your repo on <a class="ext" href="https://github.com" target="_blank" rel="noopener">github.com</a>.</li>
-  <li>Click <span class="path">Add file → Create new file</span>.</li>
-  <li>Type the file name, for example <span class="pill">my-resume.txt</span>.</li>
-  <li>Click in the big box. Press <strong>Ctrl+V</strong> to paste.</li>
-  <li><strong>Stop. Before you click Commit:</strong> in the big box, delete your street address, phone number and ID numbers. Read it one more time.</li>
-  <li>Click the green <span class="path">Commit changes</span> button, then <span class="path">Commit changes</span> again.</li>
-</ol>
+  <p>A repo is a folder on GitHub. This one is private: only you see it. A commit saves a version of your files.</p>
+  <ol class="beats" start="7" id="c1-save">
+  <li><p><span class="who t">Teacher shows:</span> the GitHub tab. Clicks <span class="path">+</span> (top right) → <span class="path">New repository</span>.</p>
+    <p><span class="who y">You do:</span> the same.</p>
+    <p><span class="who c">Check:</span> you see the page <em>Create a new repository</em>.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> types the name <span class="pill">career-hub</span>. Chooses <strong>Private</strong>. Checks <span class="path">Add a README file</span>. Clicks <span class="path">Create repository</span>.</p>
+    <p><span class="who y">You do:</span> the same.</p>
+    <p><span class="who c">Check:</span> you see your <span class="pill">career-hub</span> page. It says <em>Private</em>. It has a file <span class="pill">README.md</span>.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> opens a sample resume. Selects all (Ctrl+A). Copies (Ctrl+C).</p>
+    <p><span class="who y">You do:</span> open your resume. Select all (Ctrl+A). Copy (Ctrl+C). On a Mac, use Cmd (⌘) for every Ctrl in this class.</p>
+    <p><span class="who c">Check:</span> all the resume text is blue (selected).</p></li>
+  <li><p><span class="who t">Teacher shows:</span> in <span class="pill">career-hub</span>, clicks <span class="path">Add file → Create new file</span>. Types the file name <span class="pill">my-resume.txt</span>.</p>
+    <p><span class="who y">You do:</span> the same.</p>
+    <p><span class="who c">Check:</span> the name box shows <span class="pill">my-resume.txt</span>. The big box is empty.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> clicks in the big box. Presses Ctrl+V to paste.</p>
+    <p><span class="who y">You do:</span> the same.</p>
+    <p><span class="who c">Check:</span> your resume text is in the big box.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> <strong>Stop. Before Commit.</strong> Deletes the sample street address and phone number.</p>
+    <p><span class="who y">You do:</span> in the big box, delete your street address, phone number and ID numbers. Read it one more time.</p>
+    <p><span class="who c">Check:</span> no street address, no phone number, no ID, visa, A-number or case numbers in the box.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> clicks the green <span class="path">Commit changes</span> button, then <span class="path">Commit changes</span> again.</p>
+    <p><span class="who y">You do:</span> the same.</p>
+    <p><span class="who c">Check:</span> <span class="pill">my-resume.txt</span> is in your <span class="pill">career-hub</span> file list.</p></li>
+  </ol>
   <div class="rule" role="note"><strong>Why before Commit?</strong> GitHub keeps every old version of a file. If you delete your phone number later, the old version still has it.</div>
   <div class="tip"><strong>Pasted from a PDF?</strong> Lines can break in strange places, and some letters can look wrong. That is OK. Fix only wrong words. Do not fix the layout. Nothing pastes at all? The PDF is a picture. Type your jobs, dates and skills, or ask a helper.</div>
   <div class="tip"><strong>Why GitHub?</strong> Shared computers delete your Downloads, and the class chat does not keep your chat. GitHub keeps your work safe for the next class.</div></div>
 
 <div class="step" id="c1-step4"><h3><span class="num">4</span>Save one real job posting</h3>
-  <ol><li>Find one job you want. Open the posting.</li>
-  <li>Select from the job title to the end of the job text. Do not use Ctrl+A on a job site: it also copies menus and ads.</li>
-  <li>Copy (Ctrl+C).</li>
-  <li>In <span class="pill">career-hub</span>, save a new file named <span class="pill">job-company-name.txt</span>. Paste. Commit.</li></ol>
+  <ol class="beats" start="14">
+  <li><p><span class="who t">Teacher shows:</span> opens one real job posting in a new tab.</p>
+    <p><span class="who y">You do:</span> find one job you want. Open the posting.</p>
+    <p><span class="who c">Check:</span> you see the job title and the job text.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> selects from the job title to the end of the job text. Copies (Ctrl+C).</p>
+    <p><span class="who y">You do:</span> the same. Do not use Ctrl+A on a job site: it also copies menus and ads.</p>
+    <p><span class="who c">Check:</span> the job text is blue (selected), from the title to the end.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> in <span class="pill">career-hub</span>, <span class="path">Add file → Create new file</span>. Name: <span class="pill">job-company-name.txt</span>. Pastes. Clicks <span class="path">Commit changes</span> two times.</p>
+    <p><span class="who y">You do:</span> the same. Use the real company name, for example <span class="pill">job-mass-general.txt</span>.</p>
+    <p><span class="who c">Check:</span> <span class="pill">career-hub</span> has <span class="pill">README.md</span>, <span class="pill">my-resume.txt</span> and your job file.</p></li>
+  </ol>
   <div class="tip">Tomorrow you tailor your resume for this job. No AI needed tonight for this step.</div></div>
 
 <div class="check done"><strong>Done today when:</strong><ul><li><label><input type="checkbox"> <span>I can sign in to GitHub and join the class chat with the code.</span></label></li><li><label><input type="checkbox"> <span>My private repo <span class='pill'>career-hub</span> has <span class='pill'>my-resume.txt</span>.</span></label></li><li><label><input type="checkbox"> <span>I saved one job posting as a .txt file.</span></label></li><li><label><input type="checkbox"> <span>I signed out of everything. (<a href='signout.html'>Sign-out checklist</a>)</span></label></li></ul></div>
@@ -240,18 +309,76 @@
 <div class="catch"><strong>Missed class 1? Start here.</strong> Do the <a href="#before">setup checklist</a>. Then do <a href="#c1-step3">Class 1, step 3</a>: make <span class="pill">career-hub</span> and save <span class="pill">my-resume.txt</span>. That file is all you need today.</div>
 <div class="goal"><h3>Goal today</h3><p>You build <span class="pill">resume.html</span> and save it. You tailor your resume for your job posting.</p></div>
 
-<div class="tablewrap"><table class="plan"><caption>Class 2 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI messages</th></tr></thead><tbody><tr><td>6:00-6:10</td><td>Sign in. Privacy rule. Open my-resume.txt on GitHub.</td><td>0</td></tr><tr><td>6:10-6:50</td><td>Steps 1-2: build resume.html with Prompt 1A. Save it.</td><td>1-2</td></tr><tr class="brk"><td>6:50-6:55</td><td>Break (5 minutes)</td><td>-</td></tr><tr><td>6:55-7:30</td><td>Step 3: tailor your resume for your job (Prompt 1B). Check every line.</td><td>1-2</td></tr><tr><td>7:30-7:50</td><td>Step 4: change one thing on your page (Prompt 1C). Save again.</td><td>1-2</td></tr><tr><td>7:50-8:00</td><td>Done checklist. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
-<p><span class="msgs">About 4 to 6 messages today</span></p>
+<details class="helpers teacher" id="c2-teacher"><summary>For the teacher: projector script (Class 2)</summary>
+  <p style="margin-top:10px"><strong>How the class works:</strong> you do one small action on the projector. Students do the same action on their laptops. Everyone checks the same result. Then you go to the next beat. Wait for most hands up before you move on.</p>
+  <h4>Before class (on the teacher page)</h4>
+  <ol style="margin:6px 0 0 24px">
+    <li>Sign in to the teacher page at <span class="kbd">app.sparecycle.org</span> on the projector laptop.</li>
+    <li>In <em>Today's prompts</em>, add 3 prompts. For each one, click <span class="path">Copy</span> on the prompt below and paste it in the <em>Prompt</em> box. Use these button labels:
+      <ul style="margin:4px 0 4px 22px">
+        <li><span class="pill">Prompt 1A · Resume page</span>: the text of <a href="#c2-p1a">Prompt 1A</a></li>
+        <li><span class="pill">Prompt 1B · Tailor for a job</span>: the text of <a href="#c2-p1b">Prompt 1B</a></li>
+        <li><span class="pill">Prompt 1C · One small change</span>: the text of <a href="#c2-p1c">Prompt 1C</a></li>
+      </ul></li>
+    <li>Set all 3 to <em>SHOWN</em>. Students see a change in about 30 seconds. They do not reload the page.</li>
+    <li>Optional: add the French and Kreyòl versions of each prompt, if they are ready.</li>
+    <li>On the projector laptop: a sample resume file (PDF or Word, 2 MB or less) with a fake street address and phone. You delete them on the screen in beat 6. Never show your real private details.</li>
+    <li>In your demo <span class="pill">career-hub</span>: a sample <span class="pill">my-resume.txt</span> and a job file, for beats 1 and 16.</li>
+    <li>Write the 6-character code on the whiteboard too.</li>
+  </ol>
+  <h4>What is on the projector</h4>
+  <div class="tablewrap"><table class="plan"><caption>Class 2 projector</caption><thead><tr><th scope="col">Time</th><th scope="col">On the projector</th></tr></thead><tbody>
+    <tr><td>6:00-6:05</td><td>This class page, the <a href="#privacy">privacy box</a>.</td></tr>
+    <tr><td>6:05-6:15</td><td>GitHub demo: open <span class="pill">career-hub</span> (beat 1). Then teacher page → <span class="path">Show on projector</span>: the QR code and the 6-character code. Then join in your own chat tab (beat 2).</td></tr>
+    <tr><td>6:15-6:50</td><td>Your own chat session: beats 3 to 12 (Prompt 1A, style, Add a file, send, Save to project, Preview, Download). GitHub demo: beats 13 and 14 (Upload files, Commit).</td></tr>
+    <tr class="brk"><td>6:50-6:55</td><td>Break: <span class="path">Show on projector</span> again, for people who come late.</td></tr>
+    <tr><td>6:55-7:30</td><td>Your chat session and GitHub: beats 15 to 20 (Prompt 1B).</td></tr>
+    <tr><td>7:30-7:50</td><td>Your chat session and GitHub: beats 21 to 26 (Prompt 1C). Many people stuck? Show the <a href="stepcards.html">step cards</a>.</td></tr>
+    <tr><td>7:50-8:00</td><td>Beat 27: <span class="path">Your files → Download</span>, then <span class="path">End class</span>. Then the <a href="signout.html">sign-out checklist</a>. Sign out on the projector: GitHub and the teacher page. Close the window.</td></tr>
+  </tbody></table></div>
+  <p>Your demo chat uses your own 20 questions, like a student. Class 2 uses about 3 to 6.</p>
+</details>
 
-<div class="step"><h3><span class="num">1</span>Build your resume page <span class="msgs">1-2 messages</span></h3>
-  <ol><li>Click <span class="path">Copy</span> on Prompt 1A below.</li>
-  <li>In Claude, click <span class="path">New chat</span>. Paste. Do not send yet.</li>
-  <li>Pick one style in the [PICK ONE] line. Delete the others.</li>
-  <li>On GitHub, open <span class="pill">my-resume.txt</span>. Click <span class="path">Copy raw file</span>.</li>
-  <li>In Claude, replace <span class="pill">[PASTE YOUR RESUME TEXT HERE]</span> with your resume.</li>
-  <li>Check the end is your real resume. Now send.</li>
-  <li>Claude asks questions? Answer all of them in one message.</li></ol>
-  <div class="prompt"><span class="label">Prompt 1A · Build resume.html</span><button class="copy" type="button" aria-label="Copy: Prompt 1A · Build resume.html">Copy</button><div class="ptext">Build me a one-page website called resume.html. Use ONLY the resume text I paste at the bottom of this message. Do not invent anything.
+<div class="tablewrap"><table class="plan"><caption>Class 2 plan</caption><thead><tr><th scope="col">Time</th><th scope="col">What we do</th><th scope="col">AI messages</th></tr></thead><tbody><tr><td>6:00-6:15</td><td>Privacy rule. Step 1: open career-hub on GitHub. Join the class chat on your laptop.</td><td>0</td></tr><tr><td>6:15-6:50</td><td>Steps 2-3: Prompt 1A, pick your style, add your resume, send. Preview and download resume.html. Upload it to GitHub.</td><td>1-2</td></tr><tr class="brk"><td>6:50-6:55</td><td>Break (5 minutes)</td><td>-</td></tr><tr><td>6:55-7:30</td><td>Step 4: tailor your resume for your job (Prompt 1B). Check every line. Save it on GitHub.</td><td>1-2</td></tr><tr><td>7:30-7:50</td><td>Step 5: change one thing on your page (Prompt 1C). Save again.</td><td>1-2</td></tr><tr><td>7:50-8:00</td><td>Step 6: download your files. End class. Done checklist. Sign out of everything.</td><td>0</td></tr></tbody></table></div>
+<p><span class="msgs">About 3 to 6 messages today</span></p>
+
+<div class="tip"><strong>Follow the teacher.</strong> The teacher does one small step on the screen. You do the same step on your laptop. Then everyone checks the same result. Not the same? Put your hand up. A helper comes to you. <strong>The prompts are buttons in the class chat</strong>, under <em>Prompts from your teacher</em>. Tap a button to put the prompt in the message box. It does not send. The prompts are also on this page, so you can read them.</div>
+
+<div class="step" id="c2-step1"><h3><span class="num">1</span>Open career-hub and join the class chat</h3>
+  <ol class="beats">
+  <li><p><span class="who t">Teacher shows:</span> <a class="ext" href="https://github.com" target="_blank" rel="noopener">github.com</a>. Signs in. Opens <span class="pill">career-hub</span>.</p>
+    <p><span class="who y">You do:</span> Tab 1: sign in to GitHub. Open your <span class="pill">career-hub</span> repo.</p>
+    <p><span class="who c">Check:</span> you see <span class="pill">my-resume.txt</span> and your job file.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> the QR code and the 6-character code (<span class="path">Show on projector</span>). Then joins in a new tab.</p>
+    <p><span class="who y">You do:</span> Tab 2: on your laptop, open <span class="kbd">app.sparecycle.org/join</span> and type the 6-character code from the screen. Click <span class="path">Continue</span>. On a shared or library computer, tick <span class="path">I am on a shared or library computer</span>. Click <span class="path">I understand. Continue.</span></p>
+    <p><span class="who c">Check:</span> you see the class chat. Under the message box: <em>Questions left: 20 of 20</em>. Above it: <em>Prompts from your teacher</em>, with 3 buttons.</p></li>
+  </ol></div>
+
+<div class="step" id="c2-step2"><h3><span class="num">2</span>Build your resume page <span class="msgs">1-2 messages</span></h3>
+  <ol class="beats" start="3">
+  <li><p><span class="who t">Teacher shows:</span> taps the <span class="path">Prompt 1A · Resume page</span> button.</p>
+    <p><span class="who y">You do:</span> tap the same button.</p>
+    <p><span class="who c">Check:</span> Prompt 1A is in the message box. It did not send. <em>Questions left</em> still says 20 of 20.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> the <span class="pill">[PICK ONE: ...]</span> part is highlighted. The teacher types one style name, for example <em>Blueprint</em>.</p>
+    <p><span class="who y">You do:</span> type the name of one style: Ink and Paper, Blueprint, Studio Pop, Velvet Night or Poster Bold. Not highlighted? Select from <span class="pill">[</span> to <span class="pill">]</span> with the mouse first.</p>
+    <p><span class="who c">Check:</span> the line says <em>My style:</em> and one style name. No [ ] on that line.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> clicks <span class="path">Add a file</span>. Chooses the sample resume.</p>
+    <p><span class="who y">You do:</span> click <span class="path">Add a file</span>. Choose your resume file: PDF, Word (.docx), .txt or .md, 2 MB or less.</p>
+    <p><span class="who c">Check:</span> a box <em>Text from your file</em> shows your resume text.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> in <em>Text from your file</em>, deletes the sample street address and phone. Clicks <span class="path">Add to my message</span>.</p>
+    <p><span class="who y">You do:</span> read your text. Delete your street address, phone, ID, visa, A-number and case numbers. Click <span class="path">Add to my message</span>.</p>
+    <p><span class="who c">Check:</span> you see <em>The text is in your message. Check it, then send it.</em> Your resume is at the end of the message box.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> deletes the line <span class="pill">[PASTE YOUR RESUME TEXT HERE]</span>.</p>
+    <p><span class="who y">You do:</span> the same.</p>
+    <p><span class="who c">Check:</span> no [ ] is left in the message box.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> clicks Send.</p>
+    <p><span class="who y">You do:</span> click Send.</p>
+    <p><span class="who c">Check:</span> <em>Questions left: 19 of 20</em>. The answer starts. It can take a minute or two.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> the answer. It has a code box named <span class="pill">resume.html</span>, with <span class="path">Preview</span>, <span class="path">Copy code</span> and <span class="path">Save to project</span>.</p>
+    <p><span class="who y">You do:</span> watch your answer. Wait until it stops. The AI asks questions? Answer all of them in one message.</p>
+    <p><span class="who c">Check:</span> you see a code box named <span class="pill">resume.html</span>.</p></li>
+  </ol>
+  <div class="prompt" id="c2-p1a"><span class="label">Prompt 1A · Build resume.html</span><button class="copy" type="button" aria-label="Copy: Prompt 1A · Build resume.html">Copy</button><div class="ptext">Build me a one-page website called resume.html. Use ONLY the resume text I paste at the bottom of this message. Do not invent anything.
 
 The page has 4 parts:
 1. Top: my name (big), my job title, and a circle with my initials. No photo.
@@ -264,36 +391,64 @@ Rules:
 - One HTML file. CSS and JavaScript inside the file. No outside libraries. Google Fonts are OK.
 - No API keys, no sign-in, no calls to any AI service.
 - Works on a phone. Prints cleanly on 1 or 2 pages, black text on white.
-- My style: [PICK ONE: Ink and Paper (cream, dark text, orange) / Blueprint (white, navy, blue) / Studio Pop (warm gray, black, yellow) / Velvet Night (very dark purple, ivory, gold) / Poster Bold (white, black, red)]
+- My style: [PICK ONE: Ink and Paper / Blueprint / Studio Pop / Velvet Night / Poster Bold]
+  The styles: Ink and Paper (cream, dark text, orange). Blueprint (white, navy, blue). Studio Pop (warm gray, black, yellow). Velvet Night (very dark purple, ivory, gold). Poster Bold (white, black, red).
 - If my resume looks cut off, or is not a resume, stop and tell me in one short message.
 - If something important is missing, ask ALL your questions in ONE message.
-- Give me the complete file.
+- Give me the complete file. Write the file name resume.html on its own line, just before the code.
 
 Privacy: I removed my street address, phone number, and any ID, visa, A-number or case numbers. If you still see any of these below, do not use them, and tell me to remove them.
 
 MY RESUME (paste your my-resume.txt text below this line):
 [PASTE YOUR RESUME TEXT HERE]</div></div>
-  <div class="tip"><strong>Get your saved text back:</strong> on GitHub, open the file (for example <span class="pill">my-resume.txt</span>). Click the <span class="path">Copy raw file</span> button (two small squares, top right of the file).</div>
+  <div class="tip"><strong>No resume file on this laptop?</strong> On GitHub, open <span class="pill">my-resume.txt</span>. Click <span class="path">Download raw file</span> (top right of the file). Then click <span class="path">Add a file</span> in the class chat and choose <span class="pill">my-resume.txt</span> from Downloads.</div>
+  <div class="tip"><strong>No prompt buttons in the class chat?</strong> Click <span class="path">Copy</span> on the prompt on this page. Click in the message box. Press Ctrl+V.</div>
+  <div class="tip"><strong>The chat does not send?</strong> A [ ] part is still in your message. The chat tells you which one. Write your words there, or delete it. Then send.</div>
 </div>
 
-<div class="step"><h3><span class="num">2</span>Save resume.html to GitHub</h3>
-  <div class="tip"><strong>Get the code from Claude:</strong> on the page panel, click <span class="path">Copy</span>. No panel? Find the code box in Claude's answer and click its <span class="path">Copy</span> button. Check the code ends with <span class="pill">&lt;/html&gt;</span>.</div>
-  <ol>
-  <li>Open your repo on <a class="ext" href="https://github.com" target="_blank" rel="noopener">github.com</a>.</li>
-  <li>Click <span class="path">Add file → Create new file</span>.</li>
-  <li>Type the file name, for example <span class="pill">resume.html</span>.</li>
-  <li>Click in the big box. Press <strong>Ctrl+V</strong> to paste.</li>
-  <li>Click the green <span class="path">Commit changes</span> button, then <span class="path">Commit changes</span> again.</li>
-</ol>
-  <div class="tip">GitHub shows code when you open this file. That is normal. You see the page in Claude.</div></div>
+<div class="step" id="c2-step3"><h3><span class="num">3</span>Preview your page and save resume.html to GitHub</h3>
+  <ol class="beats" start="10">
+  <li><p><span class="who t">Teacher shows:</span> clicks <span class="path">Save to project</span> on the code box.</p>
+    <p><span class="who y">You do:</span> the same.</p>
+    <p><span class="who c">Check:</span> you see <em>Saved. resume.html is in My project.</em></p></li>
+  <li><p><span class="who t">Teacher shows:</span> clicks <span class="path">Your files</span>. Clicks <span class="path">Preview</span> next to <span class="pill">resume.html</span>.</p>
+    <p><span class="who y">You do:</span> the same.</p>
+    <p><span class="who c">Check:</span> you see your resume page, with your name at the top.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> clicks <span class="path">Download</span> next to <span class="pill">resume.html</span>.</p>
+    <p><span class="who y">You do:</span> the same.</p>
+    <p><span class="who c">Check:</span> <span class="pill">resume.html</span> is in your Downloads folder. The browser shows it at the top right or the bottom.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> the GitHub tab. In <span class="pill">career-hub</span>, clicks <span class="path">Add file → Upload files</span>. Drags <span class="pill">resume.html</span> from Downloads into the box (or clicks <span class="path">choose your files</span>).</p>
+    <p><span class="who y">You do:</span> the same.</p>
+    <p><span class="who c">Check:</span> <span class="pill">resume.html</span> is in the list under the box.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> clicks the green <span class="path">Commit changes</span> button.</p>
+    <p><span class="who y">You do:</span> the same.</p>
+    <p><span class="who c">Check:</span> <span class="pill">resume.html</span> is in your <span class="pill">career-hub</span> file list.</p></li>
+  </ol>
+  <div class="tip">GitHub shows code when you open this file. That is normal. You see the page with <span class="path">Preview</span> in the class chat.</div>
+  <div class="tip"><strong>The code box is named page-1.html?</strong> Upload it anyway. On GitHub, open it. Click the pencil (Edit). At the top, change the name to <span class="pill">resume.html</span>. Click <span class="path">Commit changes</span> two times.</div></div>
 
-<div class="step"><h3><span class="num">3</span>Tailor your resume for a real job <span class="msgs">1-2 messages</span></h3>
-  <ol><li>Copy Prompt 1B. Paste it into a <span class="path">New chat</span>.</li>
-  <li>Replace the two [PASTE ...] lines: your resume, then the job.</li>
-  <li>Send. Read every line of the answer.</li>
-  <li>Something is not true? Tell Claude to fix it.</li>
-  <li>Save the result on GitHub as <span class="pill">tailored-company-name.txt</span>.</li></ol>
-  <div class="prompt"><span class="label">Prompt 1B · Tailor for one job</span><button class="copy" type="button" aria-label="Copy: Prompt 1B · Tailor for one job">Copy</button><div class="ptext">Tailor my resume for the job below. Use ONLY facts from my resume. Do not invent skills, numbers, dates or jobs.
+<div class="step" id="c2-step4"><h3><span class="num">4</span>Tailor your resume for a real job <span class="msgs">1-2 messages</span></h3>
+  <ol class="beats" start="15">
+  <li><p><span class="who t">Teacher shows:</span> taps the <span class="path">Prompt 1B · Tailor for a job</span> button.</p>
+    <p><span class="who y">You do:</span> tap the same button.</p>
+    <p><span class="who c">Check:</span> Prompt 1B is in the message box. <span class="pill">[PASTE THE JOB POSTING HERE]</span> is highlighted.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> the GitHub tab. Opens the job file. Clicks <span class="path">Copy raw file</span>. Goes back to the chat tab and presses Ctrl+V.</p>
+    <p><span class="who y">You do:</span> the same. Not highlighted any more? Select <span class="pill">[PASTE THE JOB POSTING HERE]</span> with the mouse first, then paste.</p>
+    <p><span class="who c">Check:</span> the job text is in the box, under <em>THE JOB POSTING</em>.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> deletes the line <span class="pill">[PASTE YOUR RESUME TEXT HERE]</span>. The AI already has your resume from Prompt 1A in this chat.</p>
+    <p><span class="who y">You do:</span> the same. You closed the tab after Prompt 1A? Then the chat is new. Use <span class="path">Add a file</span> for your resume (beats 5 and 6), then delete the line.</p>
+    <p><span class="who c">Check:</span> no [ ] is left in the message box.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> clicks Send.</p>
+    <p><span class="who y">You do:</span> click Send.</p>
+    <p><span class="who c">Check:</span> <em>Questions left</em> goes down by 1. The answer has 3 parts: the tailored resume, what changed, and lines to check.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> reads every line of the answer out loud.</p>
+    <p><span class="who y">You do:</span> read every line. Something is not true? Tell the AI to fix it. That uses 1 question.</p>
+    <p><span class="who c">Check:</span> every line is true for you.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> clicks <span class="path">Copy</span> under the answer. On GitHub: <span class="path">Add file → Create new file</span>. Name: <span class="pill">tailored-company-name.txt</span>. Ctrl+V. Deletes private details. Clicks <span class="path">Commit changes</span> two times.</p>
+    <p><span class="who y">You do:</span> the same. Use the real company name.</p>
+    <p><span class="who c">Check:</span> your tailored file is in <span class="pill">career-hub</span>.</p></li>
+  </ol>
+  <div class="prompt" id="c2-p1b"><span class="label">Prompt 1B · Tailor for one job</span><button class="copy" type="button" aria-label="Copy: Prompt 1B · Tailor for one job">Copy</button><div class="ptext">Tailor my resume for the job below. Use ONLY facts from my resume. Do not invent skills, numbers, dates or jobs.
 
 Give me 3 things:
 1. The tailored resume, as plain text I can copy.
@@ -302,32 +457,56 @@ Give me 3 things:
 
 Privacy: I removed my street address, phone number, and any ID, visa, A-number or case numbers. If you still see any of these below, do not use them, and tell me to remove them.
 
-MY RESUME (paste your my-resume.txt text):
-[PASTE YOUR RESUME TEXT HERE]
-
 THE JOB POSTING (paste the full job text):
-[PASTE THE JOB POSTING HERE]</div></div>
-  <div class="tip">Your page's "Tailor for a job" box builds the same kind of prompt. Use either one.</div></div>
+[PASTE THE JOB POSTING HERE]
 
-<div class="step"><h3><span class="num">4</span>Change one thing on your page <span class="msgs">1-2 messages</span></h3>
-  <ol><li>Go back to the chat with your resume page.</li>
-  <li>Copy Prompt 1C. Write your one change. Send.</li>
-  <li>On GitHub, open <span class="pill">resume.html</span>. Click the pencil (Edit).</li>
-  <li>Click in the code. Press Ctrl+A, then Ctrl+V.</li>
-  <li>Click <span class="path">Commit changes</span> two times.</li></ol>
-  <div class="prompt"><span class="label">Prompt 1C · One small change</span><button class="copy" type="button" aria-label="Copy: Prompt 1C · One small change">Copy</button><div class="ptext">Change ONE thing on my resume.html page. Keep everything else exactly the same.
+MY RESUME (paste your my-resume.txt text):
+[PASTE YOUR RESUME TEXT HERE]</div></div>
+  <div class="tip"><strong>Copy copies the whole answer.</strong> That is OK. The list of changes helps you later. Your page's "Tailor for a job" box builds the same kind of prompt. Use either one.</div></div>
 
-The change: [WRITE ONE CHANGE. Examples: "make my name smaller" / "use dark blue instead of orange" / "fix the date of my second job to 2019-2022"]
+<div class="step" id="c2-step5"><h3><span class="num">5</span>Change one thing on your page <span class="msgs">1-2 messages</span></h3>
+  <ol class="beats" start="21">
+  <li><p><span class="who t">Teacher shows:</span> taps the <span class="path">Prompt 1C · One small change</span> button.</p>
+    <p><span class="who y">You do:</span> tap the same button.</p>
+    <p><span class="who c">Check:</span> Prompt 1C is in the message box. <span class="pill">[WRITE ONE CHANGE]</span> is highlighted.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> types one change, for example <em>use dark blue instead of orange</em>.</p>
+    <p><span class="who y">You do:</span> type your one change.</p>
+    <p><span class="who c">Check:</span> the line <em>The change:</em> shows your words.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> deletes the last line, <span class="pill">[PASTE CODE HERE, OR DELETE THIS LINE]</span>. The page is already in this chat.</p>
+    <p><span class="who y">You do:</span> the same. New chat? On GitHub, open <span class="pill">resume.html</span>, click <span class="path">Copy raw file</span>, and paste it there instead.</p>
+    <p><span class="who c">Check:</span> no [ ] is left in the message box.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> clicks Send.</p>
+    <p><span class="who y">You do:</span> click Send.</p>
+    <p><span class="who c">Check:</span> the answer has a new code box named <span class="pill">resume.html</span>.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> clicks <span class="path">Save to project</span> on the new code box. Opens <span class="path">Your files</span>. Clicks <span class="path">Preview</span>.</p>
+    <p><span class="who y">You do:</span> the same.</p>
+    <p><span class="who c">Check:</span> your change is on the page. The new file replaces the old one in <em>Your files</em>.</p></li>
+  <li><p><span class="who t">Teacher shows:</span> clicks <span class="path">Copy code</span> on the new code box. On GitHub, opens <span class="pill">resume.html</span>. Clicks the pencil (Edit). Clicks in the code. Presses Ctrl+A, then Ctrl+V. Clicks <span class="path">Commit changes</span> two times.</p>
+    <p><span class="who y">You do:</span> the same.</p>
+    <p><span class="who c">Check:</span> on GitHub, next to <span class="pill">resume.html</span>, the time says <em>now</em> or <em>1 minute ago</em>.</p></li>
+  </ol>
+  <div class="prompt" id="c2-p1c"><span class="label">Prompt 1C · One small change</span><button class="copy" type="button" aria-label="Copy: Prompt 1C · One small change">Copy</button><div class="ptext">Change ONE thing on my resume.html page. Keep everything else exactly the same.
 
-Give me the complete updated file.
+The change: [WRITE ONE CHANGE]
+Examples: "make my name smaller" / "use dark blue instead of orange" / "fix the date of my second job to 2019-2022"
+
+Give me the complete updated file. Write the file name resume.html on its own line, just before the code.
 
 If you cannot see my page in this chat, tell me. I will paste the code below.
 
 MY PAGE CODE (only if this is a new chat; copy it from resume.html on GitHub):
 [PASTE CODE HERE, OR DELETE THIS LINE]</div></div>
-  <div class="tip">Small changes save messages. Never ask Claude to "make the page again".</div></div>
+  <div class="tip">Small changes save messages. Never ask the AI to "make the page again".</div>
+  <div class="tip"><strong>Why Edit, not Upload, this time?</strong> A second download often gets the name <span class="pill">resume (1).html</span>. GitHub then keeps two files. Edit keeps one file with the right name.</div></div>
 
-<div class="check done"><strong>Done today when:</strong><ul><li><label><input type="checkbox"> <span><span class='pill'>resume.html</span> is saved in career-hub.</span></label></li><li><label><input type="checkbox"> <span>I tailored my resume for one job and checked every line.</span></label></li><li><label><input type="checkbox"> <span>I signed out of everything. (<a href='signout.html'>Sign-out checklist</a>)</span></label></li></ul></div>
+<div class="step" id="c2-step6"><h3><span class="num">6</span>Download your files and end the class</h3>
+  <ol class="beats" start="27">
+  <li><p><span class="who t">Teacher shows:</span> <span class="path">Your files</span> → <span class="path">Download</span> (or <span class="path">Download all</span>). Then <span class="path">End class</span>, and <span class="path">End class</span> again.</p>
+    <p><span class="who y">You do:</span> the same.</p>
+    <p><span class="who c">Check:</span> you see <em>Class ended.</em> Then do the <a href="signout.html">sign-out checklist</a>.</p></li>
+  </ol></div>
+
+<div class="check done"><strong>Done today when:</strong><ul><li><label><input type="checkbox"> <span><span class='pill'>resume.html</span> is saved in career-hub.</span></label></li><li><label><input type="checkbox"> <span>I tailored my resume for one job and checked every line.</span></label></li><li><label><input type="checkbox"> <span>I downloaded my files and clicked <span class='path'>End class</span>.</span></label></li><li><label><input type="checkbox"> <span>I signed out of everything. (<a href='signout.html'>Sign-out checklist</a>)</span></label></li></ul></div>
 <p><strong>Homework (optional):</strong> tailor for 2 more jobs. Bring one job posting to class 3.</p>
 </section>
 
