@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Step cards: use the class chat</title>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Step cards: Class 1 and 2</title>
 <style>*{box-sizing:border-box;margin:0;padding:0}
 body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:18px;line-height:1.45;color:#111318;background:#fff}
 main{max-width:1000px;margin:0 auto;padding:24px 20px 40px}
@@ -11,25 +11,53 @@ h1{font-size:30px;line-height:1.15;margin:4px 0 6px}
 .card{border:2px solid #111318;border-radius:10px;padding:12px 14px;break-inside:avoid;display:flex;flex-direction:column;gap:8px}
 .card h2{font-size:20px;line-height:1.2;display:flex;gap:10px;align-items:center}
 .n{flex:none;background:#111318;color:#fff;border-radius:8px;min-width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;font-weight:900}
-.shot{border:2px dashed #888;border-radius:8px;background:#F4F4F0;min-height:170px;display:flex;align-items:center;justify-content:center;text-align:center;color:#4A4F5C;font-size:15px;padding:10px}
-.shot img{max-width:100%;height:auto;display:block}
-.note{font-size:16px;margin-top:12px}
+.note{font-size:18px;margin-top:12px}
 a{color:#1D4ED8}
-.navline{margin-top:18px;font-size:16px}
+.navline{margin-top:18px;font-size:18px}
 :focus-visible{outline:3px solid #1D4ED8;outline-offset:3px}
-@media (max-width:640px){.grid{grid-template-columns:1fr}}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 22px}
+.cp{border:2px solid #111318;border-radius:10px;padding:10px 14px;break-inside:avoid}
+.cp h3{font-size:20px;margin-bottom:6px}
+.cp ol{list-style:none}
+.cp li{display:flex;gap:8px;margin-bottom:6px;font-size:18px}
+.cp .sn{flex:none;font-weight:900;background:#111318;color:#fff;border-radius:5px;padding:0 6px;min-width:44px;text-align:center;height:fit-content}
+.cp li.chk{border-top:2px dashed #111318;padding-top:6px;margin-top:6px}
+.tag{font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.02em}
+.tag.own{color:#8A3B00}.tag.solo{color:#17592E}
+h2.sec{font-size:24px;margin:18px 0 4px}
+.catchup{background:#FFF8E6;border:2px solid #111318;border-radius:8px;padding:10px 14px;margin:0 0 14px;font-size:18px}
+@media (max-width:640px){.steps,.grid{grid-template-columns:1fr} main{padding:20px 16px 40px}}
 @page{size:letter;margin:.45in}
-@media print{main{padding:0}.navline{display:none}h1{font-size:22pt}body{font-size:11pt}.shot{min-height:1.9in;border-color:#000}.grid{gap:10px}.card{padding:8px 10px}}
+@media print{main{padding:0}.navline{display:none}h1{font-size:22pt}body{font-size:11pt}.cp li,.catchup,.tag,.note{font-size:11pt}.grid,.steps{gap:10px}.card,.cp{padding:8px 10px}}
 </style></head>
-<body><main>
-<p class="kicker">Cambridge AI career class</p><h1>Use the class chat in 5 steps</h1>
-<p class="lead">Scan the QR code on the projector, or type the link your teacher shows.</p>
+<body>
+<main>
+<p class="kicker">Cambridge AI career class</p><h1>Step cards: Class 1 and Class 2</h1>
+<p class="lead">Use your laptop. Follow the teacher on the projector: one step at a time.</p>
+<div class="catchup"><strong>Fell behind?</strong> Find the step number on the screen. Start from your last green checkpoint. A helper comes to you.</div>
+<h2 class="sec" id="k1">Class 1 · October 28</h2>
+<div class="steps">
+<section class="cp" aria-labelledby="k1-1"><h3 id="k1-1">Checkpoint 1: Join</h3><ol><li><span class="sn">1.1</span><span>Shared computer? Open a Guest or Incognito window.</span></li><li><span class="sn">1.2</span><span>Tab 1: github.com. Sign in.</span></li><li><span class="sn">1.3</span><span>Tab 2: app.sparecycle.org/join. Type the 6-character code. Continue.</span></li><li><span class="sn">1.4</span><span>Shared computer? Tick "I am on a shared or library computer". Click "I understand. Continue."</span></li><li><span class="sn">1.5</span><span><span class="tag own">Your choice:</span> click "Answers" above the message box. Pick your answer language.</span></li><li><span class="sn">1.6</span><span>Type "Hello". Send.</span></li><li><span class="sn">1.7</span><span><span class="tag solo">On your own:</span> the AI writes. Up to a minute. Read your answer. Red card if it asks a question.</span></li><li class="chk"><span class="sn">✓1</span><span>Green card: I see an answer and "Questions left: 19 of 20".</span></li></ol></section>
+<section class="cp" aria-labelledby="k1-2"><h3 id="k1-2">Checkpoint 2: Repo</h3><ol><li><span class="sn">2.1</span><span>GitHub: + → New repository.</span></li><li><span class="sn">2.2</span><span>Name career-hub. Private. Add a README file. Create repository.</span></li><li class="chk"><span class="sn">✓2</span><span>Green card: I see career-hub, Private, README.md.</span></li></ol></section>
+<section class="cp" aria-labelledby="k1-3"><h3 id="k1-3">Checkpoint 3: Resume saved</h3><ol><li><span class="sn">3.1</span><span>Open your resume. Ctrl+A. Ctrl+C.</span></li><li><span class="sn">3.2</span><span>career-hub: Add file → Create new file. Name: my-resume.txt.</span></li><li><span class="sn">3.3</span><span>Click in the big box. Ctrl+V.</span></li><li><span class="sn">3.4</span><span><span class="tag solo">On your own:</span> delete street address, phone, ID, visa, A-number, case numbers.</span></li><li><span class="sn">3.5</span><span>Commit changes. Commit changes again.</span></li><li class="chk"><span class="sn">✓3</span><span>Green card: I see my-resume.txt in career-hub.</span></li></ol></section>
+<section class="cp" aria-labelledby="k1-4"><h3 id="k1-4">Checkpoint 4: Job saved</h3><ol><li><span class="sn">4.1</span><span><span class="tag own">Your choice:</span> open one real job posting.</span></li><li><span class="sn">4.2</span><span>Select from the job title to the end. Ctrl+C. No Ctrl+A.</span></li><li><span class="sn">4.3</span><span>Create new file job-company-name.txt. Ctrl+V. Commit changes two times.</span></li><li class="chk"><span class="sn">✓4</span><span>Green card: I see my job file in career-hub.</span></li></ol></section>
+</div>
+<h2 class="sec" id="k2">Class 2 · October 29</h2>
+<div class="steps">
+<section class="cp" aria-labelledby="k2-1"><h3 id="k2-1">Checkpoint 1: Ready</h3><ol><li><span class="sn">1.1</span><span>Tab 1: GitHub. Open career-hub.</span></li><li><span class="sn">1.2</span><span>Tab 2: app.sparecycle.org/join. Type the code. Continue. Shared computer? Tick the box. "I understand. Continue."</span></li><li class="chk"><span class="sn">✓1</span><span>Green card: I see my-resume.txt, and 3 prompt buttons in the class chat.</span></li></ol></section>
+<section class="cp" aria-labelledby="k2-2"><h3 id="k2-2">Checkpoint 2: Prompt and style</h3><ol><li><span class="sn">2.1</span><span>Tap the "Prompt 1A · Resume page" button.</span></li><li><span class="sn">2.2</span><span><span class="tag own">Your choice:</span> type the style you like in [PICK ONE: ...].</span></li><li><span class="sn">2.3</span><span>Add a file: choose your resume (PDF, .docx, .txt, .md, 2 MB or less).</span></li><li><span class="sn">2.4</span><span><span class="tag solo">On your own:</span> delete private details in "Text from your file". Click "Add to my message".</span></li><li><span class="sn">2.5</span><span>Delete the line [PASTE YOUR RESUME TEXT HERE].</span></li><li class="chk"><span class="sn">✓2</span><span>Green card: my style and my resume are in the box. No [ ] left.</span></li></ol></section>
+<section class="cp" aria-labelledby="k2-3"><h3 id="k2-3">Checkpoint 3: Answer and save</h3><ol><li><span class="sn">3.1</span><span>Send.</span></li><li><span class="sn">3.2</span><span><span class="tag solo">On your own:</span> the AI writes. Up to a minute. Read your answer. Red card if it asks a question. Wait for the code box resume.html.</span></li><li><span class="sn">3.3</span><span>Save to project.</span></li><li><span class="sn">3.4</span><span>Your files → Preview.</span></li><li><span class="sn">3.5</span><span>Download.</span></li><li class="chk"><span class="sn">✓3</span><span>Green card: I see my page in Preview. resume.html is in Downloads.</span></li></ol></section>
+<section class="cp" aria-labelledby="k2-4"><h3 id="k2-4">Checkpoint 4: On GitHub</h3><ol><li><span class="sn">4.1</span><span>career-hub: Add file → Upload files. Drag in resume.html.</span></li><li><span class="sn">4.2</span><span>Commit changes.</span></li><li class="chk"><span class="sn">✓4</span><span>Green card: I see resume.html in career-hub.</span></li></ol></section>
+<section class="cp" aria-labelledby="k2-5"><h3 id="k2-5">Checkpoint 5: Tailor</h3><ol><li><span class="sn">5.1</span><span>Tap "Prompt 1B · Tailor for a job".</span></li><li><span class="sn">5.2</span><span>GitHub: job file → Copy raw file. Chat: Ctrl+V.</span></li><li><span class="sn">5.3</span><span>Delete the line [PASTE YOUR RESUME TEXT HERE].</span></li><li><span class="sn">5.4</span><span>Send.</span></li><li><span class="sn">5.5</span><span><span class="tag solo">On your own:</span> the AI writes. Read every line. Not true? Ask the AI to fix it.</span></li><li><span class="sn">5.6</span><span>Copy. GitHub: Create new file tailored-company-name.txt. Ctrl+V. Commit two times.</span></li><li class="chk"><span class="sn">✓5</span><span>Green card: the tailored file is in career-hub.</span></li></ol></section>
+<section class="cp" aria-labelledby="k2-6"><h3 id="k2-6">Checkpoint 6: Your change</h3><ol><li><span class="sn">6.1</span><span>Tap "Prompt 1C · One small change".</span></li><li><span class="sn">6.2</span><span><span class="tag own">Your choice:</span> write your own change in [WRITE ONE CHANGE].</span></li><li><span class="sn">6.3</span><span>Delete the line [PASTE CODE HERE, OR DELETE THIS LINE].</span></li><li><span class="sn">6.4</span><span>Send.</span></li><li><span class="sn">6.5</span><span><span class="tag solo">On your own:</span> the AI writes. Up to a minute. Read your answer. Red card if it asks a question.</span></li><li><span class="sn">6.6</span><span>Save to project. Your files → Preview.</span></li><li><span class="sn">6.7</span><span>Copy code. GitHub: resume.html → pencil → Ctrl+A, Ctrl+V. Commit two times.</span></li><li><span class="sn">6.8</span><span>Your files → Download. End class. Sign-out checklist.</span></li><li class="chk"><span class="sn">✓6</span><span>Green card: resume.html on GitHub shows my change. I downloaded my files and clicked End class.</span></li></ol></section>
+</div>
+<h2 class="sec" id="chat">How the class chat works</h2>
 <div class="grid">
-<section class="card" aria-labelledby="c1"><h2 id="c1"><span class="n">1</span>Open the class link</h2><p>Scan the QR code on the projector with your phone. Or type the link your teacher shows on your laptop.</p><div class="shot" data-screen="Class link screen">[Screenshot TBD: Class link screen. Drop the image here once SYS-502 is on staging.]</div></section>
-<section class="card" aria-labelledby="c2"><h2 id="c2"><span class="n">2</span>Pick your language, then read this</h2><p>At the top, choose Simple English, Kreyòl ayisyen or Français. Then read the privacy text under it. Do not type names, addresses, A-numbers, case details, SSN or passport numbers. Sparecycle does not save what you type. Press Listen to hear it read aloud. Press the button to continue.</p><div class="shot" data-screen="Language choice and privacy screen">[Screenshot TBD: Language choice and privacy screen. Drop the image here once SYS-502 is on staging.]</div></section>
-<section class="card" aria-labelledby="c3"><h2 id="c3"><span class="n">3</span>Type your question</h2><p>Type in the box at the bottom. Use the accent row for è ò à é ç. Press Send.</p><div class="shot" data-screen="Chat, typing">[Screenshot TBD: Chat, typing. Drop the image here once SYS-502 is on staging.]</div></section>
-<section class="card" aria-labelledby="c4"><h2 id="c4"><span class="n">4</span>Read, listen, save</h2><p>The answer appears. Press Listen to hear it. Use A- or A+ to change the text size. Copy or save what you want to keep.</p><div class="shot" data-screen="Chat, answer">[Screenshot TBD: Chat, answer. Drop the image here once SYS-502 is on staging.]</div></section>
-<section class="card" aria-labelledby="c5"><h2 id="c5"><span class="n">5</span>If the chat stops</h2><p>A message tells you what happened and what to do. Copy your work first. Then ask your teacher. Nothing you typed is saved.</p><div class="shot" data-screen="Closed screen">[Screenshot TBD: Closed screen. Drop the image here once SYS-502 is on staging.]</div></section>
+<section class="card" aria-labelledby="c1"><h2 id="c1"><span class="n">1</span>Join the class</h2><p>On your laptop, open app.sparecycle.org/join and type the 6-character code from the screen. Click Continue. You can also scan the QR code, but then the chat opens on your phone.</p></section>
+<section class="card" aria-labelledby="c2"><h2 id="c2"><span class="n">2</span>Read the privacy screen</h2><p>Read the privacy text. Do not type names, addresses, A-numbers, case details, SSN or passport numbers. Sparecycle does not save what you type. On a shared or library computer, tick "I am on a shared or library computer". Click "I understand. Continue."</p></section>
+<section class="card" aria-labelledby="c3"><h2 id="c3"><span class="n">3</span>Tap a prompt, or type</h2><p>Click "Answers" above the message box. Pick your answer language, for example Français (French) or Kreyòl ayisyen (Haitian Creole). Tap a button under "Prompts from your teacher". It puts the prompt in the box. It does not send. Write your words in each [ ] part. "Add a file" puts your resume text in the box. Delete private details. For French or Kreyòl, use the accent row for è ò à é ç. Press Send.</p></section>
+<section class="card" aria-labelledby="c4"><h2 id="c4"><span class="n">4</span>Read, listen, save</h2><p>The answer appears. Press Listen to hear it. Change the text size if you want. A web page? Click "Save to project". Then open "Your files": "Preview" shows the page, "Download" saves the file. Save your work on GitHub.</p></section>
+<section class="card" aria-labelledby="c5"><h2 id="c5"><span class="n">5</span>If the chat stops</h2><p>A message tells you what happened and what to do. Copy your work first. Then ask your teacher. Nothing you typed is saved. Before you go: "Your files", then "Download". Then "End class".</p></section>
 </div>
 <p class="note">Questions left this session: shown under the box.</p>
 <p class="navline"><a href="cambridge.html">Back to the class page</a></p>
