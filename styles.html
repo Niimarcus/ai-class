@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pick your style · AI Career Class</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&family=Work+Sans:wght@400;500&family=Bricolage+Grotesque:wght@400;600&family=Archivo+Black&family=Hanken+Grotesk:wght@400;600&family=Outfit:wght@400;600;800&family=Instrument+Sans:wght@400;500&family=Gloock&display=swap" rel="stylesheet">
+<style>
+  :root { --page: #FFFFFF; --ink: #111111; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Work Sans", system-ui, sans-serif; color: var(--ink); background: var(--page); }
+  .intro { max-width: 980px; margin: 0 auto; padding: 28px 20px 8px; }
+  .intro h1 { font-size: 1.8rem; margin: 0 0 6px; }
+  .intro p { font-size: 1.1rem; margin: 6px 0; line-height: 1.5; }
+  .intro .how { background: #F3F4F6; padding: 12px 14px; border-left: 4px solid #111; }
+  section.hero { padding: 56px 20px 64px; position: relative; overflow: hidden; }
+  .wrap { max-width: 980px; margin: 0 auto; position: relative; }
+  .tag { display: inline-block; font: 600 0.95rem/1 "Work Sans", sans-serif; letter-spacing: .08em; text-transform: uppercase;
+         padding: 8px 10px; margin-bottom: 18px; background: #111; color: #fff; }
+  .label { font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 10px; }
+  .name { margin: 0; line-height: .95; }
+  .title { margin: 14px 0 0; font-size: 1.3rem; }
+  .type { margin-top: 22px; font: 500 1rem/1.4 "Work Sans", sans-serif; }
+
+  /* 1 INK & PAPER: quiet literary print */
+  .ink { background: #F5F2EB; color: #1A1714; font-family: "Work Sans", sans-serif; }
+  .ink .label { color: #C1521E; }
+  .ink .name { font-family: "Fraunces", serif; font-weight: 600; font-size: clamp(3rem, 8vw, 5.5rem); }
+  .ink .name em { color: #C1521E; font-style: italic; }
+  .ink .rule { border: 0; border-top: 1px solid #1A1714; width: 120px; margin: 22px 0 0; }
+
+  /* 2 POSTER BOLD: loud street poster */
+  .poster { background: #FFFFFF; color: #000; font-family: "Bricolage Grotesque", sans-serif; }
+  .poster .wrap { border: 2px solid #000; padding: 28px; }
+  .poster .label { color: #FF2E00; font-weight: 600; }
+  .poster .name { font-family: "Archivo Black", sans-serif; text-transform: uppercase; font-size: clamp(3rem, 10vw, 6.5rem); letter-spacing: -.02em; }
+  .poster .num { position: absolute; right: 24px; top: 6px; font: 6rem/1 "Archivo Black", sans-serif; color: #FF2E00; }
+
+  /* 3 STUDIO POP: friendly modern studio */
+  .pop { background: #D8D1C5; color: #000; font-family: "Hanken Grotesk", sans-serif; }
+  .pop .card { background: rgba(255,255,255,.55); border-radius: 22px; padding: 30px; backdrop-filter: blur(6px); box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+  .pop .name { font-family: "Archivo Black", sans-serif; font-size: clamp(3rem, 9vw, 6rem); letter-spacing: -.04em; }
+  .pop .chip { display: inline-block; background: #F0F15E; border-radius: 999px; padding: 8px 16px; font-weight: 600; margin-top: 16px; }
+
+  /* 4 BLUEPRINT: crisp corporate trust */
+  .blue { background: #FFFFFF; color: #10265F; font-family: "Instrument Sans", sans-serif;
+          background-image: linear-gradient(#E6ECF8 1px, transparent 1px), linear-gradient(90deg, #E6ECF8 1px, transparent 1px);
+          background-size: 32px 32px; }
+  .blue .label { color: #2458E6; font-weight: 500; }
+  .blue .name { font-family: "Outfit", sans-serif; font-weight: 800; font-size: clamp(3rem, 8.5vw, 5.8rem); letter-spacing: -.02em; }
+  .blue .bar { width: 64px; height: 4px; background: #2458E6; margin-top: 20px; }
+
+  /* 5 VELVET NIGHT: dark elegance */
+  .velvet { background: #16121E; color: #F4EFE6; font-family: "Outfit", sans-serif; }
+  .velvet .glow { position: absolute; left: -10%; top: -30%; width: 70%; height: 160%;
+                  background: radial-gradient(closest-side, rgba(226,181,75,.22), transparent); pointer-events: none; }
+  .velvet .label { color: #E2B54B; }
+  .velvet .name { font-family: "Gloock", serif; font-weight: 400; font-size: clamp(3rem, 8.5vw, 5.8rem); }
+  .velvet .line { width: 90px; height: 1px; background: #E2B54B; margin-top: 22px; }
+  .velvet .tag { background: #E2B54B; color: #16121E; }
+
+  .foot { max-width: 980px; margin: 0 auto; padding: 24px 20px 40px; font-size: 1.05rem; }
+  @media (max-width: 600px) { section.hero { padding: 40px 16px 48px; } .poster .num { display: none; } }
+</style>
+</head>
+<body>
+<header class="intro">
+  <h1>Pick your style</h1>
+  <p>Your resume page will look like one of these 5 styles. Look at all 5. Pick the one you like. It does not have to be the teacher's style.</p>
+  <p class="how">In the class chat, after you tap <strong>Prompt 1A</strong>, type the style name where it says <strong>[PICK ONE: ...]</strong>, for example <strong>Velvet Night</strong>.</p>
+</header>
+
+<section class="hero ink" aria-label="Style 1: Ink and Paper">
+  <div class="wrap">
+    <span class="tag">1 · Ink and Paper</span>
+    <p class="label">Resume</p>
+    <h2 class="name">Amina <em>Diallo</em></h2>
+    <p class="title">Medical Assistant</p>
+    <hr class="rule">
+    <p class="type">Cream paper, dark ink, an orange accent. Quiet and literary.</p>
+  </div>
+</section>
+
+<section class="hero poster" aria-label="Style 2: Poster Bold">
+  <div class="wrap">
+    <span class="num" aria-hidden="true">02</span>
+    <span class="tag">2 · Poster Bold</span>
+    <p class="label">Resume</p>
+    <h2 class="name">Amina Diallo</h2>
+    <p class="title">Medical Assistant</p>
+    <p class="type">White, black and signal red. Huge letters, hard borders. Loud and confident.</p>
+  </div>
+</section>
+
+<section class="hero pop" aria-label="Style 3: Studio Pop">
+  <div class="wrap card">
+    <span class="tag">3 · Studio Pop</span>
+    <p class="label">Resume</p>
+    <h2 class="name">Amina Diallo</h2>
+    <p class="title">Medical Assistant</p>
+    <span class="chip">Open to work</span>
+    <p class="type">Warm gray, black and bright yellow. Rounded and friendly.</p>
+  </div>
+</section>
+
+<section class="hero blue" aria-label="Style 4: Blueprint">
+  <div class="wrap">
+    <span class="tag">4 · Blueprint</span>
+    <p class="label">Resume</p>
+    <h2 class="name">Amina Diallo</h2>
+    <p class="title">Medical Assistant</p>
+    <div class="bar"></div>
+    <p class="type">White, navy and blue, on a fine grid. Precise and trustworthy.</p>
+  </div>
+</section>
+
+<section class="hero velvet" aria-label="Style 5: Velvet Night">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="tag">5 · Velvet Night</span>
+    <p class="label">Resume</p>
+    <h2 class="name">Amina Diallo</h2>
+    <p class="title">Medical Assistant</p>
+    <div class="line"></div>
+    <p class="type">Very dark purple, ivory and gold, with a soft glow. Calm and premium.</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <p>Names to type: <strong>Ink and Paper</strong> · <strong>Poster Bold</strong> · <strong>Studio Pop</strong> · <strong>Blueprint</strong> · <strong>Velvet Night</strong></p>
+  <p><a href="stepcards.html">Back to the step cards</a> · <a href="cambridge.html">Back to the class page</a></p>
+</footer>
+</body>
+</html>
