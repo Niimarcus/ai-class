@@ -408,7 +408,7 @@
     <p><span class="who y">You do:</span> tap the same button. Prompt 1A is in the message box. It did not send.</p></div></li>
   <li class="own"><span class="sn">2.2</span><div><span class="kind k-own">Your choice</span>
     <p><span class="who t">Teacher shows:</span> the <span class="pill">[PICK ONE: ...]</span> part is highlighted. The teacher types one style and says: "Pick the one you like."</p>
-    <p><span class="who y">You do:</span> type the name of the style that you like: Ink and Paper, Blueprint, Studio Pop, Velvet Night or Poster Bold. It does not have to be the teacher's style. Not highlighted? Select from <span class="pill">[</span> to <span class="pill">]</span> with the mouse first.</p></div></li>
+    <p><span class="who y">You do:</span> look at the 5 styles on <a href="styles.html">the style page</a>. Type the name of the style that you like: Ink and Paper, Blueprint, Studio Pop, Velvet Night or Poster Bold. It does not have to be the teacher's style. Not highlighted? Select from <span class="pill">[</span> to <span class="pill">]</span> with the mouse first.</p></div></li>
   <li class="lock"><span class="sn">2.3</span><div><span class="kind k-lock">Together</span>
     <p><span class="who t">Teacher shows:</span> clicks <span class="path">Add a file</span>. Chooses the sample resume.</p>
     <p><span class="who y">You do:</span> click <span class="path">Add a file</span>. Choose your resume file: PDF, Word (.docx), .txt or .md, 2 MB or less. A box <em>Text from your file</em> shows your resume text.</p></div></li>
@@ -426,7 +426,7 @@
 The page has 4 parts:
 1. Top: my name (big), my job title, and a circle with my initials. No photo.
 2. My resume, neatly laid out: each job with dates, short bullet points, skills as small tags. Show numbers in the accent color.
-3. A "Tailor for a job" box: I paste a job description, then press "Copy prompt". The button builds one prompt with my resume and the job description, and copies it. I will paste that prompt into Claude.
+3. A "Tailor for a job" box with two fields: "Job link" and "Or paste the job text". A button "Tailor in class chat" builds one prompt: "Tailor my resume for the job below. Use ONLY facts from my resume. Do not invent skills, numbers, dates or jobs. Give me 3 things: 1. The tailored resume, as plain text I can copy. 2. A short list: what you changed, and which words from the job you matched. 3. Any line you were not sure about, so I can check it." Then my full resume text, then the job text if I pasted it. When the page is inside a frame (window.parent !== window), the button sends window.parent.postMessage({type: "sc-ask", text: prompt, jobUrl: link}, "*"), leaving jobUrl out when the link field is empty, and shows "Sent to the class chat. Check it there, then press send." When the page is not in a frame, the button copies the prompt instead, and the link goes in the prompt as "THE JOB LINK:".
 4. A small "Job tracker" table: company, role, date, status (Saved, Applied, Interview, Offer). Add a "Copy tracker as text" button. Do not save anything in the browser.
 
 Rules:
@@ -435,7 +435,12 @@ Rules:
 - No API keys, no sign-in, no calls to any AI service.
 - Works on a phone. Prints cleanly on 1 or 2 pages, black text on white.
 - My style: [PICK ONE: Ink and Paper / Blueprint / Studio Pop / Velvet Night / Poster Bold]
-  The styles: Ink and Paper (cream, dark text, orange). Blueprint (white, navy, blue). Studio Pop (warm gray, black, yellow). Velvet Night (very dark purple, ivory, gold). Poster Bold (white, black, red).
+  Use ONLY the style I picked, exactly as written here:
+  Ink and Paper: background #F5F2EB, text #1A1714, accent #C1521E. Fraunces headings with one italic accent word, Work Sans body. Generous white space, hairline rules.
+  Blueprint: background #FFFFFF, text #10265F, accent #2458E6. Outfit headings, Instrument Sans body. A faint blueprint grid, everything aligned.
+  Studio Pop: background #D8D1C5, text #000000, accent #F0F15E on pill buttons and chips. Archivo Black headings, Hanken Grotesk body. Rounded corners, soft glass cards.
+  Velvet Night: background #16121E, text #F4EFE6 (ivory), accent #E2B54B (gold). Gloock headings, Outfit body. A soft warm glow behind my name.
+  Poster Bold: background #FFFFFF, text #000000, accent #FF2E00. Archivo Black headings in uppercase, Bricolage Grotesque body. Hard 2px black borders, square corners, big numbers.
 - If my resume looks cut off, or is not a resume, stop and tell me in one short message.
 - If something important is missing, ask ALL your questions in ONE message.
 - Give me the complete file. Write the file name resume.html on its own line, just before the code.
@@ -674,7 +679,7 @@ MY RESUME (paste your my-resume.txt text):
   <div class="prompt"><span class="label">Prompt 2C · Portfolio draft (index.html)</span><button class="copy" type="button" aria-label="Copy: Prompt 2C · Portfolio draft (index.html)">Copy</button><div class="ptext">I attached a file called portfolio-template.html. Turn it into my public portfolio page. The new file name is index.html.
 
 1. Keep the layout, spacing and animations EXACTLY the same. Change only the colors, fonts and words.
-2. Replace every [bracketed placeholder] with my real facts from the resume and story bank below. Do not invent facts or numbers. If a fact is missing, write a short neutral line and tell me which ones you wrote.
+2. Replace every placeholder in square brackets with my real facts from the resume and story bank below. Do not invent facts or numbers. If a fact is missing, write a short neutral line and tell me which ones you wrote.
 3. Colors and fonts: [PICK ONE: Ink and Paper / Blueprint / Studio Pop / Velvet Night / Poster Bold, OR write 3 colors you like]. Update the Google Fonts link so the fonts load.
 4. Layout: set the body classes to hero-[center or left] journey-[stagger or rail] projects-[scroll or grid].
 5. Journey: 5 to 7 cards from my career. Projects: my 3 best achievements from the story bank.
