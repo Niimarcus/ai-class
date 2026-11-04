@@ -426,13 +426,21 @@
 The page has 4 parts:
 1. Top: my name (big), my job title, and a circle with my initials. No photo.
 2. My resume, neatly laid out: each job with dates, short bullet points, skills as small tags. Show numbers in the accent color.
-3. A "Tailor for a job" box with two fields: "Job link" and "Or paste the job text". A button "Tailor in class chat" builds one prompt: "Tailor my resume for the job below. Use ONLY facts from my resume. Do not invent skills, numbers, dates or jobs. Give me 3 things: 1. The tailored resume, as plain text I can copy. 2. A short list: what you changed, and which words from the job you matched. 3. Any line you were not sure about, so I can check it." Then my full resume text, then the job text if I pasted it. When the page is inside a frame (window.parent !== window), the button sends window.parent.postMessage({type: "sc-ask", text: prompt, jobUrl: link}, "*"), leaving jobUrl out when the link field is empty, and shows "Sent to the class chat. Check it there, then press send." When the page is not in a frame, the button copies the prompt instead, and the link goes in the prompt as "THE JOB LINK:".
-4. A small "Job tracker" table: company, role, date, status (Saved, Applied, Interview, Offer). Add a "Copy tracker as text" button. Do not save anything in the browser.
+3. A "Tailor for a job" tool. Fields: "Job link" and "Or paste the job text". A button "Tailor my resume". When I click it:
+   a. It gets the job text: the pasted text if there is any, else it reads the job link.
+   b. It sends one prompt to the AI: "Tailor my resume for the job below. Use ONLY facts from my resume. Do not invent skills, numbers, dates or jobs. Reply in exactly 3 parts with these headings: TAILORED RESUME, WHAT CHANGED, CHECK THESE. In TAILORED RESUME, put {{ and }} around every word or phrase you changed or added. WHAT CHANGED: a short list of the changes and the words from the job you matched. CHECK THESE: any line I should check." Then my full resume text, then the job text.
+   c. It shows the answer under the box as a section "Tailored for this job", in my style: the tailored resume with every {{...}} shown highlighted, then the two short lists. Put the answer on the page as text (textContent), never as HTML.
+   d. Under it, three buttons: "Hide changes" (turns the highlights off and on, for printing), "Copy tailored resume" (plain text, without {{ }}) and "Print".
+   e. While it works, the button says "Tailoring..." and cannot be clicked. Any error shows in one short line under the button.
+   How the page talks to the AI:
+   - In the class (window.sparecycle exists): read the link with await window.sparecycle.readLink(link), which gives {text}, and get the answer with await window.sparecycle.complete(prompt), which gives the answer text. No key is needed.
+   - Anywhere else (window.sparecycle does not exist): show a field "Your OpenRouter key" with "Save key" and "Forget key" buttons. Under it, show this note: "Use a key with a small credit limit. When you click Tailor, your resume and the job text go to OpenRouter." Keep the key only in this browser, in localStorage as "resume-openrouter-key". Wrap every localStorage use in try/catch. Read the link with fetch("https://r.jina.ai/" + link, {headers: {"X-Return-Format": "text"}}); if that fails, show "Could not read that link. Paste the job text instead." Get the answer with fetch("https://openrouter.ai/api/v1/chat/completions"), method POST, headers Authorization: "Bearer " + key and Content-Type: application/json, and a JSON body with model "openai/gpt-4o-mini" and messages holding one message: role "user", content the prompt. The answer is the content of the first choice's message.
+4. A small "Job tracker" table: company, role, date, status (Saved, Applied, Interview, Offer). Add a "Copy tracker as text" button. Do not save the tracker in the browser.
 
 Rules:
 - Every copy button: if copying is blocked, select the text and show "Press Ctrl+C to copy".
 - One HTML file. CSS and JavaScript inside the file. No outside libraries. Google Fonts are OK.
-- No API keys, no sign-in, no calls to any AI service.
+- No sign-in. Never write an API key in the code. The only outside calls are the ones in part 3.
 - Works on a phone. Prints cleanly on 1 or 2 pages, black text on white.
 - My style: [PICK ONE: Ink and Paper / Blueprint / Studio Pop / Velvet Night / Poster Bold]
   Use ONLY the style I picked, exactly as written here:
