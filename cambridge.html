@@ -428,9 +428,9 @@ The page has 4 parts:
 2. My resume, neatly laid out: each job with dates, short bullet points, skills as small tags. Show numbers in the accent color.
 3. A "Tailor for a job" tool. Fields: "Job link" and "Or paste the job text". A button "Tailor my resume". When I click it:
    a. It gets the job text: the pasted text if there is any, else it reads the job link.
-   b. It sends one prompt to the AI: "Tailor my resume for the job below. Use ONLY facts from my resume. Do not invent skills, numbers, dates or jobs. Reply in exactly 3 parts with these headings: TAILORED RESUME, WHAT CHANGED, CHECK THESE. In TAILORED RESUME, put [[ and ]] around every word or phrase you changed or added. WHAT CHANGED: a short list of the changes and the words from the job you matched. CHECK THESE: any line I should check." Then my full resume text, then the job text.
-   c. It shows the answer under the box as a section "Tailored for this job", in my style: the tailored resume with every [[...]] shown highlighted, then the two short lists. Put the answer on the page as text (textContent), never as HTML.
-   d. Under it, three buttons: "Hide changes" (turns the highlights off and on, for printing), "Copy tailored resume" (plain text, without [[ ]]) and "Print".
+   b. It sends one prompt to the AI: "Tailor my resume for the job below. Use ONLY facts from my resume. Do not invent skills, numbers, dates or jobs. Reply in exactly 3 parts with these headings: TAILORED RESUME, WHAT CHANGED, CHECK THESE. In TAILORED RESUME, put {{ and }} around every word or phrase you changed or added. WHAT CHANGED: a short list of the changes and the words from the job you matched. CHECK THESE: any line I should check." Then my full resume text, then the job text.
+   c. It shows the answer under the box as a section "Tailored for this job", in my style: the tailored resume with every {{...}} shown highlighted, then the two short lists. Put the answer on the page as text (textContent), never as HTML.
+   d. Under it, three buttons: "Hide changes" (turns the highlights off and on, for printing), "Copy tailored resume" (plain text, without {{ }}) and "Print".
    e. While it works, the button says "Tailoring..." and cannot be clicked. Any error shows in one short line under the button.
    How the page talks to the AI:
    - In the class (window.sparecycle exists): read the link with await window.sparecycle.readLink(link), which gives {text}, and get the answer with await window.sparecycle.complete(prompt), which gives the answer text. No key is needed.
