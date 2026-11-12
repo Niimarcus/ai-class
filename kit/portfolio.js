@@ -1,4 +1,31 @@
 document.documentElement.classList.add('js');
+/* sidebar and journey photo: built from the page itself when the HTML has none (Prompt 2 v3.3 pages) */
+(function(){
+ if(!document.querySelector('aside')){
+  const q=(s)=>document.querySelector(s);
+  const mail=(q('a[href^="mailto:"]')||{}).getAttribute?q('a[href^="mailto:"]').getAttribute('href'):'';
+  const name=(q('.hero .giant')||{}).textContent||'';
+  const ini=(q('.initials')||{}).textContent||name.trim().slice(0,2);
+  const blurb=(q('#journey .lede')||{}).textContent||'';
+  const a=document.createElement('aside');
+  let stats='';document.querySelectorAll('.chip.c1,.chip.c2').forEach(c=>{const b=c.querySelector('b'),s=c.querySelector('span');if(b&&s)stats+='<div><b></b><span></span></div>'});
+  const links=[['top','Home'],['journey','My Journey'],['projects','Projects'],['bring','What I Bring'],['refs','References'],['faq','Q&A'],['contact','Contact']].filter(([id])=>document.getElementById(id));
+  a.innerHTML='<div class="box"><span class="logo"></span><p class="blurb"></p></div>'+(stats?'<div class="box stats">'+stats+'</div>':'')+'<div class="box"><nav></nav></div>'+(mail?'<div class="cta"><a class="pill">Email Me</a></div>':'');
+  a.querySelector('.logo').textContent=ini.trim().toUpperCase();
+  a.querySelector('.blurb').textContent=blurb.trim();
+  const sb=a.querySelectorAll('.stats > div');let k=0;
+  document.querySelectorAll('.chip.c1,.chip.c2').forEach(c=>{const b=c.querySelector('b'),s=c.querySelector('span');if(b&&s&&sb[k]){sb[k].querySelector('b').textContent=b.textContent;sb[k].querySelector('span').textContent=s.textContent;k++}});
+  const nav=a.querySelector('nav');links.forEach(([id,label],i)=>{const l=document.createElement('a');l.href='#'+id;l.textContent=label;if(!i)l.className='on';nav.appendChild(l)});
+  if(mail)a.querySelector('.cta a').setAttribute('href',mail);
+  document.body.insertBefore(a,document.body.firstChild);
+ }
+ if(!document.getElementById('prog')){const p=document.createElement('div');p.id='prog';document.body.insertBefore(p,document.body.firstChild)}
+ const j=document.getElementById('journey');
+ if(j&&!j.querySelector('.about-portrait')){const pi=document.querySelector('.hero .photo img');
+  if(pi){const d=document.createElement('div');d.className='about-portrait';d.setAttribute('aria-hidden','true');
+   const set=()=>{d.style.backgroundImage='url("'+pi.currentSrc+'")'};if(pi.complete&&pi.naturalWidth)set();else pi.addEventListener('load',set);
+   j.insertBefore(d,j.firstChild)}}
+})();
 
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
