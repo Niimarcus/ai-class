@@ -72,3 +72,13 @@ let down=false,sx=0,sl=0;
 pw.addEventListener('pointerdown',e=>{down=true;sx=e.clientX;sl=pw.scrollLeft;pw.classList.add('grabbing')});
 addEventListener('pointerup',()=>{down=false;pw.classList.remove('grabbing')});
 pw.addEventListener('pointermove',e=>{if(!down)return;pw.scrollLeft=sl-(e.clientX-sx)})})();
+/* photo fallback: if photo.png is missing, try the other usual names before showing initials */
+(function(){const box=document.querySelector('.hero .photo');if(!box)return;
+ const names=['photo.jpg','photo.jpeg','Photo.png','Photo.jpg','Photo.jpeg','photo.PNG','photo.JPG'];
+ function tryNext(i){if(i>=names.length)return;const im=new Image();
+  im.onload=function(){box.innerHTML='';const n=document.createElement('img');n.src=names[i];n.alt='';box.appendChild(n)};
+  im.onerror=function(){tryNext(i+1)};im.src=names[i]}
+ function check(){if(box.querySelector('.initials'))tryNext(0)}
+ const img=box.querySelector('img');
+ if(img&&!img.complete){img.addEventListener('error',()=>setTimeout(check,0));}else{setTimeout(check,0)}
+})();
