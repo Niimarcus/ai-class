@@ -191,3 +191,4 @@ footer .fine{margin-top:56px;font-size:12.5px;color:color-mix(in srgb,var(--ink)
 
 body.ink-paper .hero .giant,body.studio-pop .hero .giant,body.poster-bold .hero .giant{font-size:clamp(80px,21vw,21rem)}body.ink-paper .hero .giant.mid,body.studio-pop .hero .giant.mid,body.poster-bold .hero .giant.mid{font-size:clamp(64px,16vw,16rem)}body.ink-paper .hero .giant.long,body.studio-pop .hero .giant.long,body.poster-bold .hero .giant.long{font-size:clamp(52px,12vw,12rem)}
 .hero .photo img{filter:grayscale(1) contrast(1.05)}
+.hero .photo .initials{align-items:flex-start;padding-top:9%;font-size:clamp(3rem,7vw,5rem)}
